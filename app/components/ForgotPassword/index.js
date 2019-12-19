@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formImage from '../../assets/images/form-image1.png';
 import logoImage from '../../assets/images/logo-white.png';
-import { LoginShema } from '../Register/schema';
-import { userLoginRequest } from '../../utils/requests';
+import { ForgotPasswordSchema } from '../Register/schema';
+import { forgotPasswordRequest } from '../../utils/requests';
 
-const Login = ({ history }) => {
-  function loginRequest(userInfo) {
-    const { email, password } = userInfo;
-    userLoginRequest('auth/login', { email, password }, history);
+const ForgotPassword = ({ history }) => {
+  function userForgotPasswordRequest(userInfo) {
+    const { email } = userInfo;
+    forgotPasswordRequest('users/forgot-password', { email }, history);
   }
   return (
     <section className="section-forget">
@@ -28,15 +28,14 @@ const Login = ({ history }) => {
           </div>
           <div className="col-md-5">
             <div className="form-main form-demo">
-              <h1 className="main-title pb-f ">Login to Dashboard</h1>
+              <h1 className="main-title pb-f ">Reset Password</h1>
               <Formik
                 initialValues={{
                   email: '',
-                  password: '',
                 }}
-                validationSchema={LoginShema}
+                validationSchema={ForgotPasswordSchema}
                 onSubmit={values => {
-                  loginRequest(values);
+                  userForgotPasswordRequest(values);
                 }}
               >
                 {({ errors, touched, isSubmitting }) => (
@@ -52,31 +51,18 @@ const Login = ({ history }) => {
                         <p className="validationErrorMessage">{errors.email}</p>
                       ) : null}
                     </div>
-                    <div className="form-group">
-                      <Field
-                        type="password"
-                        name="password"
-                        className="form-control"
-                        placeholder="Password"
-                      />
-                      {errors.password && touched.password ? (
-                        <p className="validationErrorMessage">
-                          {errors.password}
-                        </p>
-                      ) : null}
-                    </div>
                     <button
                       id="btn-search"
                       type="submit"
                       className="btn btn-outline btn-md btn-demo mb-20"
                     >
-                      Login
+                      Reset Password
                     </button>
                     <div className="login-stats">
                       <input type="checkbox" name="remember" />
                       <span className="remember">Remember me</span>
-                      <Link to="/forgot-password" className="f-pwd">
-                        Forget Password
+                      <Link to="/login" className="f-pwd">
+                        login
                       </Link>
                       <Link to="/register" className="accont">
                         Don’t have an account yet?{' '}
@@ -96,7 +82,7 @@ const Login = ({ history }) => {
   );
 };
 
-Login.propTypes = {
+ForgotPassword.propTypes = {
   history: PropTypes.object,
 };
-export default Login;
+export default ForgotPassword;

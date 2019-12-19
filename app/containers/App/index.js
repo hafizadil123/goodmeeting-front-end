@@ -25,7 +25,9 @@ function App() {
       {window.location.pathname === '/' && <RegisterHeader />}
       {window.location.pathname !== '/register' &&
         window.location.pathname !== '/login' &&
-        window.location.pathname !== '/' && <Header />}
+        window.location.pathname !== '/update-password' &&
+        window.location.pathname !== '/forgot-password' &&
+        window.location.pathname !== '/' && <Header isShow />}
       <Routes />
       <ToastContainer autoClose={5000} />
       <Footer />

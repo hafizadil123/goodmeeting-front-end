@@ -9,6 +9,8 @@ import Dashboard from '../components/Dashboard';
 import Meeting from '../components/Dashboard/Meeting';
 import Stats from '../components/Dashboard/Stats';
 import Login from '../components/Login';
+import ForgotPassword from '../components/ForgotPassword';
+import UpdatePassword from '../components/UpdatePassword';
 import PrivateRoute from './privateRoutes';
 // Import Containers
 
@@ -23,6 +25,8 @@ const Routes = () => (
       <PrivateRoute exact path="/meetings" component={Meeting} />
       <PrivateRoute exact path="/stats" component={Stats} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/forgot-password" component={ForgotPassword} />
+      <Route exact path="/update-password" component={UpdatePassword} />
       <Route path="" component={NotFoundPage} />
     </Switch>
   </Suspense>

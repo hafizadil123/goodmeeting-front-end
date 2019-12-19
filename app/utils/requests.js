@@ -74,10 +74,10 @@ export const getRequestById = (url, id) => {
 export const userPostRequest = (url, bodyObject, history = {}) => {
   axios
     .post(`${BASE_URL}${url}`, bodyObject)
-    .then(() => {
-      toast.success('User is created successfully!');
-      localStorage.setItem('accessToken', true);
-      history.push('/pricing');
+    .then(response => {
+      const { message } = response && response.data;
+      toast.success(message);
+      history.push('/login');
     })
     .catch(() => {
       toast.error('something wents wrong!');
@@ -87,14 +87,41 @@ export const userPostRequest = (url, bodyObject, history = {}) => {
 
 export const userLoginRequest = (url, bodyObject, history = {}) => {
   axios
-    .post(`${url}`, bodyObject)
-    .then(() => {
+    .post(`${BASE_URL}${url}`, bodyObject)
+    .then(response => {
       toast.success('you are logged In Successfuly!');
-      localStorage.setItem('accessToken', true);
+      const { token } = response && response.data;
+      localStorage.setItem('accessToken', token);
       history.push('/dashboard');
+    })
+    .catch(err => {
+      const { data } = err.response;
+      toast.error(data.message);
+    });
+};
+
+export const forgotPasswordRequest = (url, bodyObject) => {
+  axios
+    .post(`${BASE_URL}${url}`, bodyObject)
+    .then(response => {
+      const { message } = response && response.data;
+      toast.success(message);
+    })
+    .catch(err => {
+      const { data } = err.response;
+      toast.error(data.message);
+    });
+};
+
+export const updatePasswordRequest = (url, bodyObject, history = {}) => {
+  axios
+    .post(`${BASE_URL}${url}`, bodyObject)
+    .then(response => {
+      const { message } = response && response.data;
+      toast.success(message);
+      history.push('/login');
     })
     .catch(() => {
       toast.error('something wents wrong!');
-      history.push('/register');
     });
 };

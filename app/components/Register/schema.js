@@ -40,3 +40,22 @@ export const LoginShema = Yup.object().shape({
     .required('Required'),
   password: Yup.string().required('Required'),
 });
+
+export const ForgotPasswordSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email Address')
+    .required('Please enter your email'),
+});
+
+export const UpdatePasswordSchema = Yup.object().shape({
+  password: Yup.string().required('Enter your new Password!'),
+  confirmPassword: Yup.string()
+    .required('Please confirm your password!')
+    .when('password', {
+      is: val => !!(val && val.length > 0),
+      then: Yup.string().oneOf(
+        [Yup.ref('password')],
+        'Both password need to be the same',
+      ),
+    }),
+});

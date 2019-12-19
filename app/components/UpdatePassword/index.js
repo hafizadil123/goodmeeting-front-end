@@ -4,13 +4,21 @@ import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import formImage from '../../images/form-image2.png';
 import logoWhite from '../../images/logo-white.png';
-import { userPostRequest } from '../../utils/requests';
-import { SignupSchema } from './schema';
+import { updatePasswordRequest } from '../../utils/requests';
+import { UpdatePasswordSchema } from '../Register/schema';
 
-const Register = ({ history }) => {
-  function createUser(userInfo) {
-    const { fullName, email, password } = userInfo;
-    userPostRequest('users', { fullName, email, password }, history);
+const UpdatePassword = ({ history }) => {
+  function updatePassword(userInfo) {
+    const {
+      location: { search },
+    } = history;
+    const queryParam = search.substr(8);
+    const { password } = userInfo;
+    updatePasswordRequest(
+      `users/update-password?userId=${queryParam}`,
+      { password },
+      history,
+    );
   }
   return (
     <section className="section-forget register-account">
@@ -34,17 +42,15 @@ const Register = ({ history }) => {
           </div>
           <div className="col-md-5">
             <div className="form-main form-demo">
-              <h1 className="main-title pb-f">Register Account</h1>
+              <h1 className="main-title pb-f">Update Password</h1>
               <Formik
                 initialValues={{
-                  fullName: '',
-                  email: '',
                   password: '',
                   confirmPassword: '',
                 }}
-                validationSchema={SignupSchema}
+                validationSchema={UpdatePasswordSchema}
                 onSubmit={values => {
-                  createUser(values);
+                  updatePassword(values);
                 }}
               >
                 {({ errors, touched, isSubmitting }) => (
@@ -53,31 +59,6 @@ const Register = ({ history }) => {
                     noValidate
                     disabled={isSubmitting}
                   >
-                    <div className="form-group">
-                      <Field
-                        type="text"
-                        name="fullName"
-                        className="form-control"
-                        placeholder="Justin Green"
-                      />
-                      {errors.fullName && touched.fullName ? (
-                        <p className="validationErrorMessage">
-                          {errors.fullName}
-                        </p>
-                      ) : null}
-                    </div>
-                    <div className="form-group">
-                      <Field
-                        type="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="justin.g@email.com"
-                      />
-                      {errors.email && touched.email ? (
-                        <p className="validationErrorMessage">{errors.email}</p>
-                      ) : null}
-                    </div>
-
                     <div className="form-group">
                       <Field
                         type="password"
@@ -110,9 +91,9 @@ const Register = ({ history }) => {
                       type="submit"
                       className="btn-outline btn-md btn-demo btn-reg"
                     >
-                      Register
+                      Update Password
                     </button>
-                    <Link to="/" className="accont">
+                    <Link to="/register" className="accont">
                       Already have an account?{' '}
                     </Link>
                     <Link to="/login" className="login">
@@ -129,8 +110,8 @@ const Register = ({ history }) => {
   );
 };
 
-Register.propTypes = {
+UpdatePassword.propTypes = {
   history: PropTypes.object,
 };
 
-export default Register;
+export default UpdatePassword;

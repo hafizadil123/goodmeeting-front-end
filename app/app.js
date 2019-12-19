@@ -17,6 +17,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import history from 'utils/history';
 import './utils/requests';
 import 'sanitize.css/sanitize.css';
+import './assets/plugins/footable/css/footable.core.css';
+import './assets/plugins/admincss/blue.css';
 import './assets/plugins/admincss/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/plugins/bootstrap/css/style.css';
