@@ -125,3 +125,26 @@ export const updatePasswordRequest = (url, bodyObject, history = {}) => {
       toast.error('something wents wrong!');
     });
 };
+
+export const createFeedbacks = (url, bodyObject, history = {}) => {
+  axios
+    .post(`${BASE_URL}${url}`, bodyObject)
+    .then(response => {
+      const { message } = response && response.data;
+      toast.success(message);
+    })
+    .catch((err) => {
+      const { message } = err && err.response.data;
+      toast.error(message);
+    });
+};
+
+export const getQuestionsAnswers = (url, bodyObject, history = {}) => {
+ axios
+    .get(`${BASE_URL}${url}`)
+    .then(response => response)
+    .catch(() => {})
+    .then(() => {
+      // always executed
+    });
+};

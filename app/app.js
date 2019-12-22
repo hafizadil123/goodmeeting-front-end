@@ -23,6 +23,7 @@ import './assets/plugins/admincss/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/plugins/bootstrap/css/style.css';
 import './assets/plugins/admincss/dashboard.css';
+//import './assets/plugins/wizard/steps.css';
 import 'react-toastify/dist/ReactToastify.css';
 // Import root app
 import jQuery from 'jquery';

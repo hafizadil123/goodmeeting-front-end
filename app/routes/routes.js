@@ -12,6 +12,7 @@ import Login from '../components/Login';
 import ForgotPassword from '../components/ForgotPassword';
 import UpdatePassword from '../components/UpdatePassword';
 import PrivateRoute from './privateRoutes';
+import FeedbackForm from '../components/Dashboard/Feedback1';
 // Import Containers
 
 const Routes = () => (
@@ -27,6 +28,7 @@ const Routes = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/forgot-password" component={ForgotPassword} />
       <Route exact path="/update-password" component={UpdatePassword} />
+      <Route exact path="/feedback-form" component={FeedbackForm} />
       <Route path="" component={NotFoundPage} />
     </Switch>
   </Suspense>

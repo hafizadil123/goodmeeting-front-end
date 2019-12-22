@@ -27,6 +27,7 @@ function App() {
         window.location.pathname !== '/login' &&
         window.location.pathname !== '/update-password' &&
         window.location.pathname !== '/forgot-password' &&
+        window.location.pathname !== '/feedback-form' &&
         window.location.pathname !== '/' && <Header isShow />}
       <Routes />
       <ToastContainer autoClose={5000} />

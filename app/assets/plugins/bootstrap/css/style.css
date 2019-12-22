@@ -1367,7 +1367,21 @@ form#demo-2{
     display: none;
 
 }
-
+.radios li {
+    list-style: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 5px;
+    margin-bottom: 20px;
+}
+.nextButton {
+    display: inline-block;
+background-color: #E33351;
+padding: 3px 20px 5px 19px;
+color: white;
+border-radius: 4px;
+outline: none !important;
+}
 .payment .tab-content.current{
     display: inherit;
 }
@@ -1754,6 +1768,9 @@ width: max-content;
     }
     .box-art:after{
         top: 85px;
+    }
+    .feedback-first-page{
+        margin-top: 70px;
     }
     .navbar-light .navbar-toggler{
         border-color: transparent;
