@@ -9,9 +9,10 @@ import tick from '../../images/tick-grey.png';
 import member from '../../images/member.png';
 import blue from '../../images/tick-blue.png';
 import premium from '../../images/premium.png';
-
+import NavBar from '../NavBar';
 const Pricing = () => (
-<div>
+<>
+  <NavBar isShow />
   <section className="section5 section1 pricing-page box-art">
     <div className="container">
       <div className="row">
@@ -111,7 +112,7 @@ const Pricing = () => (
       </div>
     </div>
   </section>
-</div>
+</>
 
 );
 

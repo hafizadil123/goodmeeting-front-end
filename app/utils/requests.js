@@ -90,8 +90,9 @@ export const userLoginRequest = (url, bodyObject, history = {}) => {
     .post(`${BASE_URL}${url}`, bodyObject)
     .then(response => {
       toast.success('you are logged In Successfuly!');
-      const { token } = response && response.data;
+      const { token, userId } = response && response.data;
       localStorage.setItem('accessToken', token);
+      localStorage.setItem('userId', userId);
       history.push('/dashboard');
     })
     .catch(err => {
@@ -133,16 +134,16 @@ export const createFeedbacks = (url, bodyObject, history = {}) => {
       const { message } = response && response.data;
       toast.success(message);
     })
-    .catch((err) => {
+    .catch(err => {
       const { message } = err && err.response.data;
       toast.error(message);
     });
 };
 
-export const getQuestionsAnswers = (url, bodyObject, history = {}) => {
- axios
+export const getQuestionsAnswers = url => {
+  axios
     .get(`${BASE_URL}${url}`)
-    .then(response => response)
+    .then(response => response && response.data)
     .catch(() => {})
     .then(() => {
       // always executed

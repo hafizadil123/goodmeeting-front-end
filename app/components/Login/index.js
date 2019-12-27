@@ -12,6 +12,7 @@ const Login = ({ history }) => {
     const { email, password } = userInfo;
     userLoginRequest('auth/login', { email, password }, history);
   }
+  localStorage.clear();
   return (
     <section className="section-forget">
       <div className="container-fluid p-0">

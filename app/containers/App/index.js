@@ -22,13 +22,6 @@ function App() {
       <Helmet titleTemplate="%s - sportsbook" defaultTitle="sportsbook">
         <meta name="description" content="sportsbook" />
       </Helmet>
-      {window.location.pathname === '/' && <RegisterHeader />}
-      {window.location.pathname !== '/register' &&
-        window.location.pathname !== '/login' &&
-        window.location.pathname !== '/update-password' &&
-        window.location.pathname !== '/forgot-password' &&
-        window.location.pathname !== '/feedback-form' &&
-        window.location.pathname !== '/' && <Header isShow />}
       <Routes />
       <ToastContainer autoClose={5000} />
       <Footer />

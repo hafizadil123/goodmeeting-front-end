@@ -1,9 +1,12 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import { createFeedbacks, getQuestionsAnswers } from '../../../utils/requests';
+import axios from 'axios';
+import { BASE_URL } from '../../../utils/constants';
+import { createFeedbacks } from '../../../utils/requests';
 import logoImage from '../../../assets/images/logo.png';
 import hsbcLogo from '../../../assets/images/hsbclogo.png';
 
@@ -11,14 +14,20 @@ const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
   const [asnwerId, setAnswerId] = useState(0);
   const [answer, setAnswer] = useState([]);
+  const [allQuestions, setQuestion] = useState([]);
   useEffect(() => {
-     const questionsAnswers = getQuestionsAnswers('get-questions');
-     console.log('All questions Answers', questionsAnswers);
-  }, [])
-  const onUpdatePage = (e, value) => {
+    axios
+      .get(`${BASE_URL}get-questions`)
+      .then(response => setQuestion(response && response.data))
+      .catch(() => {})
+      .then(() => {
+        // always executed
+      });
+  }, []);
+  const onUpdatePage = (e, value, questionId) => {
     e.preventDefault();
     const feedbackMapping = {
-      questionId: page,
+      questionId,
       answerId: value,
     };
     const updatedArray = answer.push(feedbackMapping);
@@ -42,7 +51,6 @@ const FeedbackForm = ({ history }) => {
     setPage(page + 1);
   };
   const onApiCallForFeedback = answers => {
-    console.log('All Feedback', answers);
     const {
       location: { search },
     } = history;
@@ -56,8 +64,7 @@ const FeedbackForm = ({ history }) => {
       inviteName,
       feedbackResults: answers,
     };
-    createFeedbacks('/create-feedback', feedbackRequest, history);
-    console.log('locations', feedbackRequest);
+    createFeedbacks('create-feedback', feedbackRequest, history);
   };
   return (
     <div>
@@ -123,118 +130,63 @@ const FeedbackForm = ({ history }) => {
                             Just a couple of questions which will help us to
                             have a better meeting. Lets start here:
                           </h6>
-                          <h1>
-                            How well prepared was the host for the meeting? (Did
-                            it start on time, was there an agenda etc)
-                          </h1>
-                          <ul className="radios">
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(1)}
-                                />
-                                <span>There was no preparation</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(2)}
-                                />
-                                <span>There was very little preparation</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(3)}
-                                />
-                                <span>There was some preparation</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(4)}
-                                />
-                                <span>There was good preparation</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(5)}
-                                />
-                                <span>The preparation was fantastic</span>
-                              </label>
-                            </li>
-                          </ul>
-                          <button
-                            type="button"
-                            className="nextButton"
-                            onClick={e => onUpdatePage(e, asnwerId)}
-                          >
-                            {' '}
-                            Next
-                          </button>
-                          {/* tabList dots  */}
+
+                          <>
+                            <h1>{allQuestions[0].question}</h1>
+
+                            <ul className="radios">
+                              {allQuestions[0].answers.map(el => (
+                                <li>
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      name="size"
+                                      onChange={() => setAnswerId(el.id)}
+                                    />
+                                    <span>{el.answer}</span>
+                                  </label>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <button
+                              type="button"
+                              className="nextButton"
+                              onClick={e =>
+                                onUpdatePage(e, asnwerId, allQuestions[0]._id)
+                              }
+                            >
+                              {' '}
+                              Next
+                            </button>
+                          </>
                         </section>
                       ) : null}
                       {/* Step 2 */}
                       <h6 />
                       {page === 2 ? (
                         <section>
-                          <h1>Were you really needed for this meeting?</h1>
+                          <h1>{allQuestions[1].question}</h1>
                           <ul className="radios">
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(1)}
-                                />
-                                <span>No, it was totally irrelevant to me</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(2)}
-                                />
-                                <span>
-                                  I wasn’t essential but it was useful
-                                </span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(3)}
-                                />
-                                <span>
-                                  Yes, this meeting was totally relevant to me
-                                </span>
-                              </label>
-                            </li>
+                            {allQuestions[1].answers.map(el => (
+                              <li>
+                                <label>
+                                  <input
+                                    type="radio"
+                                    name="size"
+                                    onChange={() => setAnswerId(el.id)}
+                                  />
+                                  <span>{el.answer}</span>
+                                </label>
+                              </li>
+                            ))}
                           </ul>
                           <button
                             type="button"
                             className="nextButton"
-                            onClick={e => onUpdatePage(e, asnwerId)}
+                            onClick={e =>
+                              onUpdatePage(e, asnwerId, allQuestions[1]._id)
+                            }
                           >
                             {' '}
                             Next
@@ -245,69 +197,27 @@ const FeedbackForm = ({ history }) => {
                       <h6 />
                       {page === 3 ? (
                         <section>
-                          <h1>
-                            We know meetings can drag on, we all want quick
-                            efficient meetings. Did this meeting take longer
-                            than it needed to?
-                          </h1>
+                          <h1>{allQuestions[2].question}</h1>
                           <ul className="radios">
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(1)}
-                                />
-                                <span>Yes, it was much too long</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(2)}
-                                />
-                                <span>It took longer that it needed to</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(3)}
-                                />
-                                <span>It was OK, if a little long</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(4)}
-                                />
-                                <span>it was efficient enough</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label>
-                                <input
-                                  type="radio"
-                                  name="size"
-                                  onChange={() => setAnswerId(5)}
-                                />
-                                <span>
-                                  It was super quick and we did what was neededy
-                                </span>
-                              </label>
-                            </li>
+                            {allQuestions[2].answers.map(el => (
+                              <li>
+                                <label>
+                                  <input
+                                    type="radio"
+                                    name="size"
+                                    onChange={() => setAnswerId(el.id)}
+                                  />
+                                  <span>{el.answer}</span>
+                                </label>
+                              </li>
+                            ))}
                           </ul>
                           <button
                             type="button"
                             className="nextButton"
-                            onClick={e => onUpdatePage(e, asnwerId)}
+                            onClick={e =>
+                              onUpdatePage(e, asnwerId, allQuestions[2]._id)
+                            }
                           >
                             {' '}
                             Next
@@ -319,72 +229,27 @@ const FeedbackForm = ({ history }) => {
                       {page === 4 ? (
                         <section>
                           <section>
-                            <h1>
-                              Did you stay on topic or did the meeting veer off
-                              course?
-                            </h1>
+                            <h1>{allQuestions[3].question}</h1>
                             <ul className="radios">
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => setAnswerId(1)}
-                                  />
-                                  <span>Yes, it totally changed direction</span>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => setAnswerId(2)}
-                                  />
-                                  <span>It started ok, but then changed</span>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => setAnswerId(3)}
-                                  />
-                                  <span>
-                                    it was ok - we covered some of what we
-                                    needed to
-                                  </span>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => setAnswerId(4)}
-                                  />
-                                  <span>
-                                    we covered what we needed to, with some
-                                    diversion
-                                  </span>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => setAnswerId(5)}
-                                  />
-                                  <span>We stayed totally on the subject.</span>
-                                </label>
-                              </li>
+                              {allQuestions[3].answers.map(el => (
+                                <li>
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      name="size"
+                                      onChange={() => setAnswerId(el.id)}
+                                    />
+                                    <span>{el.answer}</span>
+                                  </label>
+                                </li>
+                              ))}
                             </ul>
                             <button
                               type="button"
                               className="nextButton"
-                              onClick={e => onUpdatePage(e, asnwerId)}
+                              onClick={e =>
+                                onUpdatePage(e, asnwerId, allQuestions[3]._id)
+                              }
                             >
                               {' '}
                               Submit

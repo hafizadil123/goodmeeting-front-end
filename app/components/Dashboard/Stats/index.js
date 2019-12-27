@@ -2,8 +2,10 @@ import React from 'react';
 import LeftSide from '../LeftBar';
 import shareSymbolImage from '../../../assets/images/share-symbol.png';
 import controlImage from '../../../assets/images/controls.png';
+import Header from '../../NavBar';
 const Stats = () => (
   <>
+    <Header isShow />
     <LeftSide />
     <div className="page-wrapper">
       {/* ============================================================== */}

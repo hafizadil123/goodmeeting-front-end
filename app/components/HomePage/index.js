@@ -14,8 +14,10 @@ import tick from '../../images/tick-grey.png';
 import business from '../../images/business.png';
 import blue from '../../images/tick-blue.png';
 import premium from '../../images/premium.png';
+import RegisterHeader from '../Header';
 const HomePage = () => (
   <div>
+    <RegisterHeader />
   <section className="section1 box-art">
     <div className="container">
       <div className="row">

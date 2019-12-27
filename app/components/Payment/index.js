@@ -4,18 +4,19 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import mastercard from '../../images/mastercard.png';;
+import mastercard from '../../images/mastercard.png';
 import check from '../../images/check-b.png';
 import paypal from '../../images/paypal.png';
 import visa from '../../images/visa.png';
 import creditCard from '../../images/credit-card.png';
-
+import Header from '../NavBar';;
 
 
 const Payment = () => {
   const [name, setName] = useState('saeed');
   return (
 <div>
+  <Header isShow />
   <section className="payment">
     <div className="container">
       <div className="row">

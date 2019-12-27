@@ -23,10 +23,18 @@ import './assets/plugins/admincss/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/plugins/bootstrap/css/style.css';
 import './assets/plugins/admincss/dashboard.css';
-//import './assets/plugins/wizard/steps.css';
 import 'react-toastify/dist/ReactToastify.css';
 // Import root app
 import jQuery from 'jquery';
+import './assets/plugins/adminjs/custom.min';
+import './assets/plugins/adminjs/footable-init';
+import './assets/plugins/adminjs/jquery.slimscroll';
+import './assets/plugins/adminjs/sidebarmenu';
+import './assets/plugins/adminjs/waves';
+import './assets/plugins/Chart.js/chartjs.init';
+import './assets/plugins/footable/js/footable.all.min';
+import './assets/plugins/sticky-kit-master/dist/sticky-kit.min';
+// import './js/custom';
 // Import root app
 import App from 'containers/App';
 // Import Language Provider
@@ -39,7 +47,6 @@ import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
-
 // Import i18n messages
 import { translationMessages } from './i18n';
 
