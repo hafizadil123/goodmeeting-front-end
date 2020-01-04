@@ -33,12 +33,8 @@ class ChartComponent extends React.Component {
     type(props, propName, componentName) {
       if (!Chart.controllers[props[propName]]) {
         return new Error(
-          `Invalid chart type \`${ 
-            props[propName] 
-            }\` supplied to` +
-            ` \`${ 
-            componentName 
-            }\`.`,
+          `Invalid chart type \`${props[propName]}\` supplied to` +
+            ` \`${componentName}\`.`,
         );
       }
     },
@@ -124,7 +120,6 @@ class ChartComponent extends React.Component {
       return data(node);
     }
     return data;
-    
   }
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -239,7 +234,6 @@ class ChartComponent extends React.Component {
         };
       }
       return next;
-      
     });
 
     const { datasets, ...rest } = data;
