@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../app/assets/images/favicon.png">
     <title>Good Meeting AdminPanel</title>
     <link rel="stylesheet" type="text/css" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -18,6 +19,10 @@
     <!-- <noscript>If you're seeing this message, that means
     <strong>JavaScript has been disabled on your browser</strong>, please
     <strong>enable JS</strong> to make this app work.</noscript> -->
+    <!-- <script src="http://goodmeeting.today/feedback/assets/plugins/Chart.js/chartjs.init.js"></script> -->
+
+
+    <div id="app"></div>
     <style type="text/css">
       .not-feedback{
         display: none !important;
@@ -41,10 +46,9 @@
     <!--stickey kit -->
     <!-- <script src="http://goodmeeting.today/feedback/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script> -->
     <!--Custom JavaScript -->
-    <script src="http://goodmeeting.today/feedback/dashboard/js/custom.min.js"></script>
+    <!-- <script src="http://goodmeeting.today/feedback/dashboard/js/custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> -->
     <!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-    <script src="http://goodmeeting.today/feedback/assets/plugins/Chart.js/chartjs.init.js"></script>
     <!-- <script src="../assets/plugins/Chart.js/Chart.min.js"></script> -->
 
     <!-- ============================================================== -->
@@ -59,9 +63,12 @@
     <script src="http://goodmeeting.today/feedback/assets/plugins/footable/js/footable.all.min.js"></script>
     <!--FooTable init-->
     <script src="http://goodmeeting.today/feedback/dashboard/js/footable-init.js"></script>
-
-    <div id="app"></div>
-
+    <!-- <script>
+      document.getElementById("positive").style.visibility ="hidden"
+document.getElementById("negative").style.visibility ="hidden"
+document.getElementById("no-response").style.visibility ="hidden"
+    </script> -->
+   
     <!-- Open Sans Font -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"

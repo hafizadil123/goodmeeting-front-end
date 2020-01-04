@@ -1367,6 +1367,11 @@ form#demo-2{
     display: none;
 
 }
+.chart{
+    position: relative;
+    right: 135px;
+    margin-top: -16px;
+  }
 .radios li {
     list-style: none;
     display: inline-block;

@@ -1,16 +1,36 @@
-import React from 'react';
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formImage from '../../assets/images/form-image1.png';
 import logoImage from '../../assets/images/logo-white.png';
+import { BASE_URL } from '../../utils/constants';
 import { ForgotPasswordSchema } from '../Register/schema';
-import { forgotPasswordRequest } from '../../utils/requests';
 
 const ForgotPassword = ({ history }) => {
+  const [loading, setLoading] = useState(false);
   function userForgotPasswordRequest(userInfo) {
+    setLoading(true);
     const { email } = userInfo;
-    forgotPasswordRequest('users/forgot-password', { email }, history);
+    axios
+      .post(`${BASE_URL}users/forgot-password`, { email })
+      .then(response => {
+        const { message } = response && response.data;
+        toast.success(message);
+        setLoading(false);
+      })
+      .catch(err => {
+        const { data } = err.response;
+        toast.error(data.message);
+        setLoading(false);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+    // forgotPasswordRequest('users/forgot-password', { email }, history);
   }
   return (
     <section className="section-forget">
@@ -51,13 +71,20 @@ const ForgotPassword = ({ history }) => {
                         <p className="validationErrorMessage">{errors.email}</p>
                       ) : null}
                     </div>
-                    <button
-                      id="btn-search"
-                      type="submit"
-                      className="btn btn-outline btn-md btn-demo mb-20"
-                    >
-                      Reset Password
-                    </button>
+                    {!loading ? (
+                      <button
+                        id="btn-search"
+                        type="submit"
+                        className="btn btn-outline btn-md btn-demo mb-20"
+                      >
+                        Reset Password
+                      </button>
+                    ) : (
+                      <button className="btn btn-outline btn-md btn-demo mb-20">
+                        <i className="fa fa-refresh fa-spin" />
+                        Loading
+                      </button>
+                    )}
                     <div className="login-stats">
                       <input type="checkbox" name="remember" />
                       <span className="remember">Remember me</span>

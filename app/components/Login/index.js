@@ -1,18 +1,46 @@
-import React from 'react';
+/* eslint-disable react/button-has-type */
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formImage from '../../assets/images/form-image1.png';
 import logoImage from '../../assets/images/logo-white.png';
+import { BASE_URL } from '../../utils/constants';
 import { LoginShema } from '../Register/schema';
-import { userLoginRequest } from '../../utils/requests';
 
 const Login = ({ history }) => {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('accessToken')) {
+      history.push('/dashboard');
+    }
+    localStorage.clear();
+  }, []);
   function loginRequest(userInfo) {
+    setLoading(true);
     const { email, password } = userInfo;
-    userLoginRequest('auth/login', { email, password }, history);
+    axios
+      .post(`${BASE_URL}auth/login`, { email, password })
+      .then(response => {
+        toast.success('you are logged In Successfuly!');
+        const { token, userId } = response && response.data;
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('userId', userId);
+        history.push('/dashboard');
+        setLoading(false);
+      })
+      .catch(err => {
+        const { data } = err.response;
+        setLoading(false);
+        toast.error(data.message);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+    // userLoginRequest('auth/login', { email, password }, history);
   }
-  localStorage.clear();
   return (
     <section className="section-forget">
       <div className="container-fluid p-0">
@@ -66,13 +94,21 @@ const Login = ({ history }) => {
                         </p>
                       ) : null}
                     </div>
-                    <button
-                      id="btn-search"
-                      type="submit"
-                      className="btn btn-outline btn-md btn-demo mb-20"
-                    >
-                      Login
-                    </button>
+
+                    {!loading ? (
+                      <button
+                        id="btn-search"
+                        type="submit"
+                        className="btn btn-outline btn-md btn-demo mb-20"
+                      >
+                        Login
+                      </button>
+                    ) : (
+                      <button className="btn btn-outline btn-md btn-demo mb-20">
+                        <i className="fa fa-refresh fa-spin" />
+                        Loading
+                      </button>
+                    )}
                     <div className="login-stats">
                       <input type="checkbox" name="remember" />
                       <span className="remember">Remember me</span>

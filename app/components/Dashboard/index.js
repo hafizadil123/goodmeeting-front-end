@@ -1,5 +1,7 @@
+/* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import LeftSide from './LeftBar';
 import { BASE_URL } from '../../utils/constants';
@@ -7,6 +9,9 @@ import Header from '../NavBar';
 const Dashboard = () => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
+  const [feedback, setFeedback] = useState('');
+  const [membersCount, setMembers] = useState('');
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-feedback-stats/`, {
@@ -17,9 +22,55 @@ const Dashboard = () => {
       .then(response => setUserStats(response && response.data))
       .catch(() => {})
       .then(() => {
-        // always executed
+        setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}get-meetings/`, {
+        params: {
+          userId: localStorage.getItem('userId'),
+        },
+      })
+      .then(response => setMeetings(response && response.data))
+      .catch(() => {})
+      .then(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const getMembers = meetingId => {
+    axios
+      .get(`${BASE_URL}get-members-feedback-count/`, {
+        params: {
+          meetingId,
+        },
+      })
+      .then(response => {
+        const { members } = response && response.data;
+        setMembers(members);
+      })
+      .catch(() => {})
+      .then(() => {
+        // always executed
+      });
+  };
+  const getFeedback = meetingId => {
+    axios
+      .get(`${BASE_URL}get-members-feedback-count/`, {
+        params: {
+          meetingId,
+        },
+      })
+      .then(response => {
+        const { feebackCount } = response && response.data;
+        setFeedback(feebackCount);
+      })
+      .catch(() => {})
+      .then(() => {
+        // always executed
+      });
+  };
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-meetings/`, {
@@ -70,8 +121,8 @@ const Dashboard = () => {
               <div className="card card-inverse card-info">
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
-                    Meetings this
-                    <br /> Week
+                    Meetings
+                    <br />
                   </h6>
                   <i className="fa fa-sort-desc down-red" />
                   <h1 className="font-light text-white">
@@ -152,19 +203,48 @@ const Dashboard = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>asdDaily Standup Meeting…</td>
-                        <td>
-                          April 17, 2019
-                          <br />
-                          <span>12.10 PM</span>
-                        </td>
-                        <td>12</td>
-                        <td>10</td>
-                        <td>
-                          <Link to="/meeting-stats/2">View Details &gt;</Link>
-                        </td>
-                      </tr>
+                      {meetings && meetings.length && !loading > 0 ? (
+                        meetings.map(item => {
+                          const [subject] = item.subject;
+                          const id = item._id;
+                          return (
+                            <tr key={id}>
+                              <td>{subject}</td>
+                              <td>
+                                {(item.dateEnd &&
+                                  item.dateEnd
+                                    .replace(', ', ' ')
+                                    .split(',')[0]) ||
+                                  'Not-Available'}
+                                <br />
+                                <span>
+                                  {(item.dateEnd &&
+                                    item.dateEnd
+                                      .replace(', ', ' ')
+                                      .split(',')[2]) ||
+                                    'Not-Available'}
+                                </span>
+                              </td>
+                              <td>{getMembers(id) || membersCount || 0}</td>
+                              <td>{getFeedback(id) || feedback || 0}</td>
+                              <td>
+                                <Link to={`meeting-stats/${id}`}>
+                                  View Details &gt;
+                                </Link>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      ) : (
+                        <div className="loader">
+                          <Loader
+                            type="Audio"
+                            color="#00BFFF"
+                            height={100}
+                            width={100}
+                          />
+                        </div>
+                      )}
                     </tbody>
                     <tfoot>
                       <tr>

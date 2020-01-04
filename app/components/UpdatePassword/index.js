@@ -1,24 +1,46 @@
-import React from 'react';
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import formImage from '../../images/form-image2.png';
 import logoWhite from '../../images/logo-white.png';
-import { updatePasswordRequest } from '../../utils/requests';
+import { BASE_URL } from '../../utils/constants';
 import { UpdatePasswordSchema } from '../Register/schema';
 
 const UpdatePassword = ({ history }) => {
+  const [loading, setLoading] = useState(false);
   function updatePassword(userInfo) {
+    setLoading(true);
     const {
       location: { search },
     } = history;
     const queryParam = search.substr(8);
     const { password } = userInfo;
-    updatePasswordRequest(
-      `users/update-password?userId=${queryParam}`,
-      { password },
-      history,
-    );
+    axios
+      .post(`${BASE_URL}users/update-password?userId=${queryParam}`, {
+        password,
+      })
+      .then(response => {
+        const { message } = response && response.data;
+        toast.success(message);
+        setLoading(false);
+        history.push('/login');
+      })
+      .catch(() => {
+        toast.error('something wents wrong!');
+        setLoading(false);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+    // updatePasswordRequest(
+    //   `users/update-password?userId=${queryParam}`,
+    //   { password },
+    //   history,
+    // );
   }
   return (
     <section className="section-forget register-account">
@@ -85,14 +107,20 @@ const UpdatePassword = ({ history }) => {
                         </p>
                       ) : null}
                     </div>
-
-                    <button
-                      id="btn-search"
-                      type="submit"
-                      className="btn-outline btn-md btn-demo btn-reg"
-                    >
-                      Update Password
-                    </button>
+                    {!loading ? (
+                      <button
+                        id="btn-search"
+                        type="submit"
+                        className="btn-outline btn-md btn-demo btn-reg"
+                      >
+                        Update Password
+                      </button>
+                    ) : (
+                      <button className="btn btn-outline btn-md btn-demo mb-20">
+                        <i className="fa fa-refresh fa-spin" />
+                        Loading
+                      </button>
+                    )}
                     <Link to="/register" className="accont">
                       Already have an account?{' '}
                     </Link>

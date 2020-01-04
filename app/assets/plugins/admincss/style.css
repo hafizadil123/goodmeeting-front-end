@@ -875,7 +875,17 @@ Buttons
 
 .button-list button, .button-list a {
   margin: 5px 12px 5px 0; }
-
+.loader-detail {
+  align-items: center;
+  margin-left: 35%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.chart{
+  position: relative;
+  right: 143px;
+  top: 20px;
+}
 .btn-outline {
   color: inherit;
   background-color: transparent;
@@ -1521,7 +1531,20 @@ Radios
 
 .radio.radio-inline {
   margin-top: 0; }
-
+.loader {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: 210%;
+    margin-bottom: 30px;
+}
+.stats-loader {
+  align-items: center;
+    margin-top: 3%;
+    margin-left: 42%;
+    margin-bottom: 51px;
+}
 .radio.radio-single label {
   height: 17px; }
 
@@ -6402,7 +6425,8 @@ File: scss
 
 @media (max-width: 575px) {
   .hidden-xs-down {
-    display: none !important; } }
+    display: none !important; }
+  }
 
 @media (min-width: 576px) {
   .hidden-sm-up {
@@ -6468,7 +6492,10 @@ File: scss
     margin-left: 240px; }
   .footer {
     left: 240px; } }
-
+    .page-wrapper {
+      background: #F8FAFF !important;
+      padding-bottom: 60px !important;
+  }
 @media (max-width: 1023px) {
   .page-wrapper {
     margin-left: 60px;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import mobileLogo from '../../../assets/images/mobile-logo.png';
 import searchImage from '../../../assets/images/search.png';
-import userImage from '../../../assets/images/user1.png';
+import userImage from '../../../assets/images/userIcon.png';
 const Header = () => (
   <>
     <header className="topbar">

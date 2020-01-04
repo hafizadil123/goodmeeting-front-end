@@ -27,10 +27,12 @@ function ng_meeting(){
 
 }
 
-
-$(document).ready(function(){
-Chart.defaults.global.defaultFontFamily = "'Biryani', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
+window.onload = $(document).ready(function(){
+    Chart.defaults.global.defaultFontFamily = "'Biryani', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
 var ctx = document.getElementById('howmeet1').getContext('2d');
+var positive = document.getElementById('positive').innerText;
+var negative = document.getElementById('negative').innerText;
+var noResponse = document.getElementById('no-response').innerText;
 var myChart1 = new Chart(ctx, {
     type: 'doughnut',
     data: {
@@ -39,7 +41,7 @@ var myChart1 = new Chart(ctx, {
         datasets: [{
         
             label: ['Not a Good Meeting - 7 (10%)','sad','asd'],
-            data: [10, 10,20],
+            data: [positive, negative,noResponse],
             backgroundColor: [
             '#F55B4F',
             '#AFC4D5',

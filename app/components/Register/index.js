@@ -1,16 +1,36 @@
-import React from 'react';
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import formImage from '../../images/form-image2.png';
 import logoWhite from '../../images/logo-white.png';
-import { userPostRequest } from '../../utils/requests';
+import { BASE_URL } from '../../utils/constants';
 import { SignupSchema } from './schema';
 
 const Register = ({ history }) => {
+  const [loading, setLoading] = useState(false);
   function createUser(userInfo) {
+    setLoading(true);
     const { fullName, email, password } = userInfo;
-    userPostRequest('users', { fullName, email, password }, history);
+    axios
+      .post(`${BASE_URL}users`, { fullName, email, password })
+      .then(response => {
+        const { message } = response && response.data;
+        toast.success(message);
+        history.push('/login');
+        setLoading(false);
+      })
+      .catch(() => {
+        toast.error('something wents wrong!');
+        setLoading(false);
+        history.push('/register');
+      })
+      .then(() => {
+        setLoading(false);
+      });
   }
   return (
     <section className="section-forget register-account">
@@ -104,14 +124,20 @@ const Register = ({ history }) => {
                         </p>
                       ) : null}
                     </div>
-
-                    <button
-                      id="btn-search"
-                      type="submit"
-                      className="btn-outline btn-md btn-demo btn-reg"
-                    >
-                      Register
-                    </button>
+                    {!loading ? (
+                      <button
+                        id="btn-search"
+                        type="submit"
+                        className="btn-outline btn-md btn-demo btn-reg"
+                      >
+                        Register
+                      </button>
+                    ) : (
+                      <button className="btn btn-outline btn-md btn-demo mb-20">
+                        <i className="fa fa-refresh fa-spin" />
+                        Loading
+                      </button>
+                    )}
                     <Link to="/" className="accont">
                       Already have an account?{' '}
                     </Link>

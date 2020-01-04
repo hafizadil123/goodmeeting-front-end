@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import Loader from 'react-loader-spinner';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from '../components/HomePage';
 import Register from '../components/Register';
@@ -17,7 +18,17 @@ import MeetingStats from '../components/Dashboard/MeetingStats';
 // Import Containers
 
 const Routes = () => (
-  <Suspense fallback="Loading.......">
+  <Suspense
+    fallback={
+      <Loader
+        type="Audio"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        className="loader"
+      />
+    }
+  >
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/register" component={Register} />

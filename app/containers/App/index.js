@@ -12,8 +12,6 @@ import { withRouter } from 'react-router';
 import { ToastContainer } from 'react-toastify';
 import GlobalStyle from '../../global-styles';
 import Routes from '../../routes/routes';
-import Header from '../../components/NavBar';
-import RegisterHeader from '../../components/Header';
 import Footer from '../../components/Footer';
 
 function App() {

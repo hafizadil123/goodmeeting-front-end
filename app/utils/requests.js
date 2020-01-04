@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { BASE_URL } from './constants';
+import { test } from '../assets/plugins/Chart.js/chartjs.init';
 /**
  * Parses the JSON returned by a network request
  *
@@ -93,6 +95,7 @@ export const userLoginRequest = (url, bodyObject, history = {}) => {
       const { token, userId } = response && response.data;
       localStorage.setItem('accessToken', token);
       localStorage.setItem('userId', userId);
+      return response && response.data;
       history.push('/dashboard');
     })
     .catch(err => {

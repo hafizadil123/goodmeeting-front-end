@@ -1,9 +1,9 @@
 /* eslint-disable indent */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getDate } from 'date-fns';
 import { BASE_URL } from '../../../utils/constants';
 import LeftSide from '../LeftBar';
 import controlImage from '../../../assets/images/controls.png';
@@ -12,6 +12,7 @@ const Meeting = () => {
   const [meetings, setMeetings] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [membersCount, setMembers] = useState('');
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-meetings/`, {
@@ -22,7 +23,7 @@ const Meeting = () => {
       .then(response => setMeetings(response && response.data))
       .catch(() => {})
       .then(() => {
-        // always executed
+        setLoading(false);
       });
   }, []);
 
@@ -39,7 +40,7 @@ const Meeting = () => {
       })
       .catch(() => {})
       .then(() => {
-        // always executed
+        setLoading(false);
       });
   };
   const getFeedback = meetingId => {
@@ -145,39 +146,54 @@ const Meeting = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {meetings && meetings.length > 0
-                          ? meetings.map(item => {
-                              const [subject] = item.subject;
-                              const id = item._id;
-                              return (
-                                <tr key={id}>
-                                  <td>{subject}</td>
-                                  <td>
+                        {meetings && meetings.length > 0 && !loading ? (
+                          meetings.map(item => {
+                            const [subject] = item.subject;
+                            const id = item._id;
+                            return (
+                              <tr key={id}>
+                                <td>{subject}</td>
+                                <td>
+                                  {(item.dateEnd &&
+                                    item.dateEnd
+                                      .split(',')
+                                      .splice(1, 3)
+                                      .toString()
+                                      .replace(',', ' ')
+                                      .split(',')[0]) ||
+                                    'Not-Available'}
+                                  <br />
+                                  <span>
                                     {(item.dateEnd &&
                                       item.dateEnd
-                                        .replace(', ', ' ')
-                                        .split(',')[0]) ||
+                                        .split(',')
+                                        .splice(1, 3)
+                                        .toString()
+                                        .replace(',', ' ')
+                                        .split(',')[1]) ||
                                       'Not-Available'}
-                                    <br />
-                                    <span>
-                                      {(item.dateEnd &&
-                                        item.dateEnd
-                                          .replace(', ', ' ')
-                                          .split(',')[2]) ||
-                                        'Not-Available'}
-                                    </span>
-                                  </td>
-                                  <td>{getMembers(id) || membersCount || 0}</td>
-                                  <td>{getFeedback(id) || feedback || 0}</td>
-                                  <td>
-                                    <Link to="meeting-stats/2">
-                                      View Details &gt;
-                                    </Link>
-                                  </td>
-                                </tr>
-                              );
-                            })
-                          : null}
+                                  </span>
+                                </td>
+                                <td>{getMembers(id) || membersCount || 0}</td>
+                                <td>{getFeedback(id) || feedback || 0}</td>
+                                <td>
+                                  <Link to={`meeting-stats/${id}`}>
+                                    View Details &gt;
+                                  </Link>
+                                </td>
+                              </tr>
+                            );
+                          })
+                        ) : (
+                          <div className="loader">
+                            <Loader
+                              type="Audio"
+                              color="#00BFFF"
+                              height={100}
+                              width={100}
+                            />
+                          </div>
+                        )}
                       </tbody>
                       <tfoot>
                         <tr>

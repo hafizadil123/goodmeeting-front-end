@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import logo from '../../assets/images/logo.png';
 import mobileLogo from '../../assets/images/mobile-logo.png';
 import searchImage from '../../assets/images/search.png';
-import userImage from '../../assets/images/user1.png';
+import userImage from '../../assets/images/userIcon.png';
 const NavBar = ({ isShow }) =>
   isShow ? (
     <div className="fix-header fix-sidebar card-no-border">

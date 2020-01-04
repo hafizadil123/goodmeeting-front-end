@@ -21,17 +21,19 @@ import './assets/plugins/footable/css/footable.core.css';
 import './assets/plugins/admincss/blue.css';
 import './assets/plugins/admincss/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/plugins/bootstrap/css/style.css';
 import './assets/plugins/admincss/dashboard.css';
+import './assets/plugins/bootstrap/css/style.css';
+
 import 'react-toastify/dist/ReactToastify.css';
 // Import root app
 import jQuery from 'jquery';
+
+// import './assets/plugins/Chart.js/chartjs.init';
 import './assets/plugins/adminjs/custom.min';
 import './assets/plugins/adminjs/footable-init';
 import './assets/plugins/adminjs/jquery.slimscroll';
 import './assets/plugins/adminjs/sidebarmenu';
 import './assets/plugins/adminjs/waves';
-import './assets/plugins/Chart.js/chartjs.init';
 import './assets/plugins/footable/js/footable.all.min';
 import './assets/plugins/sticky-kit-master/dist/sticky-kit.min';
 // import './js/custom';
@@ -88,7 +90,9 @@ if (module.hot) {
   // have to be constants at compile-time
   module.hot.accept(['./i18n', 'containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    render(translationMessages);
+    window.onload = () => {
+      render(translationMessages);
+    };
   });
 }
 
