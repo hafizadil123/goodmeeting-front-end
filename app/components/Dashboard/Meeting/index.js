@@ -146,7 +146,7 @@ const Meeting = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {meetings && meetings.length > 0 && !loading ? (
+                        {(meetings && meetings.length > 0  && !loading) ? (
                           meetings.map(item => {
                             const [subject] = item.subject;
                             const id = item._id;
@@ -174,8 +174,8 @@ const Meeting = () => {
                                       'Not-Available'}
                                   </span>
                                 </td>
-                                <td>{getMembers(id) || membersCount || 0}</td>
-                                <td>{getFeedback(id) || feedback || 0}</td>
+                                <td>{getMembers(id) || membersCount || <i className="fa fa-spinner fa-spin" />} </td>
+                                <td>{getFeedback(id) || feedback ||   <i className="fa fa-spinner fa-spin" />}</td>
                                 <td>
                                   <Link to={`meeting-stats/${id}`}>
                                     View Details &gt;

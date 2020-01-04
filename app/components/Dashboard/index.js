@@ -225,8 +225,16 @@ const Dashboard = () => {
                                     'Not-Available'}
                                 </span>
                               </td>
-                              <td>{getMembers(id) || membersCount || 0}</td>
-                              <td>{getFeedback(id) || feedback || 0}</td>
+                              <td>
+                                {getMembers(id) || membersCount || (
+                                  <i className="fa fa-spinner fa-spin" />
+                                )}
+                              </td>
+                              <td>
+                                {getFeedback(id) || feedback || (
+                                  <i className="fa fa-spinner fa-spin" />
+                                )}
+                              </td>
                               <td>
                                 <Link to={`meeting-stats/${id}`}>
                                   View Details &gt;
