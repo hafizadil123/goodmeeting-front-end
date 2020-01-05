@@ -87,6 +87,7 @@
     "lodash": "^4.17.15",
     "minimist": "1.2.0",
     "moment-timezone": "^0.5.27",
+    "node": "^10.18.0",
     "node-sass": "^4.13.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
