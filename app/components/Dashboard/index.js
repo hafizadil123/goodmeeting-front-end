@@ -203,7 +203,7 @@ const Dashboard = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {meetings && meetings.length && !loading > 0 ? (
+                      {meetings && !loading ? (
                         meetings.map(item => {
                           const [subject] = item.subject;
                           const id = item._id;

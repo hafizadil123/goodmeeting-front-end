@@ -185,7 +185,7 @@ const Stats = () => {
             <div className="col-lg-12">
               <div className="card">
                 <div className="card-body">
-                  {!loading && allQuestions && allQuestions.length > 0 ? (
+                  {!loading && allQuestions ? (
                     allQuestions.map(item => (
                       <>
                         <div className="row">

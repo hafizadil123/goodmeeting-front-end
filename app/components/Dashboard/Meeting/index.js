@@ -146,7 +146,7 @@ const Meeting = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {meetings && meetings.length > 0 && !loading ? (
+                        {meetings && !loading ? (
                           meetings.map(item => {
                             const [subject] = item.subject;
                             const id = item._id;
