@@ -701,6 +701,7 @@ html body .bg-info {
 .g-meeting p.quest{
     font: 600 18px/32px Biryani;
     color: #313640;
+    margin: 40px 0 20px 0;
 }
 .g-meeting .option {
     font: 400 16px/28px Biryani;
@@ -775,7 +776,8 @@ div#js-legend5 li:nth-of-type(2) span{
     left: 100%;
 }
 .myreview{
-    margin-left: -0;
+    width: 30%;
+    margin: 0 auto;
 }
 .g-meeting button {
     margin-left: -50px !important;
@@ -908,12 +910,11 @@ img.red-c {
     color: #313640!important;
 }
 .a{
-    width: 30%;
+    width: 55%;
 }
 .g-meeting p.m-review {
     text-align: left;
     margin-bottom: 0;
-    white-space: pre-wrap;
 }
 /*************** feedbackform 2*********************/
 .custom-form-wrap{

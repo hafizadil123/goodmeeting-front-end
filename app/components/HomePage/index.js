@@ -14,6 +14,9 @@ import tick from '../../images/tick-grey.png';
 import business from '../../images/business.png';
 import blue from '../../images/tick-blue.png';
 import premium from '../../images/premium.png';
+import gmail from '../../images/gmail.png';
+import outlook from '../../images/outlook.png';
+import dash from '../../images/dash.png';
 import RegisterHeader from '../Header';
 const HomePage = () => (
   <div>
@@ -21,15 +24,34 @@ const HomePage = () => (
   <section className="section1 box-art">
     <div className="container">
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-6">
           <h1 className="heading1">A Good Meeting starts off with</h1>
           <a href="#" className="btn-link">lets-havea@goodmeeting.today</a>
           <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
-          <a href="#" className="btn btn-md btn-primary btn-blue">How it works <img width="25px" src={play} /></a><br />
+          <a href="#" className="btn btn-md btn-primary btn-blue">How it works <img width="25px" src={play} /></a>
+          <div className="gmail">
+          <small>Supports</small>
+            <ul>
+              <li>
+              <img src={gmail} className="" />
+              <small className="gtxt">Gmail</small>
+              </li>
+              <li>
+              <img src={outlook} className="" />
+               <small className="gtxt">Outlook</small>
+              </li>
+            </ul>
+          </div> 
+
+        </div>
+        <div className="col-md-6">
           <img src={MainMeeting} className="persons3" />
+        </div>
+        <div className="col-md-12 myabout">
           <p className="blue">About Good Meeting</p>
           <h2 className="text-capitalize">Simplify the process of getting feedback<br /> from your meeting audience</h2>
         </div>
+
       </div>
     </div>
   </section>
@@ -72,7 +94,7 @@ const HomePage = () => (
       <div className="row">
         <div className="col-md-12">
           <h2 style={{color: 'white'}}>This is how it would look when you are all set for the meeting.</h2>
-          <img src={Board} className="img-fluid" />
+          <img src={dash} className="" />
         </div>
       </div>
     </div>
