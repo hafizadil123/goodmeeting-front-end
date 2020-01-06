@@ -6,6 +6,7 @@ export const data = (a, b, c) => {
     datasets: [
       {
         label: 'Doughnut',
+
         backgroundColor: [
           ColorAlpha(Colors[0], 0.6),
           ColorAlpha(Colors[1], 0.6),
@@ -37,6 +38,8 @@ export const data1 = answer => {
         ],
         borderColor: ColorAlpha(white, 0),
         borderWidth: 3,
+
+        usePointStyle: true,
         data: updateArray,
       },
     ],
@@ -52,6 +55,7 @@ export const doughnutOptions = {
     position: 'right',
     labels: {
       boxWidth: 10,
+      usePointStyle: true,
     },
   },
   title: {
@@ -63,15 +67,19 @@ export const doughnutOptions = {
 
 export const doughnutOptions1 = {
   responsive: true,
+
   legend: {
     display: true,
     position: 'left',
     labels: {
       boxWidth: 10,
+
+      usePointStyle: true,
     },
   },
   title: {
     display: false,
+
     text: '',
     // fontColor: '#fff'
   },

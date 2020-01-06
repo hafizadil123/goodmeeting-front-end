@@ -131,9 +131,11 @@ p{
 /**** section 1********/
 
 .section1{
+    text-align: left;
+}
+.myabout{
     text-align: center;
 }
-
 .heading1{
     font-family: 'Proxima Nova';
     font-size: 36px;
@@ -207,6 +209,41 @@ section.section1 img.persons3 {
 .box-art:after,.box-art:before{
     display: none;
 }
+.gmail {
+    margin-top: 35px;
+}
+.gmail img {
+    width: 30px;
+
+}
+
+.gmail ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.gmail ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+.gmail ul li:first-child{
+    margin-left: 0;
+}
+.gmail small{
+    font-size: 14px;
+    color: #0D4EE0;
+    font-family: 'Proxima Nova';
+    font-weight: 600;
+    display: block;
+    padding-bottom: 10px;
+}
+.gmail small.gtxt {
+    font-size: 12px;
+    color: #313640;
+    font-family: 'Biryani', sans-serif;
+    font-weight: 600;
+    padding-top: 5px;
+}
 /**************** section 2 *****************/
 .left-div img {
     width: 150px;
@@ -259,19 +296,26 @@ section.section2 {
     width: 71%;
     margin: 80px auto;
 }
+.section2 .right-div h2:before{
+    display: none;
+}
 /************* section 3 *************/
 
 .section3 {
     text-align: center;
     background-color: #313640;
     color: #fff;
-    padding: 50px 0;
+    padding: 50px 0 0 0;
 }
 .section3 h2{
     padding-bottom: 50px;
     font-size: 28px;
     font-family: 'Proxima Nova';
     font-weight: 600;
+}
+.section3 img{
+    width: 995px;
+    
 }
 
 /************section 4 ************/
@@ -1765,6 +1809,16 @@ width: max-content;
     img.img-bloginner{
         width: 100%;
     }
+    .section3 img{
+        width: 100%;
+        
+    }
+    section.section1 img.persons3{
+        width: 100%;
+    }
+    .section2 .right-div p:after, .section2 .right-div p:before{
+        display: none;
+    }
 }
 @media(max-width: 991px){
     header{
@@ -2060,6 +2114,9 @@ width: max-content;
 @media(max-width: 575px){
     .heading1,section.section1 h2,.section3 h2,.section4 h2,.section5 h2,.section6 h2,footer h3,h3.req,h3.power,h1.main-title,h1.heading1 span, h6.strt{
         font-size: 20px;
+    }
+    .section1{
+        text-align: center;
     }
     h6.strt{
         font-size: 20px !important;
