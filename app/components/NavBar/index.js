@@ -24,7 +24,7 @@ const NavBar = ({ isShow }) =>
             {/* Logo */}
             {/* ============================================================== */}
             <div className="navbar-header">
-              <a className="navbar-brand" href="./">
+              <a className="navbar-brand" href="/">
                 {/* Logo icon */}
                 <b>
                   {/* You can put here icon as well // <i class="wi wi-sunset"></i> // */}

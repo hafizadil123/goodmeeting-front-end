@@ -15,7 +15,7 @@ const Header = () => (
         {/* Logo */}
         {/* ============================================================== */}
         <div className="navbar-header">
-          <Link className="navbar-brand" href="./">
+          <Link className="navbar-brand" href="/">
             {/* Logo icon */}
             <b>
               {/* You can put here icon as well // <i class="wi wi-sunset"></i> // */}

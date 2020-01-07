@@ -22,7 +22,7 @@ function App() {
       </Helmet>
       <Routes />
       <ToastContainer autoClose={5000} />
-      <Footer />
+      {window.location.pathname === '/' && <Footer />}
       <GlobalStyle />
     </React.Fragment>
   );

@@ -48,7 +48,10 @@ export const ForgotPasswordSchema = Yup.object().shape({
 });
 
 export const UpdatePasswordSchema = Yup.object().shape({
-  password: Yup.string().required('Enter your new Password!'),
+  password: Yup.string()
+    .min(6, 'Password too short!')
+    .max(10, 'Password should less than 10 digits')
+    .required('Required'),
   confirmPassword: Yup.string()
     .required('Please confirm your password!')
     .when('password', {

@@ -17,6 +17,7 @@ const Stats = () => {
         params: {
           userId: localStorage.getItem('userId'),
         },
+        crossdomain: true,
       })
       .then(response => setUserStats(response && response.data))
       .catch(() => {})

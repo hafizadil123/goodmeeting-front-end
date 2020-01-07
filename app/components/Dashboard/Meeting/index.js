@@ -17,6 +17,7 @@ const Meeting = () => {
         params: {
           userId: localStorage.getItem('userId'),
         },
+        crossdomain: true,
       })
       .then(response => setMeetings(response && response.data))
       .catch(() => {})

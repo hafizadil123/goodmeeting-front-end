@@ -26,7 +26,7 @@ const HomePage = () => (
       <div className="row">
         <div className="col-md-6">
           <h1 className="heading1">A Good Meeting starts off with</h1>
-          <a href="#" className="btn-link">lets-havea@goodmeeting.today</a>
+          <a href="#" className="btn-link">havea@goodmeeting.today</a>
           <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
           <a href="#" className="btn btn-md btn-primary btn-blue">How it works <img width="25px" src={play} /></a>
           <div className="gmail">
@@ -72,7 +72,7 @@ const HomePage = () => (
           <div className="right-div">
             <img src={Meeting} />
             <h2>Start a new meeting</h2>
-            <p>Just don’t forget to keep<br /> “lets-havea@goodmeeting.today” in CC<br /> and we will start crunching numbers for you.</p>
+            <p>Just don’t forget to keep<br /> “havea@goodmeeting.today” in CC<br /> and we will start crunching numbers for you.</p>
             <a href="#" className="btn btn-outline btn-md btn-line">Get Started Now</a>
           </div>
         </div>

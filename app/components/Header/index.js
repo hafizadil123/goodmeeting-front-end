@@ -11,7 +11,7 @@ const Header = () => (
   <header>
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img src={logo} className="desktop-logo" />
           <img className="mobile-logo" src={mobile} />
         </a>

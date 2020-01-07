@@ -23,6 +23,7 @@ const MeetingStats = ({ history }) => {
         params: {
           meetingId: queryParam,
         },
+        crossdomain: true 
       })
       .then(response => setMeetingDetail(response && response.data))
       .catch(() => {})
@@ -32,7 +33,7 @@ const MeetingStats = ({ history }) => {
   }, []);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}get-questions`)
+      .get(`${BASE_URL}get-questions`, { crossdomain: true })
       .then(response => setQuestion(response && response.data))
       .catch(() => {})
       .then(() => {
