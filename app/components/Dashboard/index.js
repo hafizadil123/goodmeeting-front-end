@@ -203,38 +203,30 @@ const Dashboard = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {meetings && !loading ? (
+                      {meetings && Array.isArray(meetings) && !loading ? (
                         meetings.map(item => {
-                          const [subject] = item.subject;
-                          const id = item._id;
+                          const [subject] = item.meeting.subject;
+                          const id = item.meeting._id;
                           return (
                             <tr key={id}>
                               <td>{subject}</td>
                               <td>
-                                {(item.dateEnd &&
-                                  item.dateEnd
+                                {(item.meeting.dateEnd &&
+                                  item.meeting.dateEnd
                                     .replace(', ', ' ')
                                     .split(',')[0]) ||
                                   'Not-Available'}
                                 <br />
                                 <span>
-                                  {(item.dateEnd &&
-                                    item.dateEnd
+                                  {(item.meeting.dateEnd &&
+                                    item.meeting.dateEnd
                                       .replace(', ', ' ')
                                       .split(',')[2]) ||
                                     'Not-Available'}
                                 </span>
                               </td>
-                              <td>
-                                {getMembers(id) || membersCount || (
-                                  <i className="fa fa-spinner fa-spin" />
-                                )}
-                              </td>
-                              <td>
-                                {getFeedback(id) || feedback || (
-                                  <i className="fa fa-spinner fa-spin" />
-                                )}
-                              </td>
+                              <td>{item.members} </td>
+                              <td>{item.feebackCount}</td>
                               <td>
                                 <Link to={`meeting-stats/${id}`}>
                                   View Details &gt;

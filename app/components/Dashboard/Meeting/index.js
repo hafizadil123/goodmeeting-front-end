@@ -10,8 +10,6 @@ import controlImage from '../../../assets/images/controls.png';
 import Header from '../../NavBar';
 const Meeting = () => {
   const [meetings, setMeetings] = useState([]);
-  const [feedback, setFeedback] = useState('');
-  const [membersCount, setMembers] = useState('');
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
@@ -27,38 +25,6 @@ const Meeting = () => {
       });
   }, []);
 
-  const getMembers = meetingId => {
-    axios
-      .get(`${BASE_URL}get-members-feedback-count/`, {
-        params: {
-          meetingId,
-        },
-      })
-      .then(response => {
-        const { members } = response && response.data;
-        setMembers(members);
-      })
-      .catch(() => {})
-      .then(() => {
-        setLoading(false);
-      });
-  };
-  const getFeedback = meetingId => {
-    axios
-      .get(`${BASE_URL}get-members-feedback-count/`, {
-        params: {
-          meetingId,
-        },
-      })
-      .then(response => {
-        const { feebackCount } = response && response.data;
-        setFeedback(feebackCount);
-      })
-      .catch(() => {})
-      .then(() => {
-        // always executed
-      });
-  };
   return (
     <>
       <Header isShow />
@@ -146,16 +112,16 @@ const Meeting = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {meetings && !loading ? (
+                        {meetings && Array.isArray(meetings) && !loading ? (
                           meetings.map(item => {
-                            const [subject] = item.subject;
-                            const id = item._id;
+                            const [subject] = item.meeting.subject;
+                            const id = item.meeting._id;
                             return (
                               <tr key={id}>
                                 <td>{subject}</td>
                                 <td>
-                                  {(item.dateEnd &&
-                                    item.dateEnd
+                                  {(item.meeting.dateEnd &&
+                                    item.meeting.dateEnd
                                       .split(',')
                                       .splice(1, 3)
                                       .toString()
@@ -164,8 +130,8 @@ const Meeting = () => {
                                     'Not-Available'}
                                   <br />
                                   <span>
-                                    {(item.dateEnd &&
-                                      item.dateEnd
+                                    {(item.meeting.dateEnd &&
+                                      item.meeting.dateEnd
                                         .split(',')
                                         .splice(1, 3)
                                         .toString()
@@ -174,16 +140,8 @@ const Meeting = () => {
                                       'Not-Available'}
                                   </span>
                                 </td>
-                                <td>
-                                  {getMembers(id) || membersCount || (
-                                    <i className="fa fa-spinner fa-spin" />
-                                  )}{' '}
-                                </td>
-                                <td>
-                                  {getFeedback(id) || feedback || (
-                                    <i className="fa fa-spinner fa-spin" />
-                                  )}
-                                </td>
+                                <td>{item.members}</td>
+                                <td>{item.feebackCount}</td>
                                 <td>
                                   <Link to={`meeting-stats/${id}`}>
                                     View Details &gt;
