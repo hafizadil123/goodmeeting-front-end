@@ -235,11 +235,11 @@ const MeetingStats = ({ history }) => {
                                   
                                     <div className="doughnut3 a">
                                       <Doughnut
-                                        data={data1(item.answers)} options={doughnutOptions1} 
-                                      />
+                                        data={data1(item.answers)} options={doughnutOptions1}  width={400}
                                       
+                                      />
                                     </div>
-                                    <div className="myreview">
+                                    <div className="myreviews">
                                       {item.answers && item.answers.length > 0
                                         ? item.answers.map(answerItem => (
                                           <p className="m-review option">
