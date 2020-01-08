@@ -243,7 +243,7 @@ const MeetingStats = ({ history }) => {
                                       {item.answers && item.answers.length > 0
                                         ? item.answers.map(answerItem => (
                                           <p className="m-review option">
-                                            {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ item.answers.length)*100})%` : '(0%)'}
+                                            {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ totalFeedback)*100})%` : '(0%)'}
                                           </p>
                                         ))
                                         : null}

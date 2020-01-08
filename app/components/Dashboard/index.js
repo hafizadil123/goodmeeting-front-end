@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import LeftSide from './LeftBar';
 import { BASE_URL } from '../../utils/constants';
 import Header from '../NavBar';
-const Dashboard = ({history}) => {
+const Dashboard = ({ history }) => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
   const [loading, setLoading] = useState(true);

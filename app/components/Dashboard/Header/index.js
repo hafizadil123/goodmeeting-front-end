@@ -8,7 +8,7 @@ import mobileLogo from '../../../assets/images/mobile-logo.png';
 import searchImage from '../../../assets/images/search.png';
 import userImage from '../../../assets/images/userIcon.png';
 import { logout } from '../../../utils';
-const Header = ({history}) => (
+const Header = ({ history }) => (
   <>
     <header className="topbar">
       <nav className="navbar top-navbar navbar-expand-md navbar-light">
