@@ -16,7 +16,6 @@ const Login = ({ history }) => {
     if (localStorage.getItem('accessToken')) {
       history.push('/dashboard');
     }
-    localStorage.clear();
   }, []);
   function loginRequest(userInfo) {
     setLoading(true);

@@ -7,7 +7,8 @@ import logo from '../../../assets/images/logo.png';
 import mobileLogo from '../../../assets/images/mobile-logo.png';
 import searchImage from '../../../assets/images/search.png';
 import userImage from '../../../assets/images/userIcon.png';
-const Header = () => (
+import { logout } from '../../../utils';
+const Header = ({history}) => (
   <>
     <header className="topbar">
       <nav className="navbar top-navbar navbar-expand-md navbar-light">
@@ -102,7 +103,7 @@ const Header = () => (
                 </li>
                 <li role="separator" className="divider" />
                 <li className="logout">
-                  <Link to="/login">
+                  <Link to="#" onClick={e => logout(history)}>
                     <i className="fa fa-power-off" /> Logout
                   </Link>
                 </li>
@@ -185,7 +186,11 @@ const Header = () => (
                 </a>
               </li>
               <li>
-                <Link to="/login" aria-expanded="false">
+                <Link
+                  to="#"
+                  aria-expanded="false"
+                  onClick={e => logout(history)}
+                >
                   <img src="../assets/images/logout.png" />
                   <span className="hide-menu">Logout</span>
                 </Link>

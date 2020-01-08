@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 import LeftSide from './LeftBar';
 import { BASE_URL } from '../../utils/constants';
 import Header from '../NavBar';
-const Dashboard = () => {
+const Dashboard = ({history}) => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
-  const [feedback, setFeedback] = useState('');
-  const [membersCount, setMembers] = useState('');
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
@@ -39,38 +37,6 @@ const Dashboard = () => {
       });
   }, []);
 
-  const getMembers = meetingId => {
-    axios
-      .get(`${BASE_URL}get-members-feedback-count/`, {
-        params: {
-          meetingId,
-        },
-      })
-      .then(response => {
-        const { members } = response && response.data;
-        setMembers(members);
-      })
-      .catch(() => {})
-      .then(() => {
-        // always executed
-      });
-  };
-  const getFeedback = meetingId => {
-    axios
-      .get(`${BASE_URL}get-members-feedback-count/`, {
-        params: {
-          meetingId,
-        },
-      })
-      .then(response => {
-        const { feebackCount } = response && response.data;
-        setFeedback(feebackCount);
-      })
-      .catch(() => {})
-      .then(() => {
-        // always executed
-      });
-  };
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-meetings/`, {
@@ -86,7 +52,7 @@ const Dashboard = () => {
   }, []);
   return (
     <>
-      <Header isShow />
+      <Header isShow history={history} />
       <LeftSide />
       <div className="page-wrapper">
         {/* ============================================================== */}

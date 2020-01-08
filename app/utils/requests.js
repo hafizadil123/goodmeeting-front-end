@@ -152,3 +152,8 @@ export const getQuestionsAnswers = url => {
       // always executed
     });
 };
+
+export const logout = history => {
+  localStorage.removeItem('accessToken');
+  history.push('/login');
+};

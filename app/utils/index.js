@@ -77,3 +77,8 @@ export const ColorAlpha = (color, opacity) => {
   }
   throw new Error('Bad Hex');
 };
+
+export const logout = history => {
+  localStorage.removeItem('accessToken');
+  history.push('/login');
+};

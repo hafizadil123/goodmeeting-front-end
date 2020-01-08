@@ -8,7 +8,8 @@ import logo from '../../assets/images/logo.png';
 import mobileLogo from '../../assets/images/mobile-logo.png';
 import searchImage from '../../assets/images/search.png';
 import userImage from '../../assets/images/userIcon.png';
-const NavBar = ({ isShow }) =>
+import { logout } from '../../utils/requests';
+const NavBar = ({ isShow, history }) =>
   isShow ? (
     <div className="fix-header fix-sidebar card-no-border">
       {/* ============================================================== */}
@@ -113,7 +114,7 @@ const NavBar = ({ isShow }) =>
                       </li>
                       <li role="separator" className="divider" />
                       <li className="logout">
-                        <Link to="/login">
+                        <Link to="#" onClick={e => logout(history)}>
                           <i className="fa fa-power-off" /> Logout
                         </Link>
                       </li>

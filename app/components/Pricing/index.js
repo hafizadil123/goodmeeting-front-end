@@ -10,9 +10,9 @@ import member from '../../images/member.png';
 import blue from '../../images/tick-blue.png';
 import premium from '../../images/premium.png';
 import NavBar from '../NavBar';
-const Pricing = () => (
+const Pricing = ({history}) => (
 <>
-  <NavBar isShow />
+  <NavBar isShow history={history} />
   <section className="section5 section1 pricing-page box-art">
     <div className="container">
       <div className="row">

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React,{ useEffect } from 'react';
 import play from '../../images/play.png';
 import MainMeeting from '../../images/main-meeting.png';
 import stated from '../../images/started.png';
@@ -18,7 +18,13 @@ import gmail from '../../images/gmail.png';
 import outlook from '../../images/outlook.png';
 import dash from '../../images/dash.png';
 import RegisterHeader from '../Header';
-const HomePage = () => (
+const HomePage = ({history}) => {
+  useEffect(() => {
+    if (localStorage.getItem('accessToken')) {
+      history.push('/dashboard');
+    }
+  }, []);
+  return (
   <div>
     <RegisterHeader />
   <section className="section1 box-art">
@@ -303,6 +309,6 @@ const HomePage = () => (
   </div>
 </div>
 
-   );
+   )};
 
 export default HomePage;
