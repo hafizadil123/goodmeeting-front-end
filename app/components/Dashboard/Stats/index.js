@@ -207,10 +207,12 @@ const Stats = () => {
                                           ? answerItem.count
                                           : 0}{' '}
                                         {answerItem.count
-                                          ? `(${(answerItem.count /
-                                              (userStats.negativeReviews +
-                                                userStats.positiveReviews) ||
-                                              0) * 100})%`
+                                          ? `(${(
+                                              answerItem.count /
+                                                (userStats.negativeReviews +
+                                                  userStats.positiveReviews) ||
+                                              0
+                                            ).toFixed(2) * 100})%`
                                           : '(0%)'}
                                       </span>
                                     </li>
