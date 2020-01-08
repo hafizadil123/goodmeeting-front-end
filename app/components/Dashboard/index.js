@@ -121,7 +121,7 @@ const Dashboard = () => {
               <div className="card card-inverse card-info">
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
-                    Meetings
+                    Meetings this Week
                     <br />
                   </h6>
                   <i className="fa fa-sort-desc down-red" />
