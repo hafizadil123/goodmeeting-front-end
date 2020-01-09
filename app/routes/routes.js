@@ -15,6 +15,7 @@ import UpdatePassword from '../components/UpdatePassword';
 import PrivateRoute from './privateRoutes';
 import FeedbackForm from '../components/Dashboard/Feedback1';
 import MeetingStats from '../components/Dashboard/MeetingStats';
+import ThankYouMessage from '../components/Dashboard/ThankyouMessage';
 // Import Containers
 
 const Routes = () => (
@@ -42,6 +43,7 @@ const Routes = () => (
       <Route exact path="/update-password" component={UpdatePassword} />
       <Route exact path="/feedback-form" component={FeedbackForm} />
       <Route exact path="/meeting-stats/:id" component={MeetingStats} />
+      <Route exact path="/thank-you" component={ThankYouMessage} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </Suspense>

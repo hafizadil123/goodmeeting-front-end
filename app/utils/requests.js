@@ -96,7 +96,7 @@ export const userLoginRequest = (url, bodyObject, history = {}) => {
       localStorage.setItem('accessToken', token);
       localStorage.setItem('userId', userId);
       return response && response.data;
-      history.push('/dashboard');
+      //history.push('/dashboard');
     })
     .catch(err => {
       const { data } = err.response;
@@ -135,6 +135,7 @@ export const createFeedbacks = (url, bodyObject, history = {}) => {
     .post(`${BASE_URL}${url}`, bodyObject)
     .then(response => {
       const { message } = response && response.data;
+      history.push('/thank-you');
       toast.success(message);
     })
     .catch(err => {

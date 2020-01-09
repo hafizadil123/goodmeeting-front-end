@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 import Loader from 'react-loader-spinner';
 import { Doughnut } from '../../UI/charts';
 import { BASE_URL } from '../../../utils/constants';
@@ -33,7 +34,12 @@ const MeetingStats = ({ history }) => {
   }, []);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}get-questions`, { crossdomain: true })
+      .get(`${BASE_URL}get-question-by-id`, {
+        params: {
+          meetingId: queryParam,
+        },
+        crossdomain: true 
+      })
       .then(response => setQuestion(response && response.data))
       .catch(() => {})
       .then(() => {
@@ -239,8 +245,9 @@ const MeetingStats = ({ history }) => {
                                       
                                       />
                                     </div>
+                                    
                                     <div className="myreviews">
-                                      {item.answers && item.answers.length > 0
+                                      {item.answers && item.answers.length > 0 
                                         ? item.answers.map(answerItem => (
                                           <p className="m-review option">
                                             {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ totalFeedback).toFixed(2)*100})%` : '(0%)'}
