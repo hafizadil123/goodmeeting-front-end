@@ -96,7 +96,7 @@ export const userLoginRequest = (url, bodyObject, history = {}) => {
       localStorage.setItem('accessToken', token);
       localStorage.setItem('userId', userId);
       return response && response.data;
-      //history.push('/dashboard');
+      // history.push('/dashboard');
     })
     .catch(err => {
       const { data } = err.response;

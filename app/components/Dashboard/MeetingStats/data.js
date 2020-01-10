@@ -17,11 +17,11 @@ export const Months = [
 export const white = '#fff';
 export const gray900 = '#222b3c';
 export const Colors = [
-  '#31b1fd',
-  '#6610f2',
-  '#f86c6b',
-  '#dc3545',
-  '#fd7e14',
+  '#0D4EE0',
+  '#F55B4F',
+  '#AFC4D5',
+  '#7f91db',
+  '#0D4EE0',
   '#ffc107',
   '#28a745',
   '#20c997',

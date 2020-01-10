@@ -90,7 +90,7 @@ const FeedbackForm = ({ history }) => {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" />
+                  {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
                   <h1 className="heading1">
                     Looks like you had a good meeting.
                   </h1>
