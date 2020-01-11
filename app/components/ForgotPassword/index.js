@@ -38,7 +38,9 @@ const ForgotPassword = ({ history }) => {
         <div className="row no-gutters">
           <div className="col-md-7">
             <div className="bg-blue login-con">
+            <Link to="/">
               <img src={logoImage} className="logo-white" alt="logo-img" />
+            </Link>
               <img
                 src={formImage}
                 className="img-form mx-auto d-block"

@@ -198,11 +198,10 @@ const MeetingStats = ({ history }) => {
                         </div>
                         <div className="col-md-6">
                           <p className="text-uppercase">Round up</p>
-                          <div className="row">
-                            <div className="col-lg-12 col-12 chart">
+                          <div className="row1">
+                            <div className="chart">
                               <Doughnut
-                                data={data(goodMeeting, badMeeting, noResponse)} options={doughnutOptions}  width={400}
-                                height={100}
+                                data={data(goodMeeting, badMeeting, noResponse)} options={doughnutOptions} 
                               />
                             
                             </div>

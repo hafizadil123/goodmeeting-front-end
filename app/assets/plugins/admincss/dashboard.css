@@ -543,6 +543,9 @@ html body .bg-info {
 .switches1 {
     margin-bottom: 60px;
 }
+.chart{
+    width: 300px;
+}
 .meeting-stats .tab-pane.active{
     background-color: #fff;
 }
@@ -916,6 +919,21 @@ img.red-c {
     text-align: left;
     margin-bottom: 0;
 
+}
+.recent-table .card-body{
+    padding: 0;
+}
+.recent-table tr{
+    white-space: nowrap;
+}
+.topbar .top-navbar.fixed-top{
+    background: #fff;
+}
+.page-wrapper{
+    margin-top: 75px;
+}
+aside.left-sidebar {
+    position: fixed;
 }
 /*************** feedbackform 2*********************/
 .custom-form-wrap{

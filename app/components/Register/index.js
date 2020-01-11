@@ -38,7 +38,9 @@ const Register = ({ history }) => {
         <div className="row no-gutters">
           <div className="col-md-7">
             <div className="bg-blue login-con">
+            <Link to="/">
               <img src={logoWhite} className="logo-white" alt="logo" />
+            </Link>
               <div className="text-reg">
                 <h6 className="text-white strt">Get started now</h6>
                 <p className="text-white regi">
