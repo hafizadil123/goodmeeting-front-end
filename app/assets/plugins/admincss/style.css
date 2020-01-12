@@ -881,11 +881,7 @@ Buttons
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.chart{
-  position: relative;
-  right: 143px;
-  top: 20px;
-}
+
 .btn-outline {
   color: inherit;
   background-color: transparent;
@@ -2428,7 +2424,7 @@ Easy pie chart
   display: inline-block;
   width: 100px;
   height: 100px;
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 20px;
   text-align: center; }
   .chart canvas {

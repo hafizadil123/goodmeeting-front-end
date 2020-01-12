@@ -17,8 +17,8 @@ import Footer from '../../components/Footer';
 function App() {
   return (
     <React.Fragment>
-      <Helmet titleTemplate="%s - sportsbook" defaultTitle="sportsbook">
-        <meta name="description" content="sportsbook" />
+      <Helmet titleTemplate="%s - GoodMeeting" defaultTitle="GoodMeeting">
+        <meta name="description" content="GoodMeeting" />
       </Helmet>
       <Routes />
       <ToastContainer autoClose={5000} />
