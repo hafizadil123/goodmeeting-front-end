@@ -13,12 +13,11 @@ import { ToastContainer } from 'react-toastify';
 import GlobalStyle from '../../global-styles';
 import Routes from '../../routes/routes';
 import Footer from '../../components/Footer';
-
 function App() {
   return (
     <React.Fragment>
-      <Helmet titleTemplate="%s - sportsbook" defaultTitle="sportsbook">
-        <meta name="description" content="sportsbook" />
+      <Helmet titleTemplate="%s - good Meeting" defaultTitle="good Meeting">
+        <meta name="description" content="good-meeting" />
       </Helmet>
       <Routes />
       <ToastContainer autoClose={5000} />

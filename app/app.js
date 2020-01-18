@@ -24,7 +24,7 @@ import './assets/plugins/admincss/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/plugins/admincss/dashboard.css';
 import './assets/plugins/bootstrap/css/style.css';
-
+import io from 'socket.io-client';
 import 'react-toastify/dist/ReactToastify.css';
 // Import root app
 import jQuery from 'jquery';
@@ -52,9 +52,13 @@ import 'file-loader?name=.htaccess!./.htaccess';
 import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
-
+const socket = io('http://localhost:4567');
 // Create redux store with history
+socket.on('connect', () => {
+  console.log('connected frontendMiddleware');
+});
 window.jQuery = jQuery;
+window.socket = io;
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
