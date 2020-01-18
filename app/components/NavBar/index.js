@@ -20,7 +20,7 @@ const NavBar = ({ isShow, history }) =>
         {/* Topbar header - style you can find in pages.scss */}
         {/* ============================================================== */}
         <header className="topbar">
-          <nav className="navbar top-navbar navbar-expand-md navbar-light">
+          <nav className="navbar fixed-top top-navbar navbar-expand-md navbar-light">
             {/* ============================================================== */}
             {/* Logo */}
             {/* ============================================================== */}

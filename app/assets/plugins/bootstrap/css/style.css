@@ -953,7 +953,7 @@ span.remember {
     font-size: 12px;
     font-weight: 500;
     vertical-align: text-top;
-    margin-top: 3px;
+    margin-top: -1px;
     display: inline-table;
 }
 a.f-pwd {
@@ -1411,11 +1411,7 @@ form#demo-2{
     display: none;
 
 }
-.chart{
-    position: relative;
-    right: 135px;
-    margin-top: -16px;
-  }
+
 .radios li {
     list-style: none;
     display: inline-block;
@@ -1773,6 +1769,10 @@ padding: 8px 20px 5px 20px;
 width: -webkit-max-content;
 width: -moz-max-content;
 width: max-content;
+}
+.bg-blue.login-con img{
+    position: relative;
+    z-index: 99;
 }
 @media (min-width: 1200px){
     .request-demo .modal-xl {

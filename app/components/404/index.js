@@ -4,7 +4,7 @@ import logoImage from '../../assets/images/logo.png';
 import notFoundImage from '../../assets/images/pic404.svg';
 const NotfoundPage = () => (
   <section className="page404">
-    <div className="container" style={{paddingTop: '3%'}}>
+    <div className="container" style={{ paddingTop: '3%' }}>
       <div className="row">
         <div className="col-md-12">
           <img src={logoImage} className="logo" alt="logo-img" />
