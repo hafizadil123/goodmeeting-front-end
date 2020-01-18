@@ -7,12 +7,7 @@ export const data = (a, b, c) => {
       {
         label: 'Doughnut',
 
-        backgroundColor: [
-          '#F55B4F',
-          '#AFC4D5',
-          '#0D4EE0'
-          
-          ],
+        backgroundColor: ['#F55B4F', '#AFC4D5', '#0D4EE0'],
         borderColor: ColorAlpha(white, 0),
         borderWidth: 3,
         data: [a, b, c],
@@ -30,12 +25,7 @@ export const data1 = answer => {
     datasets: [
       {
         label: 'Doughnut',
-        backgroundColor: [
-          '#F55B4F',
-          '#AFC4D5',
-          '#0D4EE0'
-          
-          ],
+        backgroundColor: ['#F55B4F', '#AFC4D5', '#0D4EE0'],
         borderColor: ColorAlpha(white, 0),
         borderWidth: 3,
 
