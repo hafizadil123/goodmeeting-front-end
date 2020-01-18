@@ -58,10 +58,10 @@ const MeetingStats = ({ history }) => {
   } = meetingDetail && meetingDetail;
   // test();
   const getMeetingStatus = avg => {
-    if (avg > 0 && avg <= 50) {
+    if (avg >= 0 && avg <= 50) {
       return 'BAD Meeting';
     }
-    if (avg > 50 && avg < 75) {
+    if (avg >= 50 && avg <= 75) {
       return 'Okay Meeting';
     }
     return 'Good Meeting';
