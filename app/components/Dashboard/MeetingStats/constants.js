@@ -6,8 +6,7 @@ export const data = (a, b, c) => {
     datasets: [
       {
         label: 'Doughnut',
-
-        backgroundColor: ['#F55B4F', '#AFC4D5', '#0D4EE0'],
+        backgroundColor: ['#0D4EE0', '#F55B4F', '#AFC4D5'],
         borderColor: ColorAlpha(white, 0),
         borderWidth: 3,
         data: [a, b, c],
