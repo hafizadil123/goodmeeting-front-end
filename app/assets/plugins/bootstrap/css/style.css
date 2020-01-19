@@ -514,6 +514,7 @@ ul.fa-ul img {
 /*********************  section 6 ***************/
 .section6{
     text-align: center;
+    margin-top:60px;
 }
 .section6 h2 {
     font-size: 28px;
@@ -1183,7 +1184,7 @@ img#blah {
 }
 
 .section6 {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 .dashnav1{
     -webkit-box-shadow: 0px 4px 20px #AEC1D0;

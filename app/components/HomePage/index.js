@@ -34,7 +34,7 @@ const HomePage = ({history}) => {
           <h1 className="heading1">A Good Meeting starts off with</h1>
           <a href="#" className="btn-link">havea@goodmeeting.today</a>
           <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
-          <a href="#" className="btn btn-md btn-primary btn-blue">How it works <img width="25px" src={play} /></a>
+          <a href="#" className="btn btn-md btn-primary btn-blue">Get Started for Free! </a>
           <div className="gmail">
           <small>Supports</small>
             <ul>
@@ -99,7 +99,7 @@ const HomePage = ({history}) => {
     <div className="container">
       <div className="row">
         <div className="col-md-12">
-          <h2 style={{color: 'white'}}>This is how it would look when you are all set for the meeting.</h2>
+          <h2 className="text-capitalize" style={{color: 'white'}}>This is how it would look when you are all set for the meeting.</h2>
           <img src={dash} className="" />
         </div>
       </div>
@@ -110,7 +110,7 @@ const HomePage = ({history}) => {
       <div className="row">
         <div className="col-md-12">
           <p className="blue">Ground Breaking Stats</p>
-          <h2>While Making the things visually ananlyzable and cruching data into graphs<br /> for you, we didn’t realise the digit counter was increasing for us too.</h2>
+          <h2 className="text-capitalize">While Making the things visually ananlyzable and cruching data into graphs<br /> for you, we didn’t realise the digit counter was increasing for us too.</h2>
         </div>
       </div>
       <div className="row justify-content-center">
@@ -138,7 +138,7 @@ const HomePage = ({history}) => {
       </div>
     </div>
   </section>
-  <section className="section5">
+  {/* <section className="section5">
     <div className="container">
       <div className="row">
         <div className="col-md-12 text-center">
@@ -158,9 +158,9 @@ const HomePage = ({history}) => {
         <div className="col-md-12">
           <div className="tab-content" id="pills-tabContent">
             <div className="tab-pane fade show active" id="pills-yearly" role="tabpanel" aria-labelledby="pills-yearly-tab">
-              <div className="row">
+              <div className="row"> */}
                 {/* Free Tier */}
-                <div className="col-lg-4 col-md-4 p-0">
+                {/* <div className="col-lg-4 col-md-4 p-0">
                   <div className="card mb-5 mb-lg-0 pricings">
                     <div className="card-body">
                       <img src={stated} className="pricing-icon" />
@@ -176,9 +176,9 @@ const HomePage = ({history}) => {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* Free Tier */}
-                <div className="col-lg-4 col-md-4 p-0">
+                {/* <div className="col-lg-4 col-md-4 p-0">
                   <div className="card mb-5 mb-lg-0 pricings mid-price">
                     <div className="card-body">
                       <img src={business} className="pricing-icon" />
@@ -195,9 +195,9 @@ const HomePage = ({history}) => {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* Free Tier */}
-                <div className="col-lg-4 col-md-4 p-0">
+                {/* <div className="col-lg-4 col-md-4 p-0">
                   <div className="card mb-5 mb-lg-0 pricings">
                     <div className="card-body">
                       <img src={premium} className="pricing-icon" />
@@ -222,13 +222,13 @@ const HomePage = ({history}) => {
         </div>
       </div>
     </div>
-  </section>
+  </section> */}
   <section className="section6">
     <div className="container">
       <div className="row">
         <div className="col-lg-12">
           <p className="blue" href="javascript:void(0);">Let’s Get Started</p>
-          <h2>Sign up with us today and get all the answers you need!!</h2>
+          <h2 className="text-capitalize">Sign up with us today and get all the answers you need!!</h2>
           <a data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</a>
           <a href="#" className="btn btn-outline btn-md btn-line font-weight-normal">GET STARTED</a>
         </div>
