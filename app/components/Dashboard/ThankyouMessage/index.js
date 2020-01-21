@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import hsbclogo from '../../../assets/images/hsbclogo.png';
-import logo from '../../../assets/images/loop.png';
+import logo from '../../../assets/images/logo.png';
 
 const ThankYouMessage = () => (
   <>
