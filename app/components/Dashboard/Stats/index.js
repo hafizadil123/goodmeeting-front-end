@@ -13,7 +13,7 @@ const Stats = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}get-feedback-stats/`, {
+      .get(`${BASE_URL}get-summary/`, {
         params: {
           userId: localStorage.getItem('userId'),
         },
@@ -83,7 +83,7 @@ const Stats = () => {
                   <i className="fa fa-sort-desc down-red" />
                   <h1 className="font-light text-white">
                     {' '}
-                    {userStats.totalMeeting || 0}
+                    {userStats.allMeetings || 0}
                   </h1>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const Stats = () => {
                   <i className="fa fa-sort-desc down-red" />
                   <h1 className="font-light text-white">
                     {' '}
-                    {userStats.negativeReviews + userStats.positiveReviews || 0}
+                    {userStats.allFeedback || 0}
                   </h1>
                 </div>
               </div>
@@ -115,9 +115,7 @@ const Stats = () => {
                   <i className="fa fa-sort-desc down-red" />
                   <h1 className="font-light text-white">
                     {' '}
-                    {userStats.totalMeeting -
-                      (userStats.negativeReviews + userStats.positiveReviews) ||
-                      0}
+                    {userStats.noResponse || 0}
                   </h1>
                 </div>
               </div>
