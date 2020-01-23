@@ -27,7 +27,12 @@ const Stats = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}get-questions`)
+      .get(`${BASE_URL}get-stats-by-user-id`, {
+        params: {
+          userId: localStorage.getItem('userId'),
+        },
+        crossdomain: true,
+      })
       .then(response => setQuestion(response && response.data))
       .catch(() => {})
       .then(() => {
@@ -131,7 +136,7 @@ const Stats = () => {
                   <i className="fa fa-caret-up up-green" />
                   <h1 className="font-light text-white">
                     {' '}
-                    {userStats.avgScore || 0}
+                    {Number(userStats.avgScore).toFixed(1) || 0}
                   </h1>
                 </div>
               </div>
@@ -205,12 +210,9 @@ const Stats = () => {
                                           ? answerItem.count
                                           : 0}{' '}
                                         {answerItem.count
-                                          ? `(${(
-                                              answerItem.count /
-                                                (userStats.negativeReviews +
-                                                  userStats.positiveReviews) ||
-                                              0
-                                            ).toFixed(2) * 100})%`
+                                          ? `(${answerItem.percentage.toFixed(
+                                              2,
+                                            )}%)`
                                           : '(0%)'}
                                       </span>
                                     </li>
