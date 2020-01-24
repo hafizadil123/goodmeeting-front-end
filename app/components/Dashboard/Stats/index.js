@@ -136,7 +136,7 @@ const Stats = () => {
                   <i className="fa fa-caret-up up-green" />
                   <h1 className="font-light text-white">
                     {' '}
-                    {Number(userStats.avgScore).toFixed(1) || 0}
+                    {Number(userStats.avgScore).toFixed(0) || 0}
                   </h1>
                 </div>
               </div>
