@@ -12,6 +12,7 @@ import hsbcLogo from '../../../assets/images/hsbclogo.png';
 
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
+  const [isDisabled, setDisabled] = useState(true);
   const [asnwerId, setAnswerId] = useState(0);
   const [answer, setAnswer] = useState([]);
   const [allQuestions, setQuestion] = useState([]);
@@ -24,8 +25,13 @@ const FeedbackForm = ({ history }) => {
         // always executed
       });
   }, []);
+  const handleButtonDisble = value => {
+    setAnswerId(value);
+    setDisabled(!isDisabled);
+  };
   const onUpdatePage = (e, value, questionId) => {
     e.preventDefault();
+    setDisabled(!isDisabled);
     const feedbackMapping = {
       questionId,
       answerId: value,
@@ -141,7 +147,7 @@ const FeedbackForm = ({ history }) => {
                                     <input
                                       type="radio"
                                       name="size"
-                                      onChange={() => setAnswerId(el.id)}
+                                      onChange={() => handleButtonDisble(el.id)}
                                     />
                                     <span>{el.answer}</span>
                                   </label>
@@ -152,6 +158,7 @@ const FeedbackForm = ({ history }) => {
                             <button
                               type="button"
                               className="nextButton"
+                              disabled={isDisabled}
                               onClick={e =>
                                 onUpdatePage(e, asnwerId, allQuestions[0]._id)
                               }
@@ -174,7 +181,7 @@ const FeedbackForm = ({ history }) => {
                                   <input
                                     type="radio"
                                     name="size"
-                                    onChange={() => setAnswerId(el.id)}
+                                    onChange={() => handleButtonDisble(el.id)}
                                   />
                                   <span>{el.answer}</span>
                                 </label>
@@ -184,6 +191,7 @@ const FeedbackForm = ({ history }) => {
                           <button
                             type="button"
                             className="nextButton"
+                            disabled={isDisabled}
                             onClick={e =>
                               onUpdatePage(e, asnwerId, allQuestions[1]._id)
                             }
@@ -205,7 +213,7 @@ const FeedbackForm = ({ history }) => {
                                   <input
                                     type="radio"
                                     name="size"
-                                    onChange={() => setAnswerId(el.id)}
+                                    onChange={() => handleButtonDisble(el.id)}
                                   />
                                   <span>{el.answer}</span>
                                 </label>
@@ -215,6 +223,7 @@ const FeedbackForm = ({ history }) => {
                           <button
                             type="button"
                             className="nextButton"
+                            disabled={isDisabled}
                             onClick={e =>
                               onUpdatePage(e, asnwerId, allQuestions[2]._id)
                             }
@@ -237,7 +246,7 @@ const FeedbackForm = ({ history }) => {
                                     <input
                                       type="radio"
                                       name="size"
-                                      onChange={() => setAnswerId(el.id)}
+                                      onChange={() => handleButtonDisble(el.id)}
                                     />
                                     <span>{el.answer}</span>
                                   </label>
@@ -247,6 +256,7 @@ const FeedbackForm = ({ history }) => {
                             <button
                               type="button"
                               className="nextButton"
+                              disabled={isDisabled}
                               onClick={e =>
                                 onUpdatePage(e, asnwerId, allQuestions[3]._id)
                               }
