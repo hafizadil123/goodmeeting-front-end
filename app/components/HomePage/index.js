@@ -17,6 +17,7 @@ import premium from '../../images/premium.png';
 import gmail from '../../images/gmail.png';
 import outlook from '../../images/outlook.png';
 import dash from '../../images/dash.png';
+import { Link } from 'react-router-dom';
 import RegisterHeader from '../Header';
 const HomePage = ({history}) => {
   useEffect(() => {
@@ -32,9 +33,9 @@ const HomePage = ({history}) => {
       <div className="row">
         <div className="col-md-6">
           <h1 className="heading1">A Good Meeting starts off with</h1>
-          <a href="#" className="btn-link">havea@goodmeeting.today</a>
+          <Link to="/" className="btn-link">havea@goodmeeting.today</Link>
           <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
-          <a href="#" className="btn btn-md btn-primary btn-blue">Get Started for Free! </a>
+          <Link to="/" className="btn btn-md btn-primary btn-blue">Get Started for Free! </Link>
           <div className="gmail">
           <small>Supports</small>
             <ul>
@@ -69,7 +70,7 @@ const HomePage = ({history}) => {
             <img src={stated} />
             <h2>Get started with a FREE* Account</h2>
             <p>It takes less than 2 minutes to onboard<br /> and kick off.</p>
-            <a href="#" className="btn btn-outline btn-md btn-line">Get Started Now</a>
+            <Link to="/" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
           </div>
         </div>
       </div>
@@ -79,7 +80,7 @@ const HomePage = ({history}) => {
             <img src={Meeting} />
             <h2>Start a new meeting</h2>
             <p>Just don’t forget to keep<br /> “havea@goodmeeting.today” in CC<br /> and we will start crunching numbers for you.</p>
-            <a href="#" className="btn btn-outline btn-md btn-line">Get Started Now</a>
+            <Link to="/" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
           </div>
         </div>
       </div>
@@ -89,7 +90,7 @@ const HomePage = ({history}) => {
             <img src={Feedback} />
             <h2>Get the feedback</h2>
             <p>We will assess the meeting score for<br /> you and let’s see if you can beat your<br /> own personal best.</p>
-            <a href="#" className="btn btn-outline btn-md btn-line">Start Trial</a>
+            <Link to="/" className="btn btn-outline btn-md btn-line">Start Trial</Link>
           </div>
         </div>
       </div>
@@ -146,10 +147,10 @@ const HomePage = ({history}) => {
           <h2>Choose a Plan that works for you</h2>
           <ul className="nav nav-pills" id="pills-tab" role="tablist">
             <li className="nav-item">
-              <a className="nav-link active" id="pills-yearly-tab" data-toggle="pill" href="#pills-yearly" role="tab" aria-controls="pills-yearly" aria-selected="true">Yearly</a>
+              <Link className="nav-link active" id="pills-yearly-tab" data-toggle="pill" href="#pills-yearly" role="tab" aria-controls="pills-yearly" aria-selected="true">Yearly</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" id="pills-yearly-tab" data-toggle="pill" href="#pills-monthly" role="tab" aria-controls="pills-monthly" aria-selected="false">Monthly</a>
+              <Link className="nav-link" id="pills-yearly-tab" data-toggle="pill" href="#pills-monthly" role="tab" aria-controls="pills-monthly" aria-selected="false">Monthly</Link>
             </li>
           </ul>
         </div>
@@ -166,7 +167,7 @@ const HomePage = ({history}) => {
                       <img src={stated} className="pricing-icon" />
                       <h5 className="card-title title1 text-center">Starter</h5>
                       <h5 className="card-title title2 text-uppercase text-center">FREE</h5>
-                      <a href="#" className="btn btn-outline btn-md btn-line font-weight-normal">Get Started</a>
+                      <Link to="/" className="btn btn-outline btn-md btn-line font-weight-normal">Get Started</Link>
                       <hr />
                       <ul className="fa-ul">
                         <li className="text-muted"><span className="fa-li"><img src={tick} /></span>GMT watermark in the email</li>
@@ -184,7 +185,7 @@ const HomePage = ({history}) => {
                       <img src={business} className="pricing-icon" />
                       <h5 className="card-title title1 text-center">Business</h5>
                       <h5 className="card-title title2 text-uppercase text-center">$17.99</h5>
-                      <a href="#" className="btn btn-md btn-primary font-weight-normal btn-blue">BUY PLAN</a>
+                      <Link to="/" className="btn btn-md btn-primary font-weight-normal btn-blue">BUY PLAN</Link>
                       <hr />
                       <ul className="fa-ul">
                         <li className><span className="fa-li"><img src={blue} /></span>Custom Templates</li>
@@ -203,7 +204,7 @@ const HomePage = ({history}) => {
                       <img src={premium} className="pricing-icon" />
                       <h5 className="card-title title1 text-center">Premium</h5>
                       <h5 className="card-title title2 text-uppercase text-center">$39.99</h5>
-                      <a href="#" className="btn btn-outline btn-md btn-line font-weight-normal">Learn More</a>
+                      <Link to="/" className="btn btn-outline btn-md btn-line font-weight-normal">Learn More</Link>
                       <hr />
                       <ul className="fa-ul">
                         <li className><span className="fa-li"><img src={tick} /></span>Multilevel access for mid &amp; large enterprises.</li>
@@ -229,8 +230,8 @@ const HomePage = ({history}) => {
         <div className="col-lg-12">
           <p className="blue" href="javascript:void(0);">Let’s Get Started</p>
           <h2 className="text-capitalize">Sign up with us today and get all the answers you need!!</h2>
-          <a data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</a>
-          <a href="#" className="btn btn-outline btn-md btn-line font-weight-normal">GET STARTED</a>
+          <Link data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link>
+          <Link to="/" className="btn btn-outline btn-md btn-line font-weight-normal">GET STARTED</Link>
         </div>
       </div>
     </div>

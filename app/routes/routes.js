@@ -16,6 +16,7 @@ import PrivateRoute from './privateRoutes';
 import FeedbackForm from '../components/Dashboard/Feedback1';
 import MeetingStats from '../components/Dashboard/MeetingStats';
 import ThankYouMessage from '../components/Dashboard/ThankyouMessage';
+import HowItsWorks from '../components/HowItsWorks';
 // Import Containers
 
 const Routes = () => (
@@ -44,6 +45,7 @@ const Routes = () => (
       <Route exact path="/feedback-form" component={FeedbackForm} />
       <Route exact path="/meeting-stats/:id" component={MeetingStats} />
       <Route exact path="/thank-you" component={ThankYouMessage} />
+      <Route exact path="/how-its-works" component={HowItsWorks} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </Suspense>
