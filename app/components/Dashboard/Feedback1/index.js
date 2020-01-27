@@ -157,7 +157,9 @@ const FeedbackForm = ({ history }) => {
 
                             <button
                               type="button"
-                              className="nextButton"
+                              className={`${
+                                isDisabled ? 'disableButton' : 'nextButton'
+                              }`}
                               disabled={isDisabled}
                               onClick={e =>
                                 onUpdatePage(e, asnwerId, allQuestions[0]._id)
@@ -190,7 +192,9 @@ const FeedbackForm = ({ history }) => {
                           </ul>
                           <button
                             type="button"
-                            className="nextButton"
+                            className={`${
+                              isDisabled ? 'disableButton' : 'nextButton'
+                            }`}
                             disabled={isDisabled}
                             onClick={e =>
                               onUpdatePage(e, asnwerId, allQuestions[1]._id)
@@ -222,7 +226,9 @@ const FeedbackForm = ({ history }) => {
                           </ul>
                           <button
                             type="button"
-                            className="nextButton"
+                            className={`${
+                              isDisabled ? 'disableButton' : 'nextButton'
+                            }`}
                             disabled={isDisabled}
                             onClick={e =>
                               onUpdatePage(e, asnwerId, allQuestions[2]._id)
@@ -255,7 +261,9 @@ const FeedbackForm = ({ history }) => {
                             </ul>
                             <button
                               type="button"
-                              className="nextButton"
+                              className={`${
+                                isDisabled ? 'disableButton' : 'nextButton'
+                              }`}
                               disabled={isDisabled}
                               onClick={e =>
                                 onUpdatePage(e, asnwerId, allQuestions[3]._id)

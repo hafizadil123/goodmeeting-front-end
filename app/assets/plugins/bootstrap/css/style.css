@@ -1428,6 +1428,14 @@ color: white;
 border-radius: 4px;
 outline: none !important;
 }
+.disableButton {
+    display: inline-block;
+background-color: #cccccc;
+padding: 3px 20px 5px 19px;
+color: white;
+border-radius: 4px;
+outline: none !important;
+}
 .payment .tab-content.current{
     display: inherit;
 }
