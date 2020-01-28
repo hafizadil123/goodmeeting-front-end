@@ -5,6 +5,7 @@ import BusinessImage from '../../assets/images/business.png';
 import ClipBoardImage from '../../assets/images/clipboard.png';
 import workBannerImage from '../../assets/images/work-banner.png';
 import Header from '../Header';
+import Footer from '../Footer';
 const HowItsWorks = () => (
   <>
     <Header />
@@ -13,18 +14,20 @@ const HowItsWorks = () => (
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="heading1">
-                How it works: <span className="blue">3 simple steps</span>
-              </h1>
-              <Link to="#" className="btn-link">
-                lets-havea@goodmeeting.today
-              </Link>
-              <p>
-                Create an account. Keep this in CC and Voila, we will do
-                everything to keep your
-                <br /> meetings checked. Log back in to receive feedback and
-                stats, all at one place.
-              </p>
+              <div style={{ textAlign: 'center' }}>
+                <h1 className="heading1">
+                  How it works: <span className="blue">3 simple steps</span>
+                </h1>
+                <Link to="#" className="btn-link">
+                  lets-havea@goodmeeting.today
+                </Link>
+                <p>
+                  Create an account. Keep this in CC and Voila, we will do
+                  everything to keep your
+                  <br /> meetings checked. Log back in to receive feedback and
+                  stats, all at one place.
+                </p>
+              </div>
               <img src={workBannerImage} className="img-fluid" alt="banner" />
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -102,6 +105,7 @@ const HowItsWorks = () => (
         </div>
       </section>
     </div>
+    <Footer />
   </>
 );
 

@@ -38,21 +38,21 @@ const Header = () => (
                 How it works
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 Pricing
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Blog
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 Demo
               </a>
-            </li>
+            </li> */}
           </ul>
           <ul className="navbar-nav ml-auto right-btn">
             <Link to="/register" className="btn btn-danger btn-md btn-red">
