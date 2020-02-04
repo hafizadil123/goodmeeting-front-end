@@ -85,7 +85,11 @@ const UpdatePassword = ({ history }) => {
                       <Field
                         type="password"
                         name="password"
-                        className="form-control"
+                        className={
+                          errors.password
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="Password"
                       />
                       {errors.password && touched.password ? (
@@ -97,7 +101,11 @@ const UpdatePassword = ({ history }) => {
                     <div className="form-group">
                       <Field
                         type="password"
-                        className="form-control"
+                        className={
+                          errors.confirmPassword
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         name="confirmPassword"
                         placeholder="Confirm Password"
                       />

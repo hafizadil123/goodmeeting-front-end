@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -12,6 +12,11 @@ import { SignupSchema } from './schema';
 
 const Register = ({ history }) => {
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('accessToken')) {
+      history.push('/dashboard');
+    }
+  }, []);
   function createUser(userInfo) {
     setLoading(true);
     const { fullName, email, password } = userInfo;
@@ -20,7 +25,9 @@ const Register = ({ history }) => {
       .then(response => {
         const { message } = response && response.data;
         toast.success(message);
-        history.push('/login');
+        localStorage.setItem('accessToken', 'COhFCw3DmtS3x5vAzjWMueG48ZmQiI25');
+        localStorage.setItem('userId', 'COhFCw3DmtS3x5vAzjWMueG48ZmQiI25');
+        history.push('/dashboard');
         setLoading(false);
       })
       .catch(() => {
@@ -79,7 +86,11 @@ const Register = ({ history }) => {
                       <Field
                         type="text"
                         name="fullName"
-                        className="form-control"
+                        className={
+                          errors.fullName
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="Justin Green"
                       />
                       {errors.fullName && touched.fullName ? (
@@ -92,7 +103,11 @@ const Register = ({ history }) => {
                       <Field
                         type="email"
                         name="email"
-                        className="form-control"
+                        className={
+                          errors.email
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="justin.g@email.com"
                       />
                       {errors.email && touched.email ? (
@@ -104,7 +119,11 @@ const Register = ({ history }) => {
                       <Field
                         type="password"
                         name="password"
-                        className="form-control"
+                        className={
+                          errors.password
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="Password"
                       />
                       {errors.password && touched.password ? (
@@ -116,7 +135,11 @@ const Register = ({ history }) => {
                     <div className="form-group">
                       <Field
                         type="password"
-                        className="form-control"
+                        className={
+                          errors.confirmPassword
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         name="confirmPassword"
                         placeholder="Confirm Password"
                       />

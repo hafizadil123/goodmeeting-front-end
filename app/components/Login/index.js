@@ -75,7 +75,11 @@ const Login = ({ history }) => {
                       <Field
                         type="email"
                         name="email"
-                        className="form-control"
+                        className={
+                          errors.email
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="Email"
                       />
                       {errors.email && touched.email ? (
@@ -86,7 +90,11 @@ const Login = ({ history }) => {
                       <Field
                         type="password"
                         name="password"
-                        className="form-control"
+                        className={
+                          errors.password
+                            ? 'form-control validation addCross'
+                            : 'form-control'
+                        }
                         placeholder="Password"
                       />
                       {errors.password && touched.password ? (

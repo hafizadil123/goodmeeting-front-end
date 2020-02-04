@@ -1428,6 +1428,16 @@ color: white;
 border-radius: 4px;
 outline: none !important;
 }
+.validation {
+    border: 2px solid #E94538 !important;
+}
+.addCross{
+    padding-right: calc(1.5em + .75rem);
+    background-image: url('../../../../assets/images/download.svg');
+    background-repeat: no-repeat;
+    background-position: center right calc(.375em + .1875rem);
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
 .disableButton {
     display: inline-block;
 background-color: #cccccc;
