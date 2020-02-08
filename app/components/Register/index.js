@@ -87,7 +87,7 @@ const Register = ({ history }) => {
                         type="text"
                         name="fullName"
                         className={
-                          errors.fullName
+                          errors.fullName && touched.fullName
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
@@ -104,7 +104,7 @@ const Register = ({ history }) => {
                         type="email"
                         name="email"
                         className={
-                          errors.email
+                          errors.email && touched.email
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
@@ -120,7 +120,7 @@ const Register = ({ history }) => {
                         type="password"
                         name="password"
                         className={
-                          errors.password
+                          errors.password && touched.password
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
@@ -136,7 +136,7 @@ const Register = ({ history }) => {
                       <Field
                         type="password"
                         className={
-                          errors.confirmPassword
+                          errors.confirmPassword && touched.confirmPassword
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }

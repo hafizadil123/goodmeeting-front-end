@@ -86,7 +86,7 @@ const UpdatePassword = ({ history }) => {
                         type="password"
                         name="password"
                         className={
-                          errors.password
+                          errors.password && touched.password
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
@@ -102,7 +102,7 @@ const UpdatePassword = ({ history }) => {
                       <Field
                         type="password"
                         className={
-                          errors.confirmPassword
+                          errors.confirmPassword && touched.confirmPassword
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }

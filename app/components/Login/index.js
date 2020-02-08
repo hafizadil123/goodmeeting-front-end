@@ -76,7 +76,7 @@ const Login = ({ history }) => {
                         type="email"
                         name="email"
                         className={
-                          errors.email
+                          errors.email && touched.email
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
@@ -91,7 +91,7 @@ const Login = ({ history }) => {
                         type="password"
                         name="password"
                         className={
-                          errors.password
+                          errors.password && touched.password
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }

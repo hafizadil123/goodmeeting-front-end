@@ -67,7 +67,7 @@ const ForgotPassword = ({ history }) => {
                         type="email"
                         name="email"
                         className={
-                          errors.email
+                          errors.email && touched.email
                             ? 'form-control validation addCross'
                             : 'form-control'
                         }
