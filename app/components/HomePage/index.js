@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable prettier/prettier */
 import React,{ useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import play from '../../images/play.png';
 import MainMeeting from '../../images/main-meeting.png';
 import stated from '../../images/started.png';
@@ -17,7 +18,6 @@ import premium from '../../images/premium.png';
 import gmail from '../../images/gmail.png';
 import outlook from '../../images/outlook.png';
 import dash from '../../images/dash.png';
-import { Link } from 'react-router-dom';
 import RegisterHeader from '../Header';
 const HomePage = ({history}) => {
   useEffect(() => {

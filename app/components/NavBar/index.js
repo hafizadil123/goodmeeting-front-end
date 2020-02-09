@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from '../../assets/images/logo.png';
@@ -9,8 +9,9 @@ import mobileLogo from '../../assets/images/mobile-logo.png';
 import searchImage from '../../assets/images/search.png';
 import userImage from '../../assets/images/userIcon.png';
 import { logout } from '../../utils/requests';
-const NavBar = ({ isShow, history }) =>
-  isShow ? (
+const NavBar = ({ isShow, history }) => {
+  const [showNotification, setShowNotification] = useState(false);
+  return isShow ? (
     <div className="fix-header fix-sidebar card-no-border">
       {/* ============================================================== */}
       {/* Main wrapper - style you can find in pages.scss */}
@@ -82,7 +83,10 @@ const NavBar = ({ isShow, history }) =>
                 </li>
               </ul>
               <ul className="navbar-nav my-lg-0">
-                <li className="nav-item page-titles">
+                <li
+                  className="nav-item page-titles"
+                  onClick={() => setShowNotification(!showNotification)}
+                >
                   <span className="noti right-side-toggle">0</span>
                 </li>
                 <li className="nav-item dropdown blur-ondrop">
@@ -138,96 +142,119 @@ const NavBar = ({ isShow, history }) =>
         {/* Right sidebar */}
         {/* ============================================================== */}
         {/* .right-sidebar */}
-        <div className="right-sidebar">
-          <div className="slimscrollright">
-            <div className="rpanel-title">
-              {' '}
-              Notifications{' '}
-              <span>
-                <i className="ti-close right-side-toggle" />
-              </span>{' '}
-            </div>
-            <div className="r-panel-body">
-              <ul className="m-t-20 chatonline">
-                <li>
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/assignment.png" alt className />
-                    <span>
-                      <p>Johanna submitted her feedback form</p>{' '}
+        {showNotification ? (
+          <div className="right-sidebar">
+            <div className="slimscrollright">
+              <div className="rpanel-title">
+                {' '}
+                Notifications{' '}
+                <span>
+                  <i
+                    className="ti-close right-side-toggle"
+                    onClick={() => setShowNotification(!showNotification)}
+                  />
+                </span>{' '}
+              </div>
+              <div className="r-panel-body">
+                <ul className="m-t-20 chatonline">
+                  <li>
+                    <a href="javascript:void(0)">
                       <img
-                        src="../assets/images/red-c.png"
+                        src="../assets/images/assignment.png"
                         alt
-                        className="red-c"
-                      />{' '}
-                      <small className="text-muted">4 mins ago</small>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/assignment.png" alt className />
-                    <span>
-                      <p>Dennis submitted his feedback form</p>{' '}
+                        className
+                      />
+                      <span>
+                        <p>Johanna submitted her feedback form</p>{' '}
+                        <img
+                          src="../assets/images/red-c.png"
+                          alt
+                          className="red-c"
+                        />{' '}
+                        <small className="text-muted">4 mins ago</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
                       <img
-                        src="../assets/images/red-c.png"
+                        src="../assets/images/assignment.png"
                         alt
-                        className="red-c"
-                      />{' '}
-                      <small className="text-muted">27 mins ago</small>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/calender.png" alt className />
-                    <span>
-                      <p>Daily Standup Today with Carter</p>{' '}
+                        className
+                      />
+                      <span>
+                        <p>Dennis submitted his feedback form</p>{' '}
+                        <img
+                          src="../assets/images/red-c.png"
+                          alt
+                          className="red-c"
+                        />{' '}
+                        <small className="text-muted">27 mins ago</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
+                      <img src="../assets/images/calender.png" alt className />
+                      <span>
+                        <p>Daily Standup Today with Carter</p>{' '}
+                        <img
+                          src="../assets/images/red-c.png"
+                          alt
+                          className="red-c"
+                        />{' '}
+                        <small className="text-muted">2 hours ago</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="unread-noti">
+                    <a href="javascript:void(0)">
                       <img
-                        src="../assets/images/red-c.png"
+                        src="../assets/images/assignment.png"
                         alt
-                        className="red-c"
-                      />{' '}
-                      <small className="text-muted">2 hours ago</small>
-                    </span>
-                  </a>
-                </li>
-                <li className="unread-noti">
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/assignment.png" alt className />
-                    <span>
-                      <p>Johanna submitted her feedback form</p>{' '}
-                      <small className="text-muted">4 mins ago</small>
-                    </span>
-                  </a>
-                </li>
-                <li className="unread-noti">
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/assignment.png" alt className />
-                    <span>
-                      <p>Dennis submitted his feedback form</p>{' '}
-                      <small className="text-muted">27 mins ago</small>
-                    </span>
-                  </a>
-                </li>
-                <li className="unread-noti">
-                  <a href="javascript:void(0)">
-                    <img src="../assets/images/calender.png" alt className />
-                    <span>
-                      <p>Daily Standup Today with Carter</p>{' '}
-                      <small className="text-muted">2 hours ago</small>
-                    </span>
-                  </a>
-                </li>
-              </ul>
+                        className
+                      />
+                      <span>
+                        <p>Johanna submitted her feedback form</p>{' '}
+                        <small className="text-muted">4 mins ago</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="unread-noti">
+                    <a href="javascript:void(0)">
+                      <img
+                        src="../assets/images/assignment.png"
+                        alt
+                        className
+                      />
+                      <span>
+                        <p>Dennis submitted his feedback form</p>{' '}
+                        <small className="text-muted">27 mins ago</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="unread-noti">
+                    <a href="javascript:void(0)">
+                      <img src="../assets/images/calender.png" alt className />
+                      <span>
+                        <p>Daily Standup Today with Carter</p>{' '}
+                        <small className="text-muted">2 hours ago</small>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              )
             </div>
           </div>
-        </div>
+        ) : null}
         {/* ============================================================== */}
         {/* End Right sidebar */}
         {/* ============================================================== */}
       </div>
     </div>
   ) : null;
+};
 
 NavBar.propTypes = {
   isShow: PropTypes.bool,

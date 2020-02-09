@@ -31,12 +31,12 @@ import jQuery from 'jquery';
 
 // import './assets/plugins/Chart.js/chartjs.init';
 import './assets/plugins/adminjs/custom.min';
-import './assets/plugins/adminjs/footable-init';
+import './assets/plugins/sticky-kit-master/dist/sticky-kit.min';
 import './assets/plugins/adminjs/jquery.slimscroll';
 import './assets/plugins/adminjs/sidebarmenu';
 import './assets/plugins/adminjs/waves';
 import './assets/plugins/footable/js/footable.all.min';
-import './assets/plugins/sticky-kit-master/dist/sticky-kit.min';
+import './assets/plugins/adminjs/footable-init';
 // import './js/custom';
 // Import root app
 import App from 'containers/App';
