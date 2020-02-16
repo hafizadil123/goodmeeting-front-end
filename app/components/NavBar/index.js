@@ -102,9 +102,9 @@ const NavBar = ({ isShow, history }) => {
                   <div className="dropdown-menu dropdown-menu-right animated flipInY">
                     <ul className="dropdown-user">
                       <li>
-                        <a href="#">
+                        <Link to="/profile">
                           <i className="mdi mdi-account-box" /> Your Account
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <a href="#">

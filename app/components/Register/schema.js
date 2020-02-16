@@ -47,6 +47,14 @@ export const ForgotPasswordSchema = Yup.object().shape({
     .required('Please enter your email'),
 });
 
+export const ContactUsScheme = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email Address')
+    .required('Please enter your email'),
+  name: Yup.string().required('Required'),
+  message: Yup.string().required('Required'),
+});
+
 export const UpdatePasswordSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Password too short!')
@@ -58,6 +66,26 @@ export const UpdatePasswordSchema = Yup.object().shape({
       is: val => !!(val && val.length > 0),
       then: Yup.string().oneOf(
         [Yup.ref('password')],
+        'Both password need to be the same',
+      ),
+    }),
+});
+export const ProfileSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email Address')
+    .required('Please enter your email'),
+  name: Yup.string().required('Required'),
+  oldPassword: Yup.string().required('Please enter your previous password'),
+  newPassword: Yup.string()
+    .min(6, 'Password too short!')
+    .max(10, 'Password should less than 10 digits')
+    .required('Required'),
+  confirmPassword: Yup.string()
+    .required('Please confirm your password!')
+    .when('newPassword', {
+      is: val => !!(val && val.length > 0),
+      then: Yup.string().oneOf(
+        [Yup.ref('newPassword')],
         'Both password need to be the same',
       ),
     }),

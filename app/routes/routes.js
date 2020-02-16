@@ -17,6 +17,10 @@ import FeedbackForm from '../components/Dashboard/Feedback1';
 import MeetingStats from '../components/Dashboard/MeetingStats';
 import ThankYouMessage from '../components/Dashboard/ThankyouMessage';
 import HowItsWorks from '../components/HowItsWorks';
+import AboutUs from '../components/AboutUs';
+import Terms from '../components/TermsCondition';
+import Contactus from '../components/ContactUs';
+import MyAccount from '../components/Dashboard/MyAccount';
 // Import Containers
 
 const Routes = () => (
@@ -46,6 +50,10 @@ const Routes = () => (
       <Route exact path="/meeting-stats/:id" component={MeetingStats} />
       <Route exact path="/thank-you" component={ThankYouMessage} />
       <Route exact path="/how-its-works" component={HowItsWorks} />
+      <Route exact path="/about-us" component={AboutUs} />
+      <Route exact path="/terms-condition" component={Terms} />
+      <Route exact path="/contact-us" component={Contactus} />
+      <Route exact path="/profile" component={MyAccount} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </Suspense>

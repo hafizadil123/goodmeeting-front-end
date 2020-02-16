@@ -2,6 +2,117 @@
 
 /* font-family: 'Biryani', sans-serif; */
 
+
+.terms .heading1{
+    font-family: 'Biryani', sans-serif;
+    text-align: center;
+}
+.terms{text-align: left;}
+.term-wrap {
+    width: 830px;
+    margin: 0 auto;
+}
+.team {
+    background: #F8F8F8;
+    padding: 48px 0 48px 0;
+    margin-top: 30px;
+}
+.team-wrap img{
+  width: 100%;
+  height:308px;
+  object-fit: cover;
+}
+.team-wrap h6{
+  font-size: 24px;
+  color: #313640;
+  font-family: 'Proxima Nova';
+  padding-top: 25px;
+  font-weight: 700;
+}
+.team-wrap p{
+  font-size: 16px;;
+  color: #313640;
+  font-family: 'Biryani', sans-serif;
+  font-weight: 400;
+  padding-top: 7px;
+  margin: 0;
+}
+footer{
+  margin-top: 0;
+}
+section.section1.about.box-art:before {
+    width: 18%;
+}
+.contact h1{
+  font-size: 36px;
+  color: #313640;
+  font-family: 'Proxima Nova';
+  padding-bottom: 25px;
+  font-weight: 700;
+  text-align: left;
+}
+.contact h6{
+  font-size: 24px;
+  color: #313640;
+  font-family: 'Proxima Nova';
+  padding-bottom: 25px;
+  padding-top: 25px;
+  font-weight: 700;
+}
+.contactform{
+  width: 500px;
+  margin-left: auto;
+  box-shadow: 0px 10px 30px 5px rgba(240,240,240,0.76);
+}
+.contactform .form-demo  textarea{
+  height: 120px;
+  resize: none;
+}
+.contact .form-demo{
+      margin: 35px auto 0px;
+}
+.contact {
+    padding: 70px 0 120px 0;
+}
+.contact .form-demo {
+    border-bottom: 0px;
+}
+section.section1.contact.box-art:before{
+    min-height: 100%;
+}
+@media(max-width:1024px){
+  .contactform{
+    width: 100%;
+  }
+}
+@media(max-width:1366px){
+  section.section1.about.box-art:before {
+      width: 26%;
+  }
+}
+@media(max-width:991px){
+  .term-wrap{
+    width: 100%;
+  }
+}
+@media(max-width:567px){
+  .team-wrap {
+      margin-bottom: 40px;
+  }
+  .contact {
+      padding: 0 0 20px 0;
+  }
+  .contactform{
+    box-shadow: none;
+  }
+  .contact h1{
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+
+
 .btn-red{
     background-color: #E33351;
     border-radius: 2px;
@@ -13,6 +124,7 @@
     margin: 0 auto;
     width: 300px;
 }
+
 .btn-blue{
     background-color: #0D4EE0;
     border-radius: 2px;
@@ -1431,6 +1543,9 @@ outline: none !important;
 .validation {
     border: 2px solid #E94538 !important;
 }
+.errorParagraph {
+    margin: 3px 6px 7px 102px  !important
+}
 .addCross{
     padding-right: calc(1.5em + .75rem);
     background-image: url('../../../../assets/images/download.svg');
@@ -2524,5 +2639,6 @@ width: max-content;
     #demo-2 input[type=search]{
             margin-right: -15px;
     }
+    
 
 }

@@ -87,7 +87,7 @@ const Header = ({ history }) => (
             <div className="dropdown-menu dropdown-menu-right animated flipInY">
               <ul className="dropdown-user">
                 <li>
-                  <Link to="/dashboard">
+                  <Link to="/profile">
                     <i className="mdi mdi-account-box" /> Your Account
                   </Link>
                 </li>

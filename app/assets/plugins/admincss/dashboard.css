@@ -109,6 +109,103 @@ ul.mysearch{
 .topbar .top-navbar{
     padding: 0;
 }
+/*myaccount page*/
+.myaccount .custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    }
+    .myaccount input[type="file"] {
+    display: none;
+    }
+    .myaccount img#blah {
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 100px ;
+    height: 100px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    float: left;
+    }
+    .myaccount label.custom-file-upload span {
+    margin-left: 10px;
+    text-align: center;
+    }
+    .myaccount h3{
+    font: Bold 22px/27px Proxima Nova;
+    color: #313640;
+    margin-left: 10px;
+    }
+    .myaccount .upload-txt {
+    font-size: 16px;
+    font-family: 'Biryani', sans-serif;
+    color: #313640;
+    opacity: 0.5;
+    }
+    .myaccount .choose {
+    font-family: 'Biryani', sans-serif;
+    width: 182px;
+    background: #0D4EE0;
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px 40px;
+    float: left;
+    margin-top: 15px;
+    }
+    .myaccount input {
+    background-color: #f1f1f1;
+    border: none;
+    width: 320px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-left: 10px;
+    }
+    .myaccount .changepass{
+    margin-top: 50px;
+    }
+    .myaccount .changepass input{
+    margin-top: 25px;
+    }
+    .myaccount .btn-demo {
+    background-color: #E33351;
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'Biryani', sans-serif;
+    font-size: 16px;
+    border: 1px solid #E33351;
+    font-weight: 500;
+    display: block;
+    width: 300px;
+    margin: 39px auto 0 auto;
+    }
+    @media(max-width:767px){
+    .myaccount input{
+    width: 100%;
+    }
+    }
+    @media(max-width:500px){
+    .myaccount .d-flex{
+    display: block !important;
+    }
+    .myaccount input{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+    }
+    .myaccount img#blah{
+    margin-right: 0px;
+    }
+    .myaccount .choose{
+    width: 140px;
+    padding: 10px 20px;
+    }
+    .myaccount h3{
+    margin-left: 0;
+    }
+    }
 .fix-sidebar .left-sidebar{
     -webkit-box-shadow: -8px 0px 20px #AEC1D0;
             box-shadow: -8px 0px 20px #AEC1D0;
@@ -1506,4 +1603,5 @@ ul.fz-response li {
     .legend1.m-review:before, .legend2:before, .legend3:before {
         left: 5px;
     }
+    
 }
