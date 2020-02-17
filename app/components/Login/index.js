@@ -24,9 +24,12 @@ const Login = ({ history }) => {
       .post(`${BASE_URL}auth/login`, { email, password })
       .then(response => {
         toast.success('you are logged In Successfuly!');
-        const { token, userId } = response && response.data;
+        const { token, userId, name } = response && response.data;
         localStorage.setItem('accessToken', token);
         localStorage.setItem('userId', userId);
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', response && response.data.email);
+
         history.push('/dashboard');
         setLoading(false);
       })

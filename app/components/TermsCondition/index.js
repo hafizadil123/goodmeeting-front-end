@@ -1,5 +1,6 @@
 import React from 'react';
 import RegisterHeader from '../Header';
+import Footer from '../Footer';
 const TermsAndCondition = () => (
   <>
     <RegisterHeader />
@@ -56,6 +57,7 @@ const TermsAndCondition = () => (
         </div>
       </div>
     </section>
+    <Footer />
   </>
 );
 

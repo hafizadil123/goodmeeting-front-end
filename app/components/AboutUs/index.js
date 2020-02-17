@@ -5,6 +5,7 @@ import team3 from '../../assets/images/team3.png';
 import team4 from '../../assets/images/team4.png';
 import aboutImg from '../../assets/images/aboutimg.svg';
 import RegisterHeader from '../Header';
+import Footer from '../Footer';
 const AboutUs = ({history}) => (
   <>
     <RegisterHeader />
@@ -77,6 +78,7 @@ const AboutUs = ({history}) => (
         </div>
       </div>
     </section>
+    <Footer />
   </>
 );
 

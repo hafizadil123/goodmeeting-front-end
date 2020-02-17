@@ -7,6 +7,7 @@ import contactUsImage from '../../assets/images/contactimg.svg';
 import { BASE_URL } from '../../utils/constants';
 import RegisterHeader from '../Header';
 import { ContactUsScheme } from '../Register/schema';
+import Footer from '../Footer';
 
 const ContactUs = ({ history }) => {
   const [loading, setLoading] = useState(false);
@@ -125,7 +126,7 @@ const ContactUs = ({ history }) => {
                             href="#"
                             className="btn btn-outline btn-md btn-demo mb-20"
                           >
-                            Get your Free Demo
+                            Send Message
                           </button>
                         ) : (
                           <button className="btn btn-outline btn-md btn-demo mb-20">
@@ -142,6 +143,7 @@ const ContactUs = ({ history }) => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -9,20 +9,29 @@ import LeftSide from '../LeftBar';
 import { ProfileSchema } from '../../Register/schema';
 const MyAccount = ({ history }) => {
   const [loading, setLoading] = useState(false);
+  const [imageSet, setImage] = useState(null);
   function updateProfile(userInfo, actions) {
     setLoading(true);
     const { name, newPassword, avatar } = userInfo;
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('newPassword', newPassword);
+    formData.append('avatar', avatar);
     axios
-      .post(`${BASE_URL}update-profile`, {
-        fullName: name,
-        newPassword,
-        avatar: avatar || userImage,
-      })
+      .post(
+        `${BASE_URL}update-profile/?userId=${localStorage.getItem('userId')}`,
+        formData,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        },
+      )
       .then(response => {
-        console.log(response);
-        // const { messageResponse } = response && response.data;
-        // toast.success(messageResponse);
-        // actions.resetForm({});
+        const { message } = response && response.data;
+        toast.success(message);
         setLoading(false);
       })
       .catch(err => {
@@ -76,34 +85,46 @@ const MyAccount = ({ history }) => {
                     }}
                     validationSchema={ProfileSchema}
                     onSubmit={(values, actions) => {
-                        console.log('values', values);
-                      updateProfile(values, actions);
+                      const resultValues = {
+                        ...values,
+                        avatar: imageSet,
+                      };
+                      updateProfile(resultValues, actions);
                     }}
                   >
                     {({ errors, touched, isSubmitting }) => (
                       <Form disabled={isSubmitting} noValidate>
                         <label className="custom-file-upload">
-                          <input type="file" onChange="readURL(this);" />
+                          <input
+                            type="file"
+                            id="myfile"
+                            name="myfile"
+                            accept=".jpg, .jpeg, .png"
+                            multiple
+                            onChange={event => setImage(event.target.files[0])}
+                          />
                           <div>
                             <img id="blah" src={userImage} alt="user" />
                           </div>
                           <span className="upload-txt">Edit Profile Image</span>
                           <span className="choose">Choose</span>
+                          <label>{imageSet ? imageSet.name : ''}</label>
                         </label>
                         <div className="d-flex">
                           <Field
                             type="text"
                             name="name"
                             className="form-control"
-                            placeholder="Name"
+                            placeholder={localStorage.getItem('name')}
                             autoComplete="off"
                           />
                           <Field
-                            type="email"
+                            name="email"
+                            type="text"
                             className="form-control"
                             placeholder="Email"
-                            value=""
                             autoComplete="off"
+                            value={localStorage.getItem('email')}
                             readOnly
                           />
                         </div>
@@ -119,7 +140,7 @@ const MyAccount = ({ history }) => {
                           <h3>Change Password</h3>
                           <div className="d-flex">
                             <Field
-                              type="text"
+                              type="password"
                               name="oldPassword"
                               className="form-control"
                               placeholder="Enter Old Password"
@@ -136,14 +157,14 @@ const MyAccount = ({ history }) => {
                           ) : null}
                           <div className="d-flex">
                             <Field
-                              type="text"
+                              type="password"
                               name="newPassword"
                               className="form-control"
                               placeholder="Enter New Password"
                               autoComplete="off"
                             />
                             <Field
-                              type="text"
+                              type="password"
                               name="confirmPassword"
                               className="form-control"
                               placeholder="Confirm New Password"
@@ -162,7 +183,8 @@ const MyAccount = ({ history }) => {
                         <div className="col-sm-12 text-center">
                           {!loading ? (
                             <button
-                              href="#"
+                              type="submit"
+                              id="submit"
                               className="btn btn-outline btn-md btn-demo mb-20"
                             >
                               Update

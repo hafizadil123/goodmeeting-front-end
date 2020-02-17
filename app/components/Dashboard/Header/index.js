@@ -91,7 +91,7 @@ const Header = ({ history }) => (
                     <i className="mdi mdi-account-box" /> Your Account
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/dashboard">
                     <i className="mdi mdi-wrench" /> Setting
                   </Link>
@@ -100,7 +100,7 @@ const Header = ({ history }) => (
                   <Link to="/dashboard">
                     <i className="mdi mdi-file-document-box" /> Billing
                   </Link>
-                </li>
+                </li> */}
                 <li role="separator" className="divider" />
                 <li className="logout">
                   <Link to="#" onClick={e => logout(history)}>

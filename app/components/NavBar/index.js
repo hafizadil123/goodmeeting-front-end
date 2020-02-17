@@ -106,7 +106,7 @@ const NavBar = ({ isShow, history }) => {
                           <i className="mdi mdi-account-box" /> Your Account
                         </Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <a href="#">
                           <i className="mdi mdi-wrench" /> Setting
                         </a>
@@ -115,7 +115,7 @@ const NavBar = ({ isShow, history }) => {
                         <a href="#">
                           <i className="mdi mdi-file-document-box" /> Billing
                         </a>
-                      </li>
+                      </li> */}
                       <li role="separator" className="divider" />
                       <li className="logout">
                         <Link to="#" onClick={e => logout(history)}>
