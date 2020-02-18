@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -14,8 +15,11 @@ import cogwheelImage from '../../../assets/images/cogwheel.png';
 import cogwheelBImage from '../../../assets/images/cogwheel-b.png';
 import loopImage from '../../../assets/images/loop.png';
 import logoutImage from '../../../assets/images/logout.png';
-
-const LeftBar = () => (
+const logoutFunction = history => {
+  localStorage.removeItem('accessToken');
+  history.push('/login');
+};
+const LeftBar = ({ history }) => (
   <aside className="left-sidebar">
     {/* Sidebar scroll */}
     <div className="scroll-sidebar">
@@ -76,7 +80,11 @@ const LeftBar = () => (
             </a>
           </li>
           <li>
-            <Link to="/login" aria-expanded="false">
+            <Link
+              to="#"
+              aria-expanded="false"
+              onClick={e => logoutFunction(history)}
+            >
               <img src={logoutImage} />
               <span className="hide-menu">Logout</span>
             </Link>

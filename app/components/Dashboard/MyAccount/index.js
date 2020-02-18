@@ -12,10 +12,11 @@ const MyAccount = ({ history }) => {
   const [imageSet, setImage] = useState(null);
   function updateProfile(userInfo, actions) {
     setLoading(true);
-    const { name, newPassword, avatar } = userInfo;
+    const { name, newPassword, avatar, oldPassword } = userInfo;
 
     const formData = new FormData();
     formData.append('name', name);
+    formData.append('oldPassword', oldPassword);
     formData.append('newPassword', newPassword);
     formData.append('avatar', avatar);
     axios
