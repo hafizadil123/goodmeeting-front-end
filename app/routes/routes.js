@@ -53,7 +53,7 @@ const Routes = () => (
       <Route exact path="/about-us" component={AboutUs} />
       <Route exact path="/terms-condition" component={Terms} />
       <Route exact path="/contact-us" component={Contactus} />
-      <Route exact path="/profile" component={MyAccount} />
+      <PrivateRoute exact path="/profile" component={MyAccount} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </Suspense>
