@@ -25,10 +25,10 @@ const Register = ({ history }) => {
     axios
       .post(`${BASE_URL}users`, { fullName, email, password })
       .then(response => {
-        const { message } = response && response.data;
+        const { message, token, userId } = response && response.data;
         toast.success(message);
-        localStorage.setItem('accessToken', 'COhFCw3DmtS3x5vAzjWMueG48ZmQiI25');
-        localStorage.setItem('userId', 'COhFCw3DmtS3x5vAzjWMueG48ZmQiI25');
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('userId', userId);
         history.push('/dashboard');
         setLoading(false);
       })
