@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Formik, Form, Field } from 'formik';
-import userImage from '../../../assets/images/users/1.jpg';
+import userImage from '../../../assets/images/userIcon.png';
 import { BASE_URL, BASE_IMAGE_URL } from '../../../utils/constants';
 import Header from '../../NavBar';
 import LeftSide from '../LeftBar';
