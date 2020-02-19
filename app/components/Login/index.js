@@ -15,6 +15,8 @@ const Login = ({ history }) => {
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
       history.push('/dashboard');
+    } else {
+      localStorage.clear();
     }
   }, []);
   function loginRequest(userInfo) {

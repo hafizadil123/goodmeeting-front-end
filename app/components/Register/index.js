@@ -15,6 +15,8 @@ const Register = ({ history }) => {
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
       history.push('/dashboard');
+    } else {
+      localStorage.clear();
     }
   }, []);
   function createUser(userInfo) {

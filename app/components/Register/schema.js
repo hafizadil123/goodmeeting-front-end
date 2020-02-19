@@ -70,18 +70,40 @@ export const UpdatePasswordSchema = Yup.object().shape({
       ),
     }),
 });
-export const ProfileSchema = Yup.object().shape({
-  oldPassword: Yup.string()
-    .min(6, 'Password too short!')
-    .max(10, 'Password should less than 10 digits'),
-  newPassword: Yup.string()
-    .min(6, 'Password too short!')
-    .max(10, 'Password should less than 10 digits'),
-  confirmPassword: Yup.string().when('newPassword', {
-    is: val => !!(val && val.length > 0),
-    then: Yup.string().oneOf(
-      [Yup.ref('newPassword')],
-      'Both password need to be the same',
-    ),
-  }),
-});
+export const ProfileSchema = Yup.object().shape(
+  {
+    oldPassword: Yup.string().when(['newPassword', 'confirmPassword'], {
+      is: (newPass, conPass) => newPass || conPass,
+      then: Yup.string()
+        .required('Required')
+        .min(6, 'Password too short!')
+        .max(10, 'Password should less than 10 digits'),
+    }),
+    newPassword: Yup.string().when(['oldPassword', 'confirmPassword'], {
+      is: (oldPass, conPass) => oldPass || conPass,
+      then: Yup.string()
+        .required('Required')
+        .min(6, 'Password too short!')
+        .max(10, 'Password should less than 10 digits'),
+    }),
+    confirmPassword: Yup.string().when(['oldPassword', 'newPassword'], {
+      is: (oldPass, newPass) => oldPass || newPass,
+      then: Yup.string()
+        .required('Required')
+        .min(6, 'Password too short!')
+        .max(10, 'Password should less than 10 digits')
+        .when('newPassword', {
+          is: val => !!(val && val.length > 0),
+          then: Yup.string().oneOf(
+            [Yup.ref('newPassword')],
+            'Both password need to be the same',
+          ),
+        }),
+    }),
+  },
+  [
+    ['oldPassword', 'newPassword'],
+    ['oldPassword', 'confirmPassword'],
+    ['newPassword', 'confirmPassword'],
+  ],
+);

@@ -1,21 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Formik, Form, Field } from 'formik';
 import userImage from '../../../assets/images/users/1.jpg';
-import { BASE_URL } from '../../../utils/constants';
+import { BASE_URL, BASE_IMAGE_URL } from '../../../utils/constants';
 import Header from '../../NavBar';
 import LeftSide from '../LeftBar';
 import { ProfileSchema } from '../../Register/schema';
 const MyAccount = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const [imageSet, setImage] = useState(null);
+  const [profile, setProfile] = useState(null);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}get-profile`, {
+        params: {
+          userId: localStorage.getItem('userId'),
+        },
+        crossdomain: true,
+      })
+      .then(response => setProfile(response && response.data.user))
+      .catch(() => {})
+      .then(() => {
+        // always executed
+      });
+  }, []);
   function updateProfile(userInfo, actions) {
     setLoading(true);
     const { name, newPassword, avatar, oldPassword } = userInfo;
-
     const formData = new FormData();
-    formData.append('name', name);
+    formData.append('name', name || localStorage.getItem('name'));
+    formData.append('email', localStorage.getItem('email'));
     formData.append('oldPassword', oldPassword);
     formData.append('newPassword', newPassword);
     formData.append('avatar', avatar);
@@ -31,8 +46,14 @@ const MyAccount = ({ history }) => {
         },
       )
       .then(response => {
-        const { message } = response && response.data;
-        toast.success(message);
+        const { message, success } = response && response.data;
+        if (success) {
+          toast.success(message);
+          setImage(null);
+          setProfile(response && response.data.user);
+        } else {
+          toast.error(message);
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -105,7 +126,15 @@ const MyAccount = ({ history }) => {
                             onChange={event => setImage(event.target.files[0])}
                           />
                           <div>
-                            <img id="blah" src={userImage} alt="user" />
+                            <img
+                              id="blah"
+                              src={
+                                profile && profile.avatar
+                                  ? `${BASE_IMAGE_URL}${profile.avatar}`
+                                  : userImage
+                              }
+                              alt="user"
+                            />
                           </div>
                           <span className="upload-txt">Edit Profile Image</span>
                           <span className="choose">Choose</span>
@@ -116,7 +145,10 @@ const MyAccount = ({ history }) => {
                             type="text"
                             name="name"
                             className="form-control"
-                            placeholder={localStorage.getItem('name')}
+                            placeholder={
+                              (profile && profile.fullName) ||
+                              localStorage.getItem('name')
+                            }
                             autoComplete="off"
                           />
                           <Field
@@ -125,7 +157,10 @@ const MyAccount = ({ history }) => {
                             className="form-control"
                             placeholder="Email"
                             autoComplete="off"
-                            value={localStorage.getItem('email')}
+                            value={
+                              (profile && profile.email) ||
+                              localStorage.getItem('email')
+                            }
                             readOnly
                           />
                         </div>
