@@ -11,6 +11,8 @@ const MyAccount = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const [imageSet, setImage] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [showImage, setShowImage] = useState(null);
+  const [isDisabled, setDisabled] = useState(true);
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-profile`, {
@@ -25,6 +27,9 @@ const MyAccount = ({ history }) => {
         // always executed
       });
   }, []);
+  const handleButtonDisble = value => {
+    setDisabled(!isDisabled);
+  };
   function updateProfile(userInfo, actions) {
     setLoading(true);
     const { name, newPassword, avatar, oldPassword } = userInfo;
@@ -49,7 +54,8 @@ const MyAccount = ({ history }) => {
         const { message, success } = response && response.data;
         if (success) {
           toast.success(message);
-          setImage(null);
+          // setImage(null);
+          setShowImage(null);
           setProfile(response && response.data.user);
         } else {
           toast.error(message);
@@ -66,6 +72,12 @@ const MyAccount = ({ history }) => {
       });
     // userLoginRequest('auth/login', { email, password }, history);
   }
+  const handleOnChnageImage = event => {
+    setImage(event.target.files[0]);
+    setShowImage(URL.createObjectURL(event.target.files[0]));
+    setProfile(null);
+    setDisabled(!isDisabled);
+  };
   return (
     <>
       <Header isShow history={history} />
@@ -83,7 +95,7 @@ const MyAccount = ({ history }) => {
           {/* ============================================================== */}
           <div className="row page-titles filters">
             <div className="col-lg-6 col-md-4 col-12 align-self-center">
-              <h3 className="text-themecolor m-b-0 m-t-0">My Accounts</h3>
+              <h3 className="text-themecolor m-b-0 m-t-0">Account</h3>
             </div>
           </div>
           {/* ============================================================== */}
@@ -115,7 +127,7 @@ const MyAccount = ({ history }) => {
                     }}
                   >
                     {({ errors, touched, isSubmitting }) => (
-                      <Form disabled={isSubmitting} noValidate>
+                      <Form noValidate onChange={() => setDisabled(false)}>
                         <label className="custom-file-upload">
                           <input
                             type="file"
@@ -123,22 +135,34 @@ const MyAccount = ({ history }) => {
                             name="myfile"
                             accept=".jpg, .jpeg, .png"
                             multiple
-                            onChange={event => setImage(event.target.files[0])}
+                            onChange={event => handleOnChnageImage(event)}
                           />
                           <div>
-                            <img
-                              id="blah"
-                              src={
-                                profile && profile.avatar
-                                  ? `${BASE_IMAGE_URL}${profile.avatar}`
-                                  : userImage
-                              }
-                              alt="user"
-                            />
+                            {profile && profile.avatar ? (
+                              <img
+                                id="blah"
+                                style={{ border: 'none', padding: '6px' }}
+                                src={
+                                  `${BASE_IMAGE_URL}${profile.avatar}` ||
+                                  userImage
+                                }
+                                alt="user"
+                              />
+                            ) : (
+                              <img
+                                id="blah"
+                                style={{
+                                  border: `${showImage ? 'none' : ''}`,
+                                  padding: `${showImage ? '6px' : ''}`,
+                                }}
+                                src={showImage || userImage}
+                                alt="user"
+                              />
+                            )}
                           </div>
                           <span className="upload-txt">Edit Profile Image</span>
                           <span className="choose">Choose</span>
-                          <label>{imageSet ? imageSet.name : ''}</label>
+                          {/* <label>{imageSet ? imageSet.name : ''}</label> */}
                         </label>
                         <div className="d-flex">
                           <Field
@@ -221,7 +245,12 @@ const MyAccount = ({ history }) => {
                             <button
                               type="submit"
                               id="submit"
-                              className="btn btn-outline btn-md btn-demo mb-20"
+                              disabled={isDisabled}
+                              className={`${
+                                isDisabled
+                                  ? 'disableButtonUpdated'
+                                  : 'btn btn-outline btn-md btn-demo mb-20'
+                              }`}
                             >
                               Update
                             </button>
