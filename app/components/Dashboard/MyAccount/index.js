@@ -55,6 +55,7 @@ const MyAccount = ({ history }) => {
         if (success) {
           toast.success(message);
           // setImage(null);
+          actions.resetForm({});
           setShowImage(null);
           setProfile(response && response.data.user);
         } else {
@@ -95,7 +96,7 @@ const MyAccount = ({ history }) => {
           {/* ============================================================== */}
           <div className="row page-titles filters">
             <div className="col-lg-6 col-md-4 col-12 align-self-center">
-              <h3 className="text-themecolor m-b-0 m-t-0">Account</h3>
+              <h3 className="text-themecolor m-b-0 m-t-0">Your Account</h3>
             </div>
           </div>
           {/* ============================================================== */}

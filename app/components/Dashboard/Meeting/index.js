@@ -36,7 +36,7 @@ const Meeting = () => {
             <div className="col-lg-6 col-md-4 col-12 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Meetings</h3>
             </div>
-            <div className="col-lg-2 col-md-3 col-6">
+            {/* <div className="col-lg-2 col-md-3 col-6">
               <div className="input-group mb-2">
                 <div className="input-group-prepend">
                   <div className="input-group-text">
@@ -54,8 +54,8 @@ const Meeting = () => {
                   <option>Married</option>
                 </select>
               </div>
-            </div>
-            <div className="col-lg-2 col-md-3 col-6">
+            </div> */}
+            {/* <div className="col-lg-2 col-md-3 col-6">
               <select
                 id="sortingField"
                 className="custom-select form-control input-sm"
@@ -66,10 +66,10 @@ const Meeting = () => {
                 <option>Country</option>
                 <option>Married</option>
               </select>
-            </div>
+            </div> */}
             <div className="col-lg-2 col-md-2">
               {/* <button class="btn pull-right btn-danger">Export</button> */}
-              <div className="exports">
+              {/* <div className="exports">
                 <button
                   type="button"
                   className="btn pull-right btn-danger dropdown-toggle"
@@ -90,7 +90,7 @@ const Meeting = () => {
                     Export as PDF
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="row recent-table">

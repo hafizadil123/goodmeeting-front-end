@@ -66,7 +66,7 @@ const Dashboard = ({ history }) => {
             <div className="col-md-6 col-8 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Dashboard</h3>
             </div>
-            <div className="col-md-6 col-4 align-self-center">
+            {/* <div className="col-md-6 col-4 align-self-center">
               <button
                 className="btn pull-right btn-danger"
                 type="button"
@@ -74,7 +74,7 @@ const Dashboard = ({ history }) => {
               >
                 Copy ID
               </button>
-            </div>
+            </div> */}
           </div>
           {/* ============================================================== */}
           {/* End Bread crumb and right sidebar toggle */}
@@ -90,7 +90,7 @@ const Dashboard = ({ history }) => {
                     Meetings this Week
                     <br />
                   </h6>
-                  <i className="fa fa-sort-desc down-red" />
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
                   <h1 className="font-light text-white">
                     {userStats.totalMeeting || 0}
                   </h1>
@@ -105,7 +105,7 @@ const Dashboard = ({ history }) => {
                     Positive
                     <br /> Reviews
                   </h6>
-                  <i className="fa fa-sort-desc down-red" />
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
                   <h1 className="font-light text-white">
                     {userStats.positiveReviews || 0}
                   </h1>
@@ -120,7 +120,7 @@ const Dashboard = ({ history }) => {
                     Negative
                     <br /> Reviews
                   </h6>
-                  <i className="fa fa-sort-desc down-red" />
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
                   <h1 className="font-light text-white">
                     {userStats.negativeReviews || 0}
                   </h1>
@@ -135,7 +135,7 @@ const Dashboard = ({ history }) => {
                     Avg Meeting
                     <br /> Score
                   </h6>
-                  <i className="fa fa-caret-up up-green" />
+                  {/* <i className="fa fa-caret-up up-green" /> */}
                   <h1 className="font-light text-white">
                     {userStats.avgScore || 0}
                   </h1>

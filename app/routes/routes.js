@@ -47,7 +47,7 @@ const Routes = () => (
       <Route exact path="/forgot-password" component={ForgotPassword} />
       <Route exact path="/update-password" component={UpdatePassword} />
       <Route exact path="/feedback-form" component={FeedbackForm} />
-      <Route exact path="/meeting-stats/:id" component={MeetingStats} />
+      <PrivateRoute exact path="/meeting-stats/:id" component={MeetingStats} />
       <Route exact path="/thank-you" component={ThankYouMessage} />
       <Route exact path="/how-its-works" component={HowItsWorks} />
       <Route exact path="/about-us" component={AboutUs} />

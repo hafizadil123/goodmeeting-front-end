@@ -68,7 +68,7 @@ const NavBar = ({ isShow, history }) => {
               {/* ============================================================== */}
               {/* User profile and search */}
               {/* ============================================================== */}
-              <ul className="mysearch">
+              {/* <ul className="mysearch">
                 <li className="nav-item">
                   <form className="app-search">
                     <input
@@ -81,14 +81,14 @@ const NavBar = ({ isShow, history }) => {
                     </a>{' '}
                   </form>
                 </li>
-              </ul>
+              </ul> */}
               <ul className="navbar-nav my-lg-0">
-                <li
+                {/* <li
                   className="nav-item page-titles"
                   onClick={() => setShowNotification(!showNotification)}
                 >
                   <span className="noti right-side-toggle">0</span>
-                </li>
+                </li> */}
                 <li className="nav-item dropdown blur-ondrop">
                   <a
                     className="nav-link dropdown-toggle text-muted waves-effect waves-dark"

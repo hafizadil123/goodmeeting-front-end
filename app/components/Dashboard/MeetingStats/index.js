@@ -86,14 +86,14 @@ const MeetingStats = ({ history }) => {
             <div className="col-lg-5 col-md-7 col-sm-7 col-12 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Meeting Details</h3>
             </div>
-            <div className="col-lg-1 offset-lg-5 col-md-1 offset-md-2 col-6 align-self-center myshare">
+            {/* <div className="col-lg-1 offset-lg-5 col-md-1 offset-md-2 col-6 align-self-center myshare">
               <img src={shareImage} alt="share-img" />
             </div>
             <div className="col-lg-1 col-md-2 col-sm-6 col-6">
               <button className="btn pull-right btn-danger " type="button">
                 Export
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="row page-titles filters">
             <div className="col-lg-12">

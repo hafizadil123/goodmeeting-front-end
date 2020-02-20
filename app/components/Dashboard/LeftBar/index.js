@@ -37,7 +37,7 @@ const LeftBar = ({ history }) => (
             <Link to="/meetings" aria-expanded="false">
               <img src={manImage} />
               <img src={manBImage} className="d-none" />
-              <span className="hide-menu">Meeting</span>
+              <span className="hide-menu">Meetings</span>
             </Link>
           </li>
           <li>
@@ -47,7 +47,7 @@ const LeftBar = ({ history }) => (
               <span className="hide-menu">Stats</span>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <a href={window.location.pathname} aria-expanded="false">
               <img src={financialImage} />
               <img src={financialBImage} className="d-none" />
@@ -67,9 +67,9 @@ const LeftBar = ({ history }) => (
               <img src={cogwheelBImage} className="d-none" />
               <span className="hide-menu">Settings</span>
             </a>
-          </li>
+          </li> */}
         </ul>
-        <ul id="sidebarnav" className="miscc">
+        {/* <ul id="sidebarnav" className="miscc">
           <li className="nav-small-cap" />
           <li className="nav-small-cap" />
           <li className="nav-small-cap" />
@@ -89,7 +89,7 @@ const LeftBar = ({ history }) => (
               <span className="hide-menu">Logout</span>
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </nav>
       {/* End Sidebar navigation */}
     </div>
