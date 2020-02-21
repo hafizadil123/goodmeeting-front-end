@@ -147,7 +147,7 @@ const MyAccount = ({ history }) => {
                                   `${BASE_IMAGE_URL}${profile.avatar}` ||
                                   userImage
                                 }
-                                alt="user"
+                                alt="user image not found"
                               />
                             ) : (
                               <img
@@ -157,7 +157,7 @@ const MyAccount = ({ history }) => {
                                   padding: `${showImage ? '6px' : ''}`,
                                 }}
                                 src={showImage || userImage}
-                                alt="user"
+                                alt="user image not found"
                               />
                             )}
                           </div>
