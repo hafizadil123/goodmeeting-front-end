@@ -35,7 +35,7 @@ const HomePage = ({history}) => {
           <h1 className="heading1">A Good Meeting starts off with</h1>
           <Link to="/" className="btn-link">havea@goodmeeting.today</Link>
           <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
-          <Link to="/" className="btn btn-md btn-primary btn-blue">Get Started for Free! </Link>
+          <Link to="/register" className="btn btn-md btn-primary btn-blue">Get Started for Free! </Link>
           <div className="gmail">
           <small>Supports</small>
             <ul>
@@ -70,7 +70,7 @@ const HomePage = ({history}) => {
             <img src={stated} />
             <h2>Get started with a FREE* Account</h2>
             <p>It takes less than 2 minutes to onboard<br /> and kick off.</p>
-            <Link to="/" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
+            <Link to="/register" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ const HomePage = ({history}) => {
             <img src={Meeting} />
             <h2>Start a new meeting</h2>
             <p>Just don’t forget to keep<br /> “havea@goodmeeting.today” in CC<br /> and we will start crunching numbers for you.</p>
-            <Link to="/" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
+            <Link to="/register" className="btn btn-outline btn-md btn-line">Get Started Now</Link>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ const HomePage = ({history}) => {
             <img src={Feedback} />
             <h2>Get the feedback</h2>
             <p>We will assess the meeting score for<br /> you and let’s see if you can beat your<br /> own personal best.</p>
-            <Link to="/" className="btn btn-outline btn-md btn-line">Start Trial</Link>
+            <Link to="/register" className="btn btn-outline btn-md btn-line">Start Trial</Link>
           </div>
         </div>
       </div>
@@ -230,8 +230,9 @@ const HomePage = ({history}) => {
         <div className="col-lg-12">
           <p className="blue" href="javascript:void(0);">Let’s Get Started</p>
           <h2 className="text-capitalize">Sign up with us today and get all the answers you need!!</h2>
-          <Link data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link>
-          <Link to="/" className="btn btn-outline btn-md btn-line font-weight-normal">GET STARTED</Link>
+          {/* <Link data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link> */}
+          <Link to="/contact-us" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link>
+          <Link to="/register" className="btn btn-outline btn-md btn-line font-weight-normal">GET STARTED</Link>
         </div>
       </div>
     </div>
