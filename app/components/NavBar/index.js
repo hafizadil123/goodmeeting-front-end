@@ -1,16 +1,33 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import logo from '../../assets/images/logo.png';
 import mobileLogo from '../../assets/images/mobile-logo.png';
 import searchImage from '../../assets/images/search.png';
+import { BASE_URL, BASE_IMAGE_URL } from '../../utils/constants';
 import userImage from '../../assets/images/userIcon.png';
 import { logout } from '../../utils/requests';
 const NavBar = ({ isShow, history }) => {
   const [showNotification, setShowNotification] = useState(false);
+  const [profile, setProfile] = useState(null);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}get-profile`, {
+        params: {
+          userId: localStorage.getItem('userId'),
+        },
+        crossdomain: true,
+      })
+      .then(response => setProfile(response && response.data.user))
+      .catch(() => {})
+      .then(() => {
+        // always executed
+      });
+  }, []);
   return isShow ? (
     <div className="fix-header fix-sidebar card-no-border">
       {/* ============================================================== */}
@@ -97,7 +114,23 @@ const NavBar = ({ isShow, history }) => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <img src={userImage} alt="user" className="profile-pic" />
+                    {profile && profile.avatar ? (
+                      <img
+                        src={`${BASE_IMAGE_URL}${profile.avatar}` || userImage}
+                        alt="profile-pic"
+                        className={`${
+                          profile && profile.avatar
+                            ? 'userImageHeader'
+                            : 'dark-logo'
+                        }`}
+                      />
+                    ) : (
+                      <img
+                        src={userImage}
+                        alt="user profile"
+                        className="serImageHeader"
+                      />
+                    )}
                   </a>
                   <div className="dropdown-menu dropdown-menu-right animated flipInY">
                     <ul className="dropdown-user">

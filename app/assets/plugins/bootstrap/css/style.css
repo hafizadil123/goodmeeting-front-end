@@ -1543,6 +1543,14 @@ outline: none !important;
 .validation {
     border: 2px solid #E94538 !important;
 }
+.userImageHeader {
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 60px;
+    height: 100px;
+    float: left;
+    height: 60px;
+}
 .disableButtonUpdated {
     background-color: #cccccc;
     border: 1px solid #cccccc;
