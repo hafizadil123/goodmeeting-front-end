@@ -328,7 +328,7 @@ html body .bg-info {
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
 }*/
 /*.blur-ondrop.show:before {
-    
+
     position: absolute;
     top: 70px;
     left: -9999px;
@@ -369,7 +369,7 @@ html body .bg-info {
     font: Bold 14px/25px Biryani;
     color: rgba(49, 54, 64, 0.4);
 
-    
+
 }
 .filters .form-control:focus{
     outline: 0;
@@ -555,7 +555,7 @@ html body .bg-info {
   float: right;
 }
 
-.settings .switch1 input { 
+.settings .switch1 input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -1034,7 +1034,7 @@ aside.left-sidebar {
 }
 /*************** feedbackform 2*********************/
 .custom-form-wrap{
-    
+
 }
 .custom-form-wrap h3 {
     text-align: left;
@@ -1060,7 +1060,7 @@ aside.left-sidebar {
 .text-prev{
     font: normal 12px/18px Biryani;
     color: #313640;
-    
+
 
 }
 .form-btns .btn-danger {
@@ -1179,27 +1179,27 @@ aside.left-sidebar {
     border-radius: 10px;
     border: 1px dashed;
     cursor: pointer;
-} 
+}
 .feedback-form .say-thanks {
     background-color: transparent;
     border-radius: 10px;
     border: 1px dashed;
-}   
+}
 .feedback-form .active-question{
     background-color: #fff;
     border: 1px solid #fff;
-} 
+}
 .feedback-form .active-question i{
     color: #E33351;
     text-align: right;
     display: block;
-} 
+}
 .question-added{
     position: relative;
 }
 .question-added .fa-trash{
     color: #E33351;
-    position: absolute; 
+    position: absolute;
     top: 10px;
     right: 10px;
 }
@@ -1603,5 +1603,5 @@ ul.fz-response li {
     .legend1.m-review:before, .legend2:before, .legend3:before {
         left: 5px;
     }
-    
+
 }

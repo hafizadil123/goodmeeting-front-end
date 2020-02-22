@@ -27,7 +27,7 @@ const LeftBar = ({ history }) => (
       <nav className="sidebar-nav">
         <ul id="sidebarnav">
           <li>
-            <Link to="/dashboard" aria-expanded="false">
+            <Link to="/dashboard" class="active"  aria-expanded="false">
               <img src={dashboardImage} />
               <img src={dashboardImage} className="d-none" />
               <span className="hide-menu">Dashboard</span>

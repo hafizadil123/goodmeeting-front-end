@@ -14,9 +14,11 @@ const GlobalStyle = createGlobalStyle`
   body.fontLoaded {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-
+  .page-wrapper{
+        min-height: 100vh;
+  }
   #app {
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
     min-height: 100%;
     min-width: 100%;
   }

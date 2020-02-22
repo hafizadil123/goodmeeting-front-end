@@ -28,7 +28,7 @@ const HowItsWorks = () => (
                   stats, all at one place.
                 </p>
               </div>
-              <img src={workBannerImage} className="img-fluid" alt="banner" />
+              <img src={workBannerImage} className="img-fluid how-work-img" alt="banner" />
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore.

@@ -24,7 +24,7 @@ const Header = () => (
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <i className="fas fa-bars" />
+          <i className="fa fa-bars" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{boxShadow: 'none'}}>
           <ul className="navbar-nav m-auto">
