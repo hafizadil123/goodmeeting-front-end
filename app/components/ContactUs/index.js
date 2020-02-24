@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Formik, Form, Field } from 'formik';
@@ -11,6 +11,9 @@ import Footer from '../Footer';
 
 const ContactUs = ({ history }) => {
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   function submitContactUs(userInfo, actions) {
     setLoading(true);
     const { email, name, message } = userInfo;

@@ -25,6 +25,9 @@ const HomePage = ({history}) => {
       history.push('/dashboard');
     }
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
   <div>
     <RegisterHeader />

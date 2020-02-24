@@ -27,21 +27,39 @@ const LeftBar = ({ history }) => (
       <nav className="sidebar-nav">
         <ul id="sidebarnav">
           <li>
-            <Link to="/dashboard" class="active"  aria-expanded="false">
+            <Link
+              to="/dashboard"
+              className={`${
+                window.location.pathname === '/dashboard' ? 'active' : ''
+              }`}
+              aria-expanded="false"
+            >
               <img src={dashboardImage} />
               <img src={dashboardImage} className="d-none" />
               <span className="hide-menu">Dashboard</span>
             </Link>
           </li>
           <li>
-            <Link to="/meetings" aria-expanded="false">
+            <Link
+              to="/meetings"
+              aria-expanded="false"
+              className={`${
+                window.location.pathname === '/meetings' ? 'active' : ''
+              }`}
+            >
               <img src={manImage} />
               <img src={manBImage} className="d-none" />
               <span className="hide-menu">Meetings</span>
             </Link>
           </li>
           <li>
-            <Link to="/stats" aria-expanded="false">
+            <Link
+              to="/stats"
+              aria-expanded="false"
+              className={`${
+                window.location.pathname === '/stats' ? 'active' : ''
+              }`}
+            >
               <img src={BarImage} />
               <img src={BarBImage} className="d-none" />
               <span className="hide-menu">Stats</span>

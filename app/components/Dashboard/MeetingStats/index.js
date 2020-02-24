@@ -60,12 +60,12 @@ const MeetingStats = ({ history }) => {
   const getMeetingStatus = avg => {
     if(avg === 0) return "Waiting Feedback Meeting"
     if (avg > 0 && avg <= 50) {
-      return 'BAD Meeting';
+      return 'This is a BAD Meeting';
     }
     if (avg >= 50 && avg <= 75) {
-      return 'Okay Meeting';
+      return 'This is aOkay Meeting';
     }
-    return 'Good Meeting';
+    return 'This is a Good Meeting';
   };
   return (
     <>
@@ -185,7 +185,7 @@ const MeetingStats = ({ history }) => {
                                   <h3>{avgMeetingScore}</h3>
                                 </div>
                                 <small className="text-uppercase">
-                               This is a<br />{' '}
+                                  {' '}
                                   {getMeetingStatus(avgMeetingScore)}
                                 </small>
                               </div>
