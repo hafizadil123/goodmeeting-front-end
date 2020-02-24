@@ -87,6 +87,7 @@ const LeftBar = ({ history }) => (
             </a>
           </li> */}
         </ul>
+        <p className="version">Version 1.0</p>
         {/* <ul id="sidebarnav" className="miscc">
           <li className="nav-small-cap" />
           <li className="nav-small-cap" />
