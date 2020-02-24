@@ -34,7 +34,7 @@ const HomePage = ({history}) => {
         <div className="col-md-6">
           <h1 className="heading1">A Good Meeting starts off with</h1>
           <Link to="/" className="btn-link">havea@goodmeeting.today</Link>
-          <p>Create an account. Keep this in CC and Voila, we will do everything to keep your<br /> meetings checked. Log back in to receive feedback and stats, all at one place.</p>
+          <p>Create an account. Keep this in CC and Voila, we will do everything to keep your meetings checked. Log back in to receive feedback and stats, all at one place.</p>
           <Link to="/register" className="btn btn-md btn-primary btn-blue">Get Started for Free! </Link>
           <div className="gmail">
           <small>Supports</small>
@@ -48,7 +48,7 @@ const HomePage = ({history}) => {
                <small className="gtxt">Outlook</small>
               </li>
             </ul>
-          </div> 
+          </div>
 
         </div>
         <div className="col-md-6">
