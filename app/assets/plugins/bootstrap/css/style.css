@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Biryani:400,700&display=swap');
 
 /* font-family: 'Biryani', sans-serif; */
-
+header {
+    position: relative;
+    z-index: 2;
+}
 
 .terms .heading1{
     font-family: 'Biryani', sans-serif;
@@ -63,6 +66,14 @@ section.section1.about.box-art:before {
 .terms h2 {
       padding-top: 10px;
     padding-bottom: 15px;
+}
+p.version {
+    position: fixed;
+    bottom: 10px;
+    margin: 0 0 0 35px;
+    font-size: 12px;
+    font-style: oblique;
+    color: #888888ab;
 }
 .terms h3 {
     font-size: 24px;
@@ -256,6 +267,8 @@ p{
 
 .section1{
     text-align: left;
+    position: relative;
+    z-index: 1;
 }
 .myabout{
     text-align: center;
@@ -308,12 +321,12 @@ section.section1 img.persons3 {
 .box-art:after {
         content: '';
     background-image: url(../../../images/right.png);
-    background-size: 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
     position: absolute;
     color: #000;
-    top: 0;
+    top: -85px;
     right: 0;
     width: 20%;
     height: 100%;
@@ -322,7 +335,7 @@ section.section1 img.persons3 {
 .box-art:before {
     content: '';
     background-image: url(../../../images/left.png);
-    background-size: 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top left;
     position: absolute;
@@ -678,9 +691,17 @@ footer h3{
     font-weight: 600;
 }
 .widget1 p{
+    font-size: 12px;
+    color: #D2DBEB;
+}
+.widget2 p{
     font-size: 16px;
     color: #D2DBEB;
 }
+.widget1 img.footerlogo{
+  width: 200px;
+}
+
 footer a{
     text-decoration: none;
     color: #D2DBEB;
@@ -694,6 +715,8 @@ footer ul li {
     color: #D2DBEB;
     font-size: 16px;
     line-height: 45px;
+    display: inline-block;
+    padding-right: 20px;
 }
 .widget2 h3,.widget3 h3,.widget4 h3{
     padding-bottom: 10px;
@@ -1072,7 +1095,7 @@ a.accont{
     font-weight: 500;
 }
 .login-stats {
-    width: 70%;
+    width: 300px;
     margin: 0 auto;
 }
 a.login{text-align: center;
@@ -1127,9 +1150,9 @@ h1.pb-60{padding-bottom: 60px;}
 .section1.box-art:after,.section1.box-art:before{
     display: block;
 }
-.section1.box-art:after,.section1.box-art:before{
+/* .section1.box-art:after,.section1.box-art:before{
   z-index: 1;
-}
+} */
 /******* plans page *************/
 /******* how it work page *************/
 h1.heading1 span{
@@ -1238,6 +1261,18 @@ h1.heading1 span{
     right: -185px;
     top: 75px;
 }
+
+.steps .right-div p:after {
+    content: '';
+    position: absolute;
+    border: 10px solid #fff;
+    height: 1px;
+    width: 367px;
+    right: -185px;
+    top: 75px;
+    display: block !important;
+}
+
 .right-div p:before {
     content: '';
     position: absolute;
@@ -1247,6 +1282,18 @@ h1.heading1 span{
     right: -185px;
     bottom: 70px;
     z-index: 1;
+}
+
+.steps .right-div p:before {
+    content: '';
+    position: absolute;
+    border: 10px solid #fff;
+    height: 1px;
+    width: 367px;
+    right: -185px;
+    bottom: 70px;
+    z-index: 1;
+    display: block !important;
 }
 /******* how it work page *************/
 /******  more info page ********/
@@ -2006,7 +2053,7 @@ width: max-content;
     box-shadow: 0px 4px 15px -13px rgba(76,82,100,1);
     }
     .box-art:after{
-        top: 85px;
+        top: 0;
     }
     .feedback-first-page{
         margin-top: 70px;
@@ -2262,6 +2309,9 @@ width: max-content;
     }
     .steps .right-div:after {
        display: none;
+    }
+    .steps .right-div h2:before, .steps .right-div p:after, .steps .right-div p:before{
+      display: none !important;
     }
     .steps .last-step:after {
         display: none;
