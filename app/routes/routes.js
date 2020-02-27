@@ -21,6 +21,7 @@ import AboutUs from '../components/AboutUs';
 import Terms from '../components/TermsCondition';
 import Contactus from '../components/ContactUs';
 import MyAccount from '../components/Dashboard/MyAccount';
+import PrivacyPolicy from '../components/PrivacyPolicy';
 // Import Containers
 
 const Routes = () => (
@@ -54,6 +55,7 @@ const Routes = () => (
       <Route exact path="/terms-condition" component={Terms} />
       <Route exact path="/contact-us" component={Contactus} />
       <PrivateRoute exact path="/profile" component={MyAccount} />
+      <Route exact path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </Suspense>

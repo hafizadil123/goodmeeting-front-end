@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import RegisterHeader from '../Header';
 import Footer from '../Footer';
-const TermsAndCondition = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  return(
+const PrivacyPolicy = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+    return (
   <>
     <RegisterHeader />
     <section className="section1 terms box-art">
@@ -85,6 +85,6 @@ const TermsAndCondition = () => {
     <Footer />
   </>
 );
-  }
+    }
 
-export default TermsAndCondition;
+export default PrivacyPolicy;

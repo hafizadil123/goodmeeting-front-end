@@ -42,7 +42,7 @@ function Footer() {
           <h3>Company</h3>
           <ul>    
             <li><Link to="/about-us">About</Link></li>
-            <li><a href>Privacy Policy</a></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             <li><Link to="/terms-condition">Terms</Link></li>
             <li><Link to="/contact-us">Contact Us</Link></li>
           </ul>
