@@ -17,7 +17,7 @@ const ThankYouMessage = () => (
               </div>
             </div>
             <div className="col">
-              <Link to="#" className="btn btn-dark btn-md btn-black">
+              <Link to="/" className="btn btn-dark btn-md btn-black">
                 EXIT
               </Link>
             </div>
@@ -31,9 +31,9 @@ const ThankYouMessage = () => (
               {/* <img src={hsbclogo} className="hsbclogo" /> */}
               <h1 className="heading1">Thank You for your feedback</h1>
               <p>We will improve and hope to have GoodMeetings Everyday.</p>
-              <a href="#" className="btn btn-dark btn-md btn-black">
+              <Link href="/" className="btn btn-dark btn-md btn-black">
                 Close
-              </a>
+              </Link>
             </div>
           </div>
         </div>
