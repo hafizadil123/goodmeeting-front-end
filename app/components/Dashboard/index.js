@@ -177,15 +177,15 @@ const Dashboard = ({ history }) => {
                             <tr key={id}>
                               <td>{subject}</td>
                               <td>
-                                {(item.meeting.dateEnd &&
-                                  item.meeting.dateEnd
+                                {(item.meeting.dateStart &&
+                                  item.meeting.dateStart
                                     .replace(', ', ' ')
                                     .split(',')[0]) ||
                                   'Not-Available'}
                                 <br />
                                 <span>
-                                  {(item.meeting.dateEnd &&
-                                    item.meeting.dateEnd
+                                  {(item.meeting.dateStart &&
+                                    item.meeting.dateStart
                                       .replace(', ', ' ')
                                       .split(',')[2]) ||
                                     'Not-Available'}
