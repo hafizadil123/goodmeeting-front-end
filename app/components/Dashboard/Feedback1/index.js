@@ -27,7 +27,7 @@ const FeedbackForm = ({ history }) => {
   }, []);
   const handleButtonDisble = value => {
     setAnswerId(value);
-    setDisabled(!isDisabled);
+    setDisabled(false);
   };
   const onUpdatePage = (e, value, questionId) => {
     e.preventDefault();
