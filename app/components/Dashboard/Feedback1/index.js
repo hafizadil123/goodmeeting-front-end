@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-expressions */
@@ -16,6 +17,13 @@ const FeedbackForm = ({ history }) => {
   const [asnwerId, setAnswerId] = useState(0);
   const [answer, setAnswer] = useState([]);
   const [allQuestions, setQuestion] = useState([]);
+  const isGoodMeeting = history.location.search
+    .split('&')[0]
+    .replace('?isGood=', '');
+  const organizer = history.location.search
+    .split('&')[2]
+    .replace('email=', '')
+    .split('@')[0];
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-questions`)
@@ -98,12 +106,19 @@ const FeedbackForm = ({ history }) => {
                 <div className="col-md-12">
                   {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
                   <h1 className="heading1">
-                    Looks like you had a good meeting.
+                    {isGoodMeeting == 1
+                      ? 'Looks like you had a good meeting'
+                      : 'Looks like you did not have a good meeting'}{' '}
+                    .
                   </h1>
                   <p>
-                    Fantastic, we love good meetings! But we don’t want to rest
-                    on our laurels, tell us what was good and what was great so
-                    we can carry on having good meetings. It won’t take long:
+                    {isGoodMeeting == 1
+                      ? ` Fantastic, we love good meetings! But we don’t want to rest
+                      on our laurels, tell us what was good and what was great so
+                      we can carry on having good meetings. It won’t take long:`
+                      : `We're sorry to hear that, but please give us some feedback 
+                      so that ${organizer} can plan to have a Good Meeting in future. 
+                      It will only take a couple of minutes`}{' '}
                   </p>
                   <button
                     type="button"
@@ -138,21 +153,24 @@ const FeedbackForm = ({ history }) => {
                           </h6>
 
                           <>
-                            <h1>{allQuestions[0].question}</h1>
+                            <h1>{allQuestions && allQuestions[0].question}</h1>
 
                             <ul className="radios">
-                              {allQuestions[0].answers.map(el => (
-                                <li>
-                                  <label>
-                                    <input
-                                      type="radio"
-                                      name="size"
-                                      onChange={() => handleButtonDisble(el.id)}
-                                    />
-                                    <span>{el.answer}</span>
-                                  </label>
-                                </li>
-                              ))}
+                              {allQuestions &&
+                                allQuestions[0].answers.map(el => (
+                                  <li>
+                                    <label>
+                                      <input
+                                        type="radio"
+                                        name="size"
+                                        onChange={() =>
+                                          handleButtonDisble(el.id)
+                                        }
+                                      />
+                                      <span>{el.answer}</span>
+                                    </label>
+                                  </li>
+                                ))}
                             </ul>
 
                             <button
@@ -175,7 +193,7 @@ const FeedbackForm = ({ history }) => {
                       <h6 />
                       {page === 2 ? (
                         <section>
-                          <h1>{allQuestions[1].question}</h1>
+                          <h1>{allQuestions && allQuestions[1].question}</h1>
                           <ul className="radios">
                             {allQuestions[1].answers.map(el => (
                               <li>
@@ -209,7 +227,7 @@ const FeedbackForm = ({ history }) => {
                       <h6 />
                       {page === 3 ? (
                         <section>
-                          <h1>{allQuestions[2].question}</h1>
+                          <h1>{allQuestions && allQuestions[2].question}</h1>
                           <ul className="radios">
                             {allQuestions[2].answers.map(el => (
                               <li>
@@ -244,7 +262,7 @@ const FeedbackForm = ({ history }) => {
                       {page === 4 ? (
                         <section>
                           <section>
-                            <h1>{allQuestions[3].question}</h1>
+                            <h1>{allQuestions && allQuestions[3].question}</h1>
                             <ul className="radios">
                               {allQuestions[3].answers.map(el => (
                                 <li>
