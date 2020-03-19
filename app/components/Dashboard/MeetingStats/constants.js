@@ -24,7 +24,13 @@ export const data1 = answer => {
     datasets: [
       {
         label: 'Doughnut',
-        backgroundColor: ['#F55B4F', '#AFC4D5', '#0D4EE0'],
+        backgroundColor: [
+          '#dc3545',
+          '#ff6c7b',
+          '#baadc5',
+          '#8b71ea',
+          '#222cd6',
+        ],
         borderColor: ColorAlpha(white, 0),
         borderWidth: 3,
 
