@@ -144,6 +144,7 @@ const Dashboard = ({ history }) => {
             </div>
           </div>
         </div>
+        <div className="container-fluid">
         <div className="row page-titles">
           <div className="col-md-6 col-8 align-self-center">
             <h3 className="text-themecolor m-b-0 m-t-0">Recent Meetings</h3>
@@ -229,6 +230,7 @@ const Dashboard = ({ history }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
