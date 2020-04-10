@@ -1607,10 +1607,11 @@ form#demo-2{
 .nextButton {
     display: inline-block;
 background-color: #E33351;
-padding: 3px 20px 5px 19px;
+    padding: 10px 35px 10px 35px;
 color: white;
 border-radius: 4px;
 outline: none !important;
+border:0px;
 }
 .validation {
     border: 2px solid #E94538 !important;
@@ -1622,13 +1623,15 @@ outline: none !important;
     height: 100px;
     float: left;
     height: 60px;
+    object-fit: cover;
+object-position: top;
 }
 .disableButtonUpdated {
     background-color: #cccccc;
     border: 1px solid #cccccc;
     border-radius: 2px;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 35px 10px 35px;
     font-family: 'Biryani', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -1649,7 +1652,7 @@ outline: none !important;
 .disableButton {
     display: inline-block;
 background-color: #cccccc;
-padding: 3px 20px 5px 19px;
+padding: 10px 35px 10px 35px;
 color: white;
 border-radius: 4px;
 outline: none !important;
@@ -1943,6 +1946,7 @@ ul.radios {
     display: inline-block;
     font-size: 12px;
         margin: 0 5px;
+        margin-bottom: 20px;
     /*background: #F1F1F1;
     width: 146px;
     border-radius: 8px;
@@ -2381,7 +2385,10 @@ width: max-content;
     }
     .mobile-logo{
         display: block;
-        margin-bottom: 18px;
+        margin-bottom: 0;
+    }
+    .mini-sidebar .page-wrapper{
+      padding-top: 0;
     }
     header .navbar-brand img {
         width: 40px;

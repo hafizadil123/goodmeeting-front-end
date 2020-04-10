@@ -116,8 +116,8 @@ const FeedbackForm = ({ history }) => {
                       ? ` Fantastic, we love good meetings! But we don’t want to rest
                       on our laurels, tell us what was good and what was great so
                       we can carry on having good meetings. It won’t take long:`
-                      : `We're sorry to hear that, but please give us some feedback 
-                      so that ${organizer} can plan to have a Good Meeting in future. 
+                      : `We're sorry to hear that, but please give us some feedback
+                      so that ${organizer} can plan to have a Good Meeting in future.
                       It will only take a couple of minutes`}{' '}
                   </p>
                   <button
@@ -133,6 +133,7 @@ const FeedbackForm = ({ history }) => {
             </div>
           </section>
         ) : null}
+        {page != 0 ? (
         <section className="feedback-first-page feedback-start">
           <div className="container-fluid">
             <div className="row">
@@ -300,6 +301,7 @@ const FeedbackForm = ({ history }) => {
             </div>
           </div>
         </section>
+        ) : null}
       </div>
     </div>
   );

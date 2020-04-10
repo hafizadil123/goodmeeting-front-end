@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import dashboardImageh from '../../../assets/images/dashboard.png';
 import dashboardImage from '../../../assets/images/dashboard-b.png';
 import manImage from '../../../assets/images/man.png';
 import manBImage from '../../../assets/images/man-b.png';
@@ -34,7 +35,7 @@ const LeftBar = ({ history }) => (
               }`}
               aria-expanded="false"
             >
-              <img src={dashboardImage} />
+              <img src={dashboardImageh} />
               <img src={dashboardImage} className="d-none" />
               <span className="hide-menu">Dashboard</span>
             </Link>
