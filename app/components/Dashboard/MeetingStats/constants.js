@@ -21,6 +21,7 @@ export const data1 = answer => {
   const updateAns = answer.map(item => (item.answer ? item.answer : 0));
   const doughnutData = {
     labels: updateAns,
+
     datasets: [
       {
         label: 'Doughnut',

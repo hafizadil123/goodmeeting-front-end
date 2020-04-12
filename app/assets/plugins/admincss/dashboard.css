@@ -271,7 +271,10 @@ html body .bg-info {
 .recent-table td{
     font: 400 16px/28px Biryani;
     color: #313640;
-
+    white-space: normal;
+}
+th.b1{
+  width: 40%;
 }
 .recent-table td span{
     font: 400 14px/26px Biryani;
@@ -1010,7 +1013,16 @@ img.red-c {
     color: #313640!important;
 }
 .a{
-    width: 55%;
+    width: 545px;
+}
+.container-fluid {
+    padding: 0 15px;
+}
+.myreviews {
+    width: 375px;
+    position: absolute;
+    right: 0;
+    margin-top: -10rem;
 }
 .g-meeting p.m-review {
     text-align: left;
@@ -1341,8 +1353,12 @@ ul.fz-response li {
         width: 100%;
         margin-top: 20px;
     }
+    .mobile-logo{
+      display: block !important;
+      width: 45px !important;
+    }
     .g-meeting p.m-review {
-        text-align: center;
+        text-align: left;
         margin: 0;
     }
     .myoption{
@@ -1351,6 +1367,17 @@ ul.fz-response li {
     }
     .g-meeting .howmeet2,.g-meeting .howmeet4,.g-meeting .howmeet3,.g-meeting .howmeet5{
         margin: 0 auto;
+    }
+    .a{
+        width: 100%;
+    }
+    .myreviews {
+        width: min-content;
+        position: unset;
+        right: 0;
+        margin-top: 0;
+        clear: both;
+        width: 100%;
     }
 }
 @media(max-width: 991px){
@@ -1415,6 +1442,9 @@ ul.fz-response li {
 @media(max-width: 567px){
     th,td{
         white-space: nowrap;
+    }
+    .recent-table td{
+      white-space: nowrap;
     }
     .response{
         text-align: left;
@@ -1530,7 +1560,7 @@ ul.fz-response li {
         width: 210px !important;
     }
     .g-meeting .doughnut1, .g-meeting .doughnut2, .g-meeting .doughnut3, .g-meeting .doughnut4 {
-        width: 210px !important;
+        width: 100% !important;
             margin: 0 auto;
     }
     .welcome h3{
@@ -1584,6 +1614,7 @@ ul.fz-response li {
         margin: 0;
         font-size: 14px;
     }
+
 }
 @media(max-width: 320px){
     .switches1{
