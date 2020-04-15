@@ -20,7 +20,8 @@ const FeedbackForm = ({ history }) => {
   const isGoodMeeting = history.location.search
     .split('&')[0]
     .replace('?isGood=', '');
-  const organizer = history.location.search.split('&')[2].replace('email=', '');
+  let organizer = history.location.search.split('&')[2].replace('name=', '');
+  organizer = decodeURI(organizer);
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-questions`)
