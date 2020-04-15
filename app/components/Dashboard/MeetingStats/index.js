@@ -24,7 +24,7 @@ const MeetingStats = ({ history }) => {
         params: {
           meetingId: queryParam,
         },
-        crossdomain: true 
+        crossdomain: true
       })
       .then(response => setMeetingDetail(response && response.data))
       .catch(() => {})
@@ -38,7 +38,7 @@ const MeetingStats = ({ history }) => {
         params: {
           meetingId: queryParam,
         },
-        crossdomain: true 
+        crossdomain: true
       })
       .then(response => setQuestion(response && response.data))
       .catch(() => {})
@@ -144,7 +144,7 @@ const MeetingStats = ({ history }) => {
                 </li>
               </ul>
               <div className="tab-content tabcontent-border">
-                {!loading ? 
+                {!loading ?
                   <div className="tab-pane active show" id="home" role="tabpanel">
                     <div className="home-wrap p-20">
                       <div className="row">
@@ -195,18 +195,18 @@ const MeetingStats = ({ history }) => {
                               <p className="m-review">50 - 75 = Okay Meeting</p>
                               <p className="m-review">75 - 100 = Good Meeting</p>
                             </div>
-                          </div> 
+                          </div>
                         </div>
                         <div className="col-md-6">
                           <p className="text-uppercase">Round up</p>
                           <div className="row1">
                             <div className="chart">
                               <Doughnut
-                                data={data(goodMeeting, badMeeting, noResponse)} options={doughnutOptions} 
+                                data={data(goodMeeting, badMeeting, noResponse)} options={doughnutOptions}
                               />
-                            
+
                             </div>
-                          
+
                           </div>
                         </div>
                       </div>
@@ -235,19 +235,17 @@ const MeetingStats = ({ history }) => {
                                   <p className="quest"> {item.question} </p>
                                 </div>
                               </div>
-                              <div className="row">
-                                <div className="col-md-12">
-                                  <div className="row align-items-center ">
-                                  
+
+                                    <div className="">
                                     <div className="doughnut3 a">
                                       <Doughnut
-                                        data={data1(item.answers)} options={doughnutOptions1}  width={400}
-                                      
+                                        data={data1(item.answers)} options={doughnutOptions1}  width={400} 
+
                                       />
                                     </div>
-                                    
+
                                     <div className="myreviews">
-                                      {item.answers && item.answers.length > 0 
+                                      {item.answers && item.answers.length > 0
                                         ? item.answers.map(answerItem => (
                                           <p className="m-review option">
                                             {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ totalFeedback).toFixed(2)*100})%` : '(0%)'}
@@ -256,8 +254,6 @@ const MeetingStats = ({ history }) => {
                                         : null}
                                     </div>
                                   </div>
-                                </div>
-                              </div>
                             </>
                         ))
                         :  <div className="loader">
