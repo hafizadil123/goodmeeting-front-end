@@ -23,6 +23,9 @@
 #main-wrapper .dark-logo{
     width: 150px;
 }
+.page-titles {
+    padding-top: 25px;
+}
 ul#sidebarnav li img {
     width: 15px;
     vertical-align: middle;
@@ -307,19 +310,30 @@ th.b1{
 }
 .topbar ul.dropdown-user li i {
     margin-right: 5px;
+    color: #313640;
 }
 .topbar ul.dropdown-user {
     padding: 0px;
     width: 205px;
 }
 .topbar ul.dropdown-user li.logout a{
-    color: #D1DCE4;
+    color: #313640;
 }
 .topbar ul.dropdown-user li.logout:hover a{
-    color: #313640;
+    color: #54667a;
 }
 .topbar ul.dropdown-user li.logout:hover i{
-    color: #313640;
+    color: #54667a;
+}
+.loader{
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin:  auto;
+
 }
 /*.blur-ondrop-css .page-wrapper{
     -webkit-filter: blur(4px);
@@ -1482,6 +1496,7 @@ ul.fz-response li {
     }
     .page-titles h3 {
         font-size: 18px;
+            margin-bottom: 0 !important;
     }
     .feedback-summary .quest, .g-meeting p.quest{
         font-size: 14px;
