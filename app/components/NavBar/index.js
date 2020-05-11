@@ -11,9 +11,11 @@ import searchImage from '../../assets/images/search.png';
 import { BASE_URL, BASE_IMAGE_URL } from '../../utils/constants';
 import userImage from '../../assets/images/userIcon.png';
 import { logout } from '../../utils/requests';
+
 const NavBar = ({ isShow, history }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [profile, setProfile] = useState(null);
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-profile`, {
@@ -29,6 +31,7 @@ const NavBar = ({ isShow, history }) => {
       });
   }, []);
   return isShow ? (
+
     <div className="fix-header fix-sidebar card-no-border">
       {/* ============================================================== */}
       {/* Main wrapper - style you can find in pages.scss */}
@@ -67,6 +70,7 @@ const NavBar = ({ isShow, history }) => {
                   {' '}
                   <a
                     className="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                  
                     href="javascript:void(0)"
                   >
                     <i className="ti-menu" />

@@ -239,7 +239,7 @@ const MeetingStats = ({ history }) => {
                                     <div className="">
                                     <div className="doughnut3 a">
                                       <Doughnut
-                                        data={data1(item.answers)} options={doughnutOptions1}  width={400} 
+                                        data={data1(item.answers)} options={doughnutOptions1}  width={400}
 
                                       />
                                     </div>
@@ -254,6 +254,8 @@ const MeetingStats = ({ history }) => {
                                         : null}
                                     </div>
                                   </div>
+
+
                             </>
                         ))
                         :  <div className="loader">

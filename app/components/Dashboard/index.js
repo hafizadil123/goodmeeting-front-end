@@ -203,7 +203,7 @@ const Dashboard = ({ history }) => {
                           );
                         })
                       ) : (
-                        <div className="loader">
+                        <div className="loader text-center">
                           <Loader
                             type="Audio"
                             color="#00BFFF"
