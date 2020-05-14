@@ -16,7 +16,7 @@ const AdminSupport = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-all-contact-us/`, {
+      .get(`${BASE_URL}admin/get-all-contact-us/`, {
         headers: {
           authorization: localStorage.getItem('accessToken'),
         },
@@ -49,7 +49,7 @@ const AdminSupport = () => {
       const contactId = item._id;
       try {
         const response = await axios.post(
-          `http://localhost:4567/admin/change-contact-us-status/`,
+          `${BASE_URL}admin/change-contact-us-status/`,
           { contactId },
           {
             headers: {

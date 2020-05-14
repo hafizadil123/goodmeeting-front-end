@@ -53,7 +53,7 @@ const AdminDashboard = ({ history }) => {
   }, []);
 
   useEffect(() => {
-    const socket = io('localhost:4567');
+    const socket = io(`${BASE_URL}`);
     console.log('socket0---', socket);
   }, []);
   return (

@@ -14,7 +14,7 @@ const AdminUser = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-users-card-data/`, {
+      .get(`${BASE_URL}admin/get-users-card-data/`, {
         headers: {
           authorization: localStorage.getItem('accessToken'),
         },
@@ -25,7 +25,7 @@ const AdminUser = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-users/`, {
+      .get(`${BASE_URL}admin/get-users/`, {
         headers: {
           authorization: localStorage.getItem('accessToken'),
         },

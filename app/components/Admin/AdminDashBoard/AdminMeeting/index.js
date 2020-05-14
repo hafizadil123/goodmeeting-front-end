@@ -14,7 +14,7 @@ const AdminMeeting = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-meetings-card-data/`, {
+      .get(`${BASE_URL}admin/get-meetings-card-data/`, {
         headers: {
           authorization: localStorage.getItem('accessToken'),
         },
@@ -25,7 +25,7 @@ const AdminMeeting = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-meetings/`, {
+      .get(`${BASE_URL}admin/get-meetings/`, {
         headers: {
           authorization: localStorage.getItem('accessToken'),
         },

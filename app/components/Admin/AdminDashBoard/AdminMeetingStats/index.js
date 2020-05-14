@@ -24,7 +24,7 @@ const AdminMeetingStats = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-meetings-detail/`, {
+      .get(`${BASE_URL}admin/get-meetings-detail/`, {
         params: {
           meetingId: queryParam,
         },
@@ -42,7 +42,7 @@ const AdminMeetingStats = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4567/admin/get-invitee-detail/`, {
+      .get(`${BASE_URL}admin/get-invitee-detail/`, {
         params: {
           meetingId: queryParam,
         },

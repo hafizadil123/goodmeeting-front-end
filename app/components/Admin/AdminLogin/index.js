@@ -23,7 +23,7 @@ const AdminLogin = ({ history }) => {
     setLoading(true);
     const { email, password } = userInfo;
     axios
-      .post(`http://localhost:4567/auth/login`, { email, password })
+      .post(`${BASE_URL}auth/login`, { email, password })
       .then(response => {
         const { token, userId, name, role } = response && response.data;
         if (role === 'admin') {
