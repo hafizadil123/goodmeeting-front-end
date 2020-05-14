@@ -82,3 +82,8 @@ export const logout = history => {
   localStorage.removeItem('accessToken');
   history.push('/login');
 };
+
+export const logoutAdmin = history => {
+  localStorage.removeItem('accessToken');
+  history.push('/admin/login');
+};
