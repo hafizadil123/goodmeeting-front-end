@@ -188,73 +188,73 @@ const AdminMeetingStats = ({ history }) => {
               <div className="tab-content tabcontent-border">
 
             
-                  <div className="tab-pane" id="invitee" role="tabpanel">
+                <div className="tab-pane" id="invitee" role="tabpanel">
                   <div className="row recent-table">
-            <div className="col-lg-12">
-              <div className="card">
-                <div className="card-body">
-                  <div className="table-responsive">
-                    <table
-                      className="table"
-                      id="demo-foo-addrow"
-                      data-page-size={10}
-                    >
-                      <thead>
-                        <tr>
-                          <th className="b1">Sr#</th>
-                          <th>Email</th>
-                          <th>Date</th>
-                          <th>Score</th>
-                          <th>Feedback</th>
-                          {/* <th className="b2">Action</th> */}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {invitees && Array.isArray(invitees) && !loading ? (
-                          invitees.map((item, index) => {
-                            const id = item._id;
-                            return (
-                              <tr key={id}>
-                                <td>{index + 1}</td>
-                                <td>{item.invitesEmail}</td>
-                                <td>{item.date}</td>
-                                <td>{item.score}</td>          
-                                <td><Switch checked={item.isFeedbackGiven} /></td>
-                                {/* <td>
+                    <div className="col-lg-12">
+                      <div className="card">
+                        <div className="card-body">
+                          <div className="table-responsive">
+                            <table
+                              className="table"
+                              id="demo-foo-addrow"
+                              data-page-size={10}
+                            >
+                              <thead>
+                                <tr>
+                                  <th className="b1">Sr#</th>
+                                  <th>Email</th>
+                                  <th>Date</th>
+                                  <th>Score</th>
+                                  <th>Feedback</th>
+                                  {/* <th className="b2">Action</th> */}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {invitees && Array.isArray(invitees) && !loading ? (
+                                  invitees.map((item, index) => {
+                                    const id = item._id;
+                                    return (
+                                      <tr key={id}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.invitesEmail}</td>
+                                        <td>{item.date}</td>
+                                        <td>{item.score}</td>          
+                                        <td><Switch checked={item.isFeedbackGiven} /></td>
+                                        {/* <td>
                                 <button className="btn btn-success" >btn</button>
                                 </td> */}
-                              </tr>
-                            );
-                          })
-                        ) : (
-                          <div className="loader">
-                            <Loader
-                              type="Audio"
-                              color="#00BFFF"
-                              height={100}
-                              width={100}
-                            />
+                                      </tr>
+                                    );
+                                  })
+                                ) : (
+                                  <div className="loader">
+                                    <Loader
+                                      type="Audio"
+                                      color="#00BFFF"
+                                      height={100}
+                                      width={100}
+                                    />
+                                  </div>
+                                )}
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <td colSpan={5}>
+                                    <div className="text-right">
+                                      <ul className="pagination pagination-split m-t-30">
+                                        {' '}
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tfoot>
+                            </table>
                           </div>
-                        )}
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td colSpan={5}>
-                            <div className="text-right">
-                              <ul className="pagination pagination-split m-t-30">
-                                {' '}
-                              </ul>
-                            </div>
-                          </td>
-                        </tr>
-                      </tfoot>
-                    </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-                  </div>
                
                  
 

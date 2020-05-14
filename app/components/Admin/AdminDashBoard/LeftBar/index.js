@@ -18,63 +18,71 @@ import cogwheelImage from '../../../../assets/images/cogwheel.png';
 import cogwheelBImage from '../../../../assets/images/cogwheel-b.png';
 import loopImage from '../../../../assets/images/loop.png';
 import logoutImage from '../../../../assets/images/logout.png';
-const logoutFunction = (history) => {
-	localStorage.removeItem('accessToken');
-	history.push('/admin/login');
+const logoutFunction = history => {
+  localStorage.removeItem('accessToken');
+  history.push('/admin/login');
 };
 const LeftBar = ({ history }) => (
-	<aside className="left-sidebar">
-		{/* Sidebar scroll */}
-		<div className="scroll-sidebar">
-			{/* Sidebar navigation */}
-			<nav className="sidebar-nav">
-				<ul id="sidebarnav">
-					<li>
-						<Link
-							to="/admin/dashboard"
-							className={`${window.location.pathname === '/admin/dashboard' ? 'active' : ''}`}
-							aria-expanded="false"
-						>
-							<img src={dashboardImage} />
-							<img src={dashboardImage} className="d-none" />
-							<span className="hide-menu">Dashboard</span>
-						</Link>
-					</li>
-					<li>
-						<Link
-							to="/admin/meetings"
-							aria-expanded="false"
-							className={`${window.location.pathname === '/admin/meetings' ? 'active' : ''}`}
-						>
-							<img src={manImage} />
-							<img src={manBImage} className="d-none" />
-							<span className="hide-menu">Meetings</span>
-						</Link>
-					</li>
-					<li>
-						<Link
-							to="/admin/users"
-							aria-expanded="false"
-							className={`${window.location.pathname === '/admin/users' ? 'active' : ''}`}
-						>
-							<img src={manImage} />
-							<img src={manBImage} className="d-none" />
-							<span className="hide-menu">Users</span>
-						</Link>
-					</li>
+  <aside className="left-sidebar">
+    {/* Sidebar scroll */}
+    <div className="scroll-sidebar">
+      {/* Sidebar navigation */}
+      <nav className="sidebar-nav">
+        <ul id="sidebarnav">
+          <li>
+            <Link
+              to="/admin/dashboard"
+              className={`${
+                window.location.pathname === '/admin/dashboard' ? 'active' : ''
+              }`}
+              aria-expanded="false"
+            >
+              <img src={dashboardImage} />
+              <img src={dashboardImage} className="d-none" />
+              <span className="hide-menu">Dashboard</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/admin/meetings"
+              aria-expanded="false"
+              className={`${
+                window.location.pathname === '/admin/meetings' ? 'active' : ''
+              }`}
+            >
+              <img src={manImage} />
+              <img src={manBImage} className="d-none" />
+              <span className="hide-menu">Meetings</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/admin/users"
+              aria-expanded="false"
+              className={`${
+                window.location.pathname === '/admin/users' ? 'active' : ''
+              }`}
+            >
+              <img src={manImage} />
+              <img src={manBImage} className="d-none" />
+              <span className="hide-menu">Users</span>
+            </Link>
+          </li>
 
-					<li>
-						<Link
-							to="/admin/supports"
-							aria-expanded="false"
-							className={`${window.location.pathname === '/admin/supports' ? 'active' : ''}`}
-						>
-							<img src={manImage} />
-							<img src={manBImage} className="d-none" />
-							<span className="hide-menu">Support</span>
-						</Link>
-					</li>
-					{/* <li>
+          <li>
+            <Link
+              to="/admin/supports"
+              aria-expanded="false"
+              className={`${
+                window.location.pathname === '/admin/supports' ? 'active' : ''
+              }`}
+            >
+              <img src={manImage} />
+              <img src={manBImage} className="d-none" />
+              <span className="hide-menu">Support</span>
+            </Link>
+          </li>
+          {/* <li>
             <Link
               to="/stats"
               aria-expanded="false"
@@ -87,7 +95,7 @@ const LeftBar = ({ history }) => (
               <span className="hide-menu">Stats</span>
             </Link>
           </li> */}
-					{/* <li>
+          {/* <li>
             <a href={window.location.pathname} aria-expanded="false">
               <img src={financialImage} />
               <img src={financialBImage} className="d-none" />
@@ -108,9 +116,9 @@ const LeftBar = ({ history }) => (
               <span className="hide-menu">Settings</span>
             </a>
           </li> */}
-				</ul>
-				<p className="version">Version 1.0</p>
-				{/* <ul id="sidebarnav" className="miscc">
+        </ul>
+        <p className="version">Version 1.0</p>
+        {/* <ul id="sidebarnav" className="miscc">
           <li className="nav-small-cap" />
           <li className="nav-small-cap" />
           <li className="nav-small-cap" />
@@ -131,11 +139,11 @@ const LeftBar = ({ history }) => (
             </Link>
           </li>
         </ul> */}
-			</nav>
-			{/* End Sidebar navigation */}
-		</div>
-		{/* End Sidebar scroll */}
-	</aside>
+      </nav>
+      {/* End Sidebar navigation */}
+    </div>
+    {/* End Sidebar scroll */}
+  </aside>
 );
 
 export default LeftBar;

@@ -9,21 +9,20 @@ import LeftSide from '../LeftBar';
 import controlImage from '../../../../assets/images/controls.png';
 import Header from '../../NavBar';
 const AdminMeeting = () => {
-  const [ meetingStats, setMeetingStats ] = useState({});
+  const [meetingStats, setMeetingStats] = useState({});
   const [meetings, setMeetings] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-		axios
-			.get(`http://localhost:4567/admin/get-meetings-card-data/`, {
-				headers: {
-					authorization: localStorage.getItem('accessToken')
-				}
-			})
-			.then((response) => setMeetingStats(response && response.data.meetings))
-			.catch(() => {})
-			.then(() => {
-			});
-	}, []);
+    axios
+      .get(`http://localhost:4567/admin/get-meetings-card-data/`, {
+        headers: {
+          authorization: localStorage.getItem('accessToken'),
+        },
+      })
+      .then(response => setMeetingStats(response && response.data.meetings))
+      .catch(() => {})
+      .then(() => {});
+  }, []);
   useEffect(() => {
     axios
       .get(`http://localhost:4567/admin/get-meetings/`, {
@@ -45,61 +44,67 @@ const AdminMeeting = () => {
       <LeftSide />
       <div className="page-wrapper">
         <div className="container-fluid">
-        <div className="row">
-						<div className="col-md-6 col-lg-3 col-xlg-3">
-							<div className="card card-inverse card-info">
-								<div className="box bg-info text-center">
-									<h6 className="text-white">
-										Meetings this Week
-										<br />
-									</h6>
-									{/* <i className="fa fa-sort-desc down-red" /> */}
-									<h1 className="font-light text-white">{meetingStats.thisWeekMeetings || 0}</h1>
-								</div>
-							</div>
-						</div>
+          <div className="row">
+            <div className="col-md-6 col-lg-3 col-xlg-3">
+              <div className="card card-inverse card-info">
+                <div className="box bg-info text-center">
+                  <h6 className="text-white">
+                    Meetings this Week
+                    <br />
+                  </h6>
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
+                  <h1 className="font-light text-white">
+                    {meetingStats.thisWeekMeetings || 0}
+                  </h1>
+                </div>
+              </div>
+            </div>
 
             <div className="col-md-6 col-lg-3 col-xlg-3">
-							<div className="card card-inverse card-info">
-								<div className="box bg-info text-center">
-									<h6 className="text-white">
-										Total Meetings
-										<br />
-									</h6>
-									{/* <i className="fa fa-sort-desc down-red" /> */}
-									<h1 className="font-light text-white">{meetingStats.totalMeetings || 0}</h1>
-								</div>
-							</div>
-						</div>
-
-
-            <div className="col-md-6 col-lg-3 col-xlg-3">
-							<div className="card card-inverse card-info">
-								<div className="box bg-info text-center">
-									<h6 className="text-white">
-										Total Invitees
-										<br />
-									</h6>
-									{/* <i className="fa fa-sort-desc down-red" /> */}
-									<h1 className="font-light text-white">{meetingStats.totalInvitees || 0}</h1>
-								</div>
-							</div>
-						</div>
-
+              <div className="card card-inverse card-info">
+                <div className="box bg-info text-center">
+                  <h6 className="text-white">
+                    Total Meetings
+                    <br />
+                  </h6>
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
+                  <h1 className="font-light text-white">
+                    {meetingStats.totalMeetings || 0}
+                  </h1>
+                </div>
+              </div>
+            </div>
 
             <div className="col-md-6 col-lg-3 col-xlg-3">
-							<div className="card card-inverse card-info">
-								<div className="box bg-info text-center">
-									<h6 className="text-white">
-										Total Feedbacks
-										<br />
-									</h6>
-									{/* <i className="fa fa-sort-desc down-red" /> */}
-									<h1 className="font-light text-white">{meetingStats.totalFeedbacks || 0}</h1>
-								</div>
-							</div>
-						</div>
-					</div>
+              <div className="card card-inverse card-info">
+                <div className="box bg-info text-center">
+                  <h6 className="text-white">
+                    Total Invitees
+                    <br />
+                  </h6>
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
+                  <h1 className="font-light text-white">
+                    {meetingStats.totalInvitees || 0}
+                  </h1>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6 col-lg-3 col-xlg-3">
+              <div className="card card-inverse card-info">
+                <div className="box bg-info text-center">
+                  <h6 className="text-white">
+                    Total Feedbacks
+                    <br />
+                  </h6>
+                  {/* <i className="fa fa-sort-desc down-red" /> */}
+                  <h1 className="font-light text-white">
+                    {meetingStats.totalFeedbacks || 0}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="row page-titles filters">
             <div className="col-lg-6 col-md-4 col-12 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Meetings</h3>

@@ -5,12 +5,11 @@ import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+import swal from 'sweetalert';
 import { BASE_URL } from '../../../../utils/constants';
 import LeftSide from '../LeftBar';
 import controlImage from '../../../../assets/images/controls.png';
 import Header from '../../NavBar';
-import swal from 'sweetalert';
-
 
 const AdminSupport = () => {
   const [contactUs, setContactUs] = useState([]);
@@ -30,41 +29,41 @@ const AdminSupport = () => {
       });
   }, []);
 
-  async function  onChangeContactStatus(item) {
+  async function onChangeContactStatus(item) {
     const willChangeStatus = await swal({
-      title: "Are you sure?",
-      text: "Are you sure this ticket is resolved?",
-      icon: "warning",
-     // dangerMode: true,
-     confirmButtonColor: '#000000',
-     buttons: {
-      cancel: true,
-      confirm: {
-        text: "Confirm",
-        className: 'dialog-btn-color'
+      title: 'Are you sure?',
+      text: 'Are you sure this ticket is resolved?',
+      icon: 'warning',
+      // dangerMode: true,
+      confirmButtonColor: '#000000',
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: 'Confirm',
+          className: 'dialog-btn-color',
+        },
       },
-    },
     });
 
-    if(willChangeStatus){
+    if (willChangeStatus) {
       const contactId = item._id;
-     try {
-      const response = await axios.post(`http://localhost:4567/admin/change-contact-us-status/`,{contactId},{
-        headers: {
-        authorization: localStorage.getItem('accessToken'),
-        'Content-Type': 'application/json'
-      },
-    });
-      setContactUs(response && response.data.contactUs);
-     } catch (error) {
-       console.log(error);
-     }
+      try {
+        const response = await axios.post(
+          `http://localhost:4567/admin/change-contact-us-status/`,
+          { contactId },
+          {
+            headers: {
+              authorization: localStorage.getItem('accessToken'),
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        setContactUs(response && response.data.contactUs);
+      } catch (error) {
+        console.log(error);
+      }
     }
-    
-   
   }
-
-  
 
   return (
     <>
@@ -155,7 +154,7 @@ const AdminSupport = () => {
                       <tbody>
                         {contactUs && Array.isArray(contactUs) && !loading ? (
                           contactUs.map(item => {
-                           // const [subject] = item.subject;
+                            // const [subject] = item.subject;
                             const id = item._id;
                             return (
                               <tr key={id}>
@@ -185,7 +184,13 @@ const AdminSupport = () => {
                                 </td> */}
                                 <td>{moment(item.createdAt).format('LL')}</td>
                                 <td>
-                                <button className="btn btn-success" onClick={()=> onChangeContactStatus(item)}  disabled={item.status === 'resolved' ? true : false}>{item.status}</button>
+                                  <button
+                                    className="btn btn-success"
+                                    onClick={() => onChangeContactStatus(item)}
+                                    disabled={item.status === 'resolved'}
+                                  >
+                                    {item.status}
+                                  </button>
                                 </td>
                               </tr>
                             );
