@@ -23,7 +23,7 @@ const HomePage = ({ history }) => {
 	useEffect(() => {
 		if (localStorage.getItem('accessToken') && localStorage.getItem('role') === 'admin') {
 			history.push('/admin/dashboard');
-		} else {
+		} else if (localStorage.getItem('accessToken')) {
 			history.push('/dashboard');
 		}
 	}, []);
