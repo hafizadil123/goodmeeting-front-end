@@ -22,43 +22,53 @@ import Terms from '../components/TermsCondition';
 import Contactus from '../components/ContactUs';
 import MyAccount from '../components/Dashboard/MyAccount';
 import PrivacyPolicy from '../components/PrivacyPolicy';
+
+// admin imports
+import AdminLogin from '../components/Admin/AdminLogin';
+import AdminDashboard from '../components/Admin/AdminDashboard';
+import AdminSupport from '../components/Admin/AdminDashBoard/AdminSupport';
+import AdminUser from '../components/Admin/AdminDashboard/AdminUser';
+import AdminMeeting from '../components/Admin/AdminDashboard/AdminMeeting';
+import AdminMeetingStats from '../components/Admin/AdminDashboard/AdminMeetingStats';
 // Import Containers
 
 const Routes = () => (
-  <Suspense
-    fallback={
-      <Loader
-        type="Audio"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        className="loader"
-      />
-    }
-  >
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/register" component={Register} />
-      <PrivateRoute exact path="/pricing" component={Pricing} />
-      <PrivateRoute exact path="/payment" component={Payment} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
-      <PrivateRoute exact path="/meetings" component={Meeting} />
-      <PrivateRoute exact path="/stats" component={Stats} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/forgot-password" component={ForgotPassword} />
-      <Route exact path="/update-password" component={UpdatePassword} />
-      <Route exact path="/feedback-form" component={FeedbackForm} />
-      <PrivateRoute exact path="/meeting-stats/:id" component={MeetingStats} />
-      <Route exact path="/thank-you" component={ThankYouMessage} />
-      <Route exact path="/how-its-works" component={HowItsWorks} />
-      <Route exact path="/about-us" component={AboutUs} />
-      <Route exact path="/terms-condition" component={Terms} />
-      <Route exact path="/contact-us" component={Contactus} />
-      <PrivateRoute exact path="/profile" component={MyAccount} />
-      <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="*" component={NotFoundPage} />
-    </Switch>
-  </Suspense>
+	<Suspense fallback={<Loader type="Audio" color="#00BFFF" height={100} width={100} className="loader" />}>
+		<Switch>
+			<Route exact path="/" component={HomePage} />
+			<Route exact path="/register" component={Register} />
+			<PrivateRoute exact path="/pricing" component={Pricing} />
+			<PrivateRoute exact path="/payment" component={Payment} />
+			<PrivateRoute exact path="/dashboard" component={Dashboard} />
+			{/* admin dashboard route */}
+			<PrivateRoute exact path="/admin/dashboard" component={AdminDashboard} />
+			{/* admin meeting route */}
+			<PrivateRoute exact path="/admin/meetings" component={AdminMeeting} />
+			{/* admin meeting stats route */}
+			<PrivateRoute exact path="/admin/meeting-stats/:id" component={AdminMeetingStats} />
+			{/* admin users route */}
+			<PrivateRoute exact path="/admin/users" component={AdminUser} />
+			{/* admin support route */}
+			<PrivateRoute exact path="/admin/supports" component={AdminSupport} />
+			<PrivateRoute exact path="/meetings" component={Meeting} />
+			<PrivateRoute exact path="/stats" component={Stats} />
+			<Route exact path="/login" component={Login} />
+			{/* admin login route */}
+			<Route exact path="/admin/login" component={AdminLogin} />
+			<Route exact path="/forgot-password" component={ForgotPassword} />
+			<Route exact path="/update-password" component={UpdatePassword} />
+			<Route exact path="/feedback-form" component={FeedbackForm} />
+			<PrivateRoute exact path="/meeting-stats/:id" component={MeetingStats} />
+			<Route exact path="/thank-you" component={ThankYouMessage} />
+			<Route exact path="/how-its-works" component={HowItsWorks} />
+			<Route exact path="/about-us" component={AboutUs} />
+			<Route exact path="/terms-condition" component={Terms} />
+			<Route exact path="/contact-us" component={Contactus} />
+			<PrivateRoute exact path="/profile" component={MyAccount} />
+			<Route exact path="/privacy-policy" component={PrivacyPolicy} />
+			<Route path="*" component={NotFoundPage} />
+		</Switch>
+	</Suspense>
 );
 
 export default Routes;
