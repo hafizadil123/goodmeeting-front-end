@@ -11,6 +11,21 @@ const AdminDashboard = ({ history }) => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (
+      localStorage.getItem('accessToken') &&
+      localStorage.getItem('role') === 'admin'
+    ) {
+      history.push('/admin/dashboard');
+    } else if (
+      localStorage.getItem('accessToken') &&
+      localStorage.getItem('role') === 'user'
+    ) {
+      history.push('/dashboard');
+    }
+  }, []);
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-feedback-stats/`, {

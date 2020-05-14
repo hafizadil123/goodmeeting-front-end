@@ -10,6 +10,21 @@ const Dashboard = ({ history }) => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (
+      localStorage.getItem('accessToken') &&
+      localStorage.getItem('role') === 'admin'
+    ) {
+      history.push('/admin/dashboard');
+    } else if (
+      localStorage.getItem('accessToken') &&
+      localStorage.getItem('role') === 'user'
+    ) {
+      history.push('/dashboard');
+    }
+  }, []);
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-feedback-stats/`, {
@@ -145,92 +160,92 @@ const Dashboard = ({ history }) => {
           </div>
         </div>
         <div className="container-fluid">
-        <div className="row page-titles">
-          <div className="col-md-6 col-8 align-self-center">
-            <h3 className="text-themecolor m-b-0 m-t-0">Recent Meetings</h3>
+          <div className="row page-titles">
+            <div className="col-md-6 col-8 align-self-center">
+              <h3 className="text-themecolor m-b-0 m-t-0">Recent Meetings</h3>
+            </div>
           </div>
-        </div>
-        <div className="row recent-table">
-          <div className="col-lg-12">
-            <div className="card">
-              <div className="card-body">
-                <div className="table-responsive">
-                  <table
-                    className="table"
-                    id="demo-foo-addrow"
-                    data-page-size={10}
-                  >
-                    <thead>
-                      <tr>
-                        <th className="b1">Subject</th>
-                        <th>Date &amp; Time</th>
-                        <th>Members</th>
-                        <th>Feedback</th>
-                        <th className="b2">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {meetings && Array.isArray(meetings) && !loading ? (
-                        meetings.map(item => {
-                          const [subject] = item.meeting.subject;
-                          const id = item.meeting._id;
-                          return (
-                            <tr key={id}>
-                              <td>{subject}</td>
-                              <td>
-                                {(item.meeting.dateStart &&
-                                  item.meeting.dateStart
-                                    .replace(', ', ' ')
-                                    .split(',')[0]) ||
-                                  'Not-Available'}
-                                <br />
-                                <span>
+          <div className="row recent-table">
+            <div className="col-lg-12">
+              <div className="card">
+                <div className="card-body">
+                  <div className="table-responsive">
+                    <table
+                      className="table"
+                      id="demo-foo-addrow"
+                      data-page-size={10}
+                    >
+                      <thead>
+                        <tr>
+                          <th className="b1">Subject</th>
+                          <th>Date &amp; Time</th>
+                          <th>Members</th>
+                          <th>Feedback</th>
+                          <th className="b2">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {meetings && Array.isArray(meetings) && !loading ? (
+                          meetings.map(item => {
+                            const [subject] = item.meeting.subject;
+                            const id = item.meeting._id;
+                            return (
+                              <tr key={id}>
+                                <td>{subject}</td>
+                                <td>
                                   {(item.meeting.dateStart &&
                                     item.meeting.dateStart
                                       .replace(', ', ' ')
-                                      .split(',')[2]) ||
+                                      .split(',')[0]) ||
                                     'Not-Available'}
-                                </span>
-                              </td>
-                              <td>{item.members} </td>
-                              <td>{item.feebackCount}</td>
-                              <td>
-                                <Link to={`meeting-stats/${id}`}>
-                                  View Details &gt;
-                                </Link>
-                              </td>
-                            </tr>
-                          );
-                        })
-                      ) : (
-                        <div className="loader text-center">
-                          <Loader
-                            type="Audio"
-                            color="#00BFFF"
-                            height={100}
-                            width={100}
-                          />
-                        </div>
-                      )}
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colSpan={5}>
-                          <div className="text-right">
-                            <ul className="pagination pagination-split m-t-30">
-                              {' '}
-                            </ul>
+                                  <br />
+                                  <span>
+                                    {(item.meeting.dateStart &&
+                                      item.meeting.dateStart
+                                        .replace(', ', ' ')
+                                        .split(',')[2]) ||
+                                      'Not-Available'}
+                                  </span>
+                                </td>
+                                <td>{item.members} </td>
+                                <td>{item.feebackCount}</td>
+                                <td>
+                                  <Link to={`meeting-stats/${id}`}>
+                                    View Details &gt;
+                                  </Link>
+                                </td>
+                              </tr>
+                            );
+                          })
+                        ) : (
+                          <div className="loader text-center">
+                            <Loader
+                              type="Audio"
+                              color="#00BFFF"
+                              height={100}
+                              width={100}
+                            />
                           </div>
-                        </td>
-                      </tr>
-                    </tfoot>
-                  </table>
+                        )}
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colSpan={5}>
+                            <div className="text-right">
+                              <ul className="pagination pagination-split m-t-30">
+                                {' '}
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );
