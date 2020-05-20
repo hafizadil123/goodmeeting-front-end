@@ -22,6 +22,7 @@ import Terms from '../components/TermsCondition';
 import Contactus from '../components/ContactUs';
 import MyAccount from '../components/Dashboard/MyAccount';
 import PrivacyPolicy from '../components/PrivacyPolicy';
+import Faq from '../components/Faq';
 
 // admin imports
 import AdminLogin from '../components/Admin/AdminLogin';
@@ -75,6 +76,7 @@ const Routes = () => (
       <PrivateRoute exact path="/meeting-stats/:id" component={MeetingStats} />
       <Route exact path="/thank-you" component={ThankYouMessage} />
       <Route exact path="/how-its-works" component={HowItsWorks} />
+      <Route exact path="/faq" component={Faq} />
       <Route exact path="/about-us" component={AboutUs} />
       <Route exact path="/terms-condition" component={Terms} />
       <Route exact path="/contact-us" component={Contactus} />
