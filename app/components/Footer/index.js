@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import logo from '../../images/footerlogo.png';
 import { Link } from 'react-router-dom';
+import logo from '../../images/footerlogo.png';
 function Footer() {
   return (
   <footer>
