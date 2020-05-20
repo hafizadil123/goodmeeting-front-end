@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import logo from '../../images/footerlogo.png';
 import { Link } from 'react-router-dom';
+import logo from '../../images/footerlogo.png';
 function Footer() {
   return (
   <footer>
@@ -26,6 +26,7 @@ function Footer() {
           <h3>Links</h3>
           <ul>
             <li><Link to="/about-us">About</Link></li>
+            <li><Link to="/faq">Faq</Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             <li><Link to="/terms-condition">Terms</Link></li>
             <li><Link to="/contact-us">Contact Us</Link></li>
