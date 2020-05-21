@@ -10,6 +10,7 @@ import MainMeeting from '../../images/main-meeting.png';
 import stated from '../../images/started.png';
 import Meeting from '../../images/meeting.png';
 import Feedback from '../../images/feedback.png';
+import Crunch from '../../images/crunch.png';
 import Board from '../../images/board.png';
 import tick from '../../images/tick-grey.png';
 import business from '../../images/business.png';
@@ -18,6 +19,17 @@ import premium from '../../images/premium.png';
 import gmail from '../../images/gmail.png';
 import outlook from '../../images/outlook.png';
 import dash from '../../images/dash.png';
+import fig1 from '../../images/fig1.svg';
+import fig2 from '../../images/fig2.svg';
+import ands from '../../images/and.svg';
+import downarrow from '../../images/downarrow.svg';
+import slide1 from '../../images/slide1.png';
+import slide2 from '../../images/slide2.png';
+import slide3 from '../../images/slide3.png';
+import testi1 from '../../images/testi1.jpg';
+import quote from '../../images/quote.jpg';
+import Slider from 'react-slick';
+
 import RegisterHeader from '../Header';
 const HomePage = ({ history }) => {
 	useEffect(() => {
@@ -30,8 +42,33 @@ const HomePage = ({ history }) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+	var mainslider = {
+      dots: true,
+			arrows : false,
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			pauseOnHover: true,
+			easing: 'linear'
+    };
+		var testimonialslider = {
+	      dots: true,
+				arrows : false,
+	      infinite: true,
+	      speed: 1000,
+	      slidesToShow: 1,
+	      slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				pauseOnHover: true,
+				easing: 'linear'
+	    };
 	return (
 		<div>
+
 			<RegisterHeader />
 			<section className="section1 box-art">
 				<div className="container">
@@ -42,8 +79,7 @@ const HomePage = ({ history }) => {
 								havea@goodmeeting.today
 							</Link>
 							<p>
-								Create an account. Keep this in CC and Voila, we will do everything to keep your
-								meetings checked. Log back in to receive feedback and stats, all at one place.
+								It’s simple; create an account and keep us in cc. We will then do the rest to give you feedback on your meetings, just log back in to receive your statistics.
 							</p>
 							<Link to="/register" className="btn btn-md btn-primary btn-blue">
 								Get Started for Free!{' '}
@@ -67,11 +103,38 @@ const HomePage = ({ history }) => {
 						</div>
 						<div className="col-md-12 myabout">
 							<p className="blue">About Good Meeting</p>
-							<h2 className="text-capitalize">
-								Simplify the process of getting feedback<br /> from your meeting audience
+							<h2 className="">
+								Unproductive meetings waste both money and time for employees and organisations
 							</h2>
+							<h3>To put these in figures…</h3>
 						</div>
 					</div>
+					<div className="row align-items-center justify-content-center figs">
+						<div className="col-sm-4">
+							<img src={fig1} className="d-block m-auto" />
+							<p>It costs the United States<br /> <span className="red">$37 billion/year*</span></p>
+						</div>
+						<div className="col-sm-3">
+							<img src={ands} className="d-block m-auto and" />
+						</div>
+						<div className="col-sm-4">
+							<img src={fig2} className="d-block m-auto" />
+							<p>In 2008 it took <span className="red">15%</span> of<br /> an organization’s Collective Time*</p>
+						</div>
+						<div className="col-sm-12">
+							<p>Despite the amount of resources in both time and money,<br /> executives consider more than <span className="red">67%</span> of those meetings to be <span className="red">failures</span>*</p>
+						</div>
+						<div className="downarrow">
+							<img src={downarrow} className="d-block m-auto" />
+						</div>
+						<div className="col-sm-12">
+							<h2>That’s where we come in</h2>
+							<p><span className="blue">GoodMeeting</span> are tackling the relentless issue of inefficient, unproductive and unnecessary meetings<br /> through a two-step process that provides feedback on the conferences you hold<br /> as well as allowing you to critically evaluate those you participate in.</p>
+							<h3>All through a simple, and easy to use platform.</h3>
+							<h2>How it works in 4 steps..</h2>
+						</div>
+					</div>
+
 				</div>
 			</section>
 			<section className="section2">
@@ -80,9 +143,9 @@ const HomePage = ({ history }) => {
 						<div className="col-md-12">
 							<div className="left-div">
 								<img src={stated} />
-								<h2>Get started with a FREE* Account</h2>
+								<h2>Create an account</h2>
 								<p>
-									It takes less than 2 minutes to onboard<br /> and kick off.
+									Sign up for free,<br /> it takes less than 2 minutes.
 								</p>
 								<Link to="/register" className="btn btn-outline btn-md btn-line">
 									Get Started Now
@@ -96,8 +159,7 @@ const HomePage = ({ history }) => {
 								<img src={Meeting} />
 								<h2>Start a new meeting</h2>
 								<p>
-									Just don’t forget to keep<br /> “havea@goodmeeting.today” in CC<br /> and we will
-									start crunching numbers for you.
+									Keep <strong>“havea@goodmeeting.today”</strong><br /> in CC on meeting invites
 								</p>
 								<Link to="/register" className="btn btn-outline btn-md btn-line">
 									Get Started Now
@@ -109,13 +171,26 @@ const HomePage = ({ history }) => {
 						<div className="col-md-12">
 							<div className="left-div">
 								<img src={Feedback} />
-								<h2>Get the feedback</h2>
+								<h2>Gathering feedback</h2>
 								<p>
-									We will assess the meeting score for<br /> you and let’s see if you can beat your<br />{' '}
-									own personal best.
+									Customised emails will be sent to your<br /> meeting participants asking them to<br /> fill out a brief survey
 								</p>
 								<Link to="/register" className="btn btn-outline btn-md btn-line">
 									Start Trial
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-md-12">
+							<div className="right-div">
+								<img src={Crunch} />
+								<h2>It’s crunching time</h2>
+								<p>
+									We analyse the data from the feedback into<br /> graphs for you to view on your dashboard.<br /> You will also receive a meeting score
+								</p>
+								<Link to="/register" className="btn btn-outline btn-md btn-line">
+									Get Started Now
 								</Link>
 							</div>
 						</div>
@@ -129,7 +204,20 @@ const HomePage = ({ history }) => {
 							<h2 className="text-capitalize" style={{ color: 'white' }}>
 								This is how it would look when you are all set for the meeting.
 							</h2>
-							<img src={dash} className="" />
+
+							<Slider {...mainslider}>
+					        <div>
+
+										<img src={slide3} className="" />
+					        </div>
+					        <div>
+										<img src={slide1} className="" />
+
+					        </div>
+					        <div>
+					          <img src={slide2} className="" />
+					        </div>
+					      </Slider>
 						</div>
 					</div>
 				</div>
@@ -138,43 +226,47 @@ const HomePage = ({ history }) => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-12">
-							<p className="blue">Ground Breaking Stats</p>
 							<h2 className="text-capitalize">
-								While Making the things visually ananlyzable and cruching data into graphs<br /> for
-								you, we didn’t realise the digit counter was increasing for us too.
+								Testimonials
 							</h2>
 						</div>
 					</div>
-					<div className="row justify-content-center">
-						<div className="col-md-3">
-							<div className="counter">
-								<h1>3</h1>
-								<p className="counter-cap">Years of Journey</p>
-								<p>
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod
-									tempor
-								</p>
-							</div>
-						</div>
-						<div className="col-md-3">
-							<div className="counter">
-								<h1>517</h1>
-								<p className="counter-cap">Clients</p>
-								<p>
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod
-									tempor
-								</p>
-							</div>
-						</div>
-						<div className="col-md-3">
-							<div className="counter">
-								<h1>34</h1>
-								<p className="counter-cap">Team Members</p>
-								<p>
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod
-									tempor
-								</p>
-							</div>
+					<div className="row">
+						<div className="col-md-12">
+							<Slider {...testimonialslider}>
+								<div>
+									<div className="testiwrap">
+										<div className="testiimg">
+											<img src={testi1} className="" />
+											<p className="testiname">MILAN BOTICA</p>
+											<p className="testidesg">Senior UX designer</p>
+										</div>
+										<div className="testicontent">
+											<img src={quote} className="left-q" />
+									    <p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens.</p>
+											<img src={quote} className="right-q" />
+									  </div>
+									</div>
+								</div>
+
+								<div>
+									<div className="testiwrap">
+										<div className="testiimg">
+											<img src={testi1} className="" />
+											<p className="testiname">MILAN </p>
+											<p className="testidesg">Senior UX</p>
+										</div>
+										<div className="testicontent">
+											<img src={quote} className="left-q" />
+									    <p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps.</p>
+											<img src={quote} className="right-q" />
+									  </div>
+									</div>
+								</div>
+
+
+
+							</Slider>
 						</div>
 					</div>
 				</div>

@@ -26,6 +26,9 @@ import './assets/plugins/admincss/dashboard.css';
 import './assets/plugins/bootstrap/css/style.css';
 // import io from 'socket.io-client';
 import 'react-toastify/dist/ReactToastify.css';
+
+//slick slider
+
 // Import root app
 import jQuery from 'jquery';
 
