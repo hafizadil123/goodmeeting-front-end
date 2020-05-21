@@ -107,11 +107,13 @@ section.section1.contact.box-art:before{
   .contactform{
     width: 100%;
   }
+
 }
 @media(max-width:1366px){
   section.section1.about.box-art:before {
       width: 26%;
   }
+
 }
 @media(max-width:991px){
   .term-wrap{
@@ -132,6 +134,7 @@ section.section1.contact.box-art:before{
     font-size: 24px;
     text-align: center;
   }
+
 }
 
 
@@ -272,6 +275,7 @@ p{
 }
 .myabout{
     text-align: center;
+    margin: 50px 0 0 0;
 }
 .about{
   text-align: center;
@@ -308,10 +312,55 @@ section.section1 h1 {
 }
 section.section1 h2{
     font-family: 'Proxima Nova';
-    font-size: 28px;
+    font-size: 41px;
     color: #313640;
     font-weight: 600;
-    line-height: 40px;
+    line-height: 60px;
+}
+.myabout h3{
+  font-family: 'Biryani', sans-serif;
+  font-size: 22px;
+  color: #313640;
+  font-weight: 700;
+  text-align: center;
+  margin: 50px 0 35px 0;
+}
+.figs h3{
+  font-family: 'Biryani', sans-serif;
+  font-size: 22px;
+  color: #313640;
+  font-weight: 700;
+  text-align: center;
+  margin: 50px 0 70px 0;
+}
+.downarrow {
+    margin: 70px 0 40px 0;
+}
+.figs h2{
+  font-family: 'Proxima Nova';
+  font-size: 41px;
+  color: #313640;
+  font-weight: bold;
+  text-align: center;
+}
+.figs p{
+  text-align: center;
+  font-family: 'Biryani', sans-serif;
+  font-size: 20px;
+  color: #313640;
+  font-weight: 400;
+  line-height: 40px;
+}
+.figs .red{
+  color:#E33351;
+  font-weight: 700;
+  font-size: 25px;
+}
+.figs .blue{
+  font-family: 'Proxima Nova';
+  color:#0D4EE0;
+  font-weight: 700;
+  font-size: 22px;
 }
 section.section1 img.persons3 {
     margin: 60px 0 15px 0;
@@ -384,6 +433,62 @@ section.section1 img.persons3 {
     font-weight: 600;
     padding-top: 5px;
 }
+
+/*faqs*/
+section.faq {
+    max-width: 900px;
+    margin: 40px auto 40px auto;
+}
+.faq h1{
+  font: 400 40px/70px Biryani;
+  letter-spacing: 0px;
+  color: #0D4EE0;
+  margin-bottom: 20px;
+}
+.faq h2{
+  font: 400 22px/45px Biryani;
+  letter-spacing: 0px;
+  color: #313640;
+  display: inline-block;
+}
+.faq h2 img {
+    vertical-align: sub;
+    margin-left: 5px;
+}
+.faq .accordion>.card .card-header {
+    padding: 0px;
+    background: transparent;
+    border: 0;
+}
+.faq .card-body{
+  padding: 0px;
+  font-size: 16px;
+  color: #313640;
+  font-family: 'Biryani', sans-serif;
+  line-height: 30px;
+}
+.faq .card{
+  margin-bottom: 40px !important;
+      border: 0;
+}
+.faq  .accordion .card-header[aria-expanded="false"] img {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+.faq .accordion .card-header[aria-expanded="true"] img {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 0.3s ease-in;
+    transition: -webkit-transform 0.3s ease-in;
+    -o-transition: transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+    transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+}
 /**************** section 2 *****************/
 .left-div img {
     width: 150px;
@@ -452,48 +557,105 @@ section.section2 {
     text-align: center;
     background-color: #313640;
     color: #fff;
-    padding: 50px 0 0 0;
+    padding: 40px 0 60px 0;
 }
 .section3 h2{
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     font-size: 28px;
     font-family: 'Proxima Nova';
     font-weight: 600;
 }
 .section3 img{
-    width: 995px;
-
+    width: 100%;
+}
+.section3 .slick-dots li button:before{
+  opacity: 0.5;
+  color: #fff;
+  font-size: 12px;
+}
+.section3  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #fff;
 }
 
 /************section 4 ************/
 .section4 {
     text-align: center;
-    margin: 50px 0;
+    margin: 50px 0 150px 0;
 }
 .section4 h2 {
-    font-size: 28px;
+    font-size: 34px;
     font-family: 'Proxima Nova';
     font-weight: 600;
     color: #313640;
     margin: 20px 0 50px 0;
 }
-.counter h1{
-    font-size: 50px;
-    font-family: 'Proxima Nova';
-    font-weight: 600;
-    color: #F55B4F;
-        text-shadow: 2px 2px 0.7px #00000036;
+.testiwrap{
+  max-width: 960px;
+  margin: auto;
+  text-align: left;
 }
-p.counter-cap {
-    color: #313640;
-    font-family: 'Proxima Nova';
-    font-weight: 600;
-    font-size: 20px;
-    padding: 10px 0 10px 0;
+.testiimg {
+    max-width: 170px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    margin-right: 30px;
 }
-.counter p:last-child{
-    font-size: 14px;
-    color: #313640;
+.testiimg img{
+  max-width: 170px;
+  height: auto;
+  margin-bottom: 15px;
+}
+.testiname{
+  font: 400 17px/23px Biryani;
+  letter-spacing: 0px;
+  color: #313640;
+  margin-bottom: 10px;
+}
+.testidesg{
+  font: 400 15px/20px Biryani;
+  letter-spacing: 0px;
+  color: #0D4EE0;
+}
+.testicontent{
+
+}
+.testicontent p{
+  font: 400 22px/45px Biryani;
+  letter-spacing: 0px;
+  color: #313640;
+}
+.right-q{
+  display: block;
+  margin-left: auto;
+  display: block;
+  transform: rotate(180deg);
+}
+.section4 .slick-dots li button:before{
+  opacity: 0.5;
+  color: #E33351;
+  font-size: 12px;
+}
+.section4  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #E33351;
+}
+/*404*/
+section.page404 img.logo {
+    width: 200px;
+    height: 60px;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+section.page404 {
+    margin: 25px 0;
+}
+.content-404 p {
+    padding: 20px 0;
+}
+.content-404 {
+    margin: 15rem 0;
 }
 /************** section5 **************/
 .section5{
@@ -716,7 +878,7 @@ footer ul li {
     font-size: 16px;
     line-height: 45px;
     display: inline-block;
-    padding-right: 20px;
+    padding-right: 9px;
 }
 .widget2 h3,.widget3 h3,.widget4 h3{
     padding-bottom: 10px;
@@ -2012,6 +2174,17 @@ width: max-content;
 }
 
 /*********** responsive ************/
+@media(max-width:1366px){
+  .content-404 {
+      margin: 8rem 0 0 0;
+  }
+}
+@media(max-width:1024px){
+  .desktop-logo {
+      display: none;
+  }
+  .mobile-logo{top:0px;}
+}
 @media(max-width: 1199px){
     .right-btn a{
         margin-left: 8px;
@@ -2364,7 +2537,7 @@ width: max-content;
     a.btn-link,.fa-ul>li{
         font-size: 10px;
     }
-    p,.blue,.left-div p,.right-div p,.counter p:last-child,footer a,.widget1 p,.blog-con h6,.cont-blog p{
+    p,.blue,.left-div p,.right-div p,footer a,.widget1 p,.blog-con h6,.cont-blog p{
         font-size: 12px;
         line-height: 22px;
     }
@@ -2374,15 +2547,13 @@ width: max-content;
     .pricing-page h2{
         font-size: 14px !important;
     }
-    .left-div h2,.right-div h2,p.counter-cap{
+    .left-div h2,.right-div h2{
         font-size: 18px;
     }
     section.section1 img.persons3{
         width: 300px;
     }
-    .desktop-logo{
-        display: none;
-    }
+
     .mobile-logo{
         display: block;
         margin-bottom: 0;
@@ -2420,9 +2591,6 @@ width: max-content;
     }
     section.section2{
         margin: 45px auto;
-    }
-    .counter {
-        margin-bottom: 30px;
     }
     .section5 div#pills-tabContent .p-0 {
         padding: 0 15px !important;
@@ -2736,7 +2904,41 @@ width: max-content;
     .feedback-first-page .btn-black{
         margin-top: 20px;
     }
-
+    .faq h2{
+          font: 400 16px/15px Biryani;
+    }
+    .faq .card-body{
+      margin-top:15px;
+    }
+    section.section1 h2{
+      line-height: 30px;
+    }
+    .and{
+      margin: 0 auto 40px auto !important;
+    }
+    .downarrow {
+      margin: 5px 0 40px 0;
+  }
+  .figs p,
+  .figs .red{
+    font-size: 16px;
+  }
+  .testiimg{
+    float: unset;
+        display: block;
+    margin: auto;
+  }
+  .testicontent p{
+        font: 400 16px/33px Biryani;
+  }
+  .content-404 {
+      margin: 2rem 0 0 0;
+      text-align: center;
+  }
+  .content-404 h1 {
+      margin-top: 50px;
+      font-size: 28px;
+  }
 }
 
 @media(max-width: 320px){
