@@ -1,12 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import LeftSide from './LeftBar';
 import { BASE_URL } from '../../../utils/constants';
 import Header from '../../NavBar';
+
 const AdminDashboard = ({ history }) => {
   const [userStats, setUserStats] = useState({});
   const [meetings, setMeetings] = useState({});
@@ -67,10 +70,9 @@ const AdminDashboard = ({ history }) => {
       });
   }, []);
 
-  useEffect(() => {
-    const socket = io(`${BASE_URL}`);
-    console.log('socket0---', socket);
-  }, []);
+  // useEffect(() => {
+  //   const socket = io(`${BASE_URL}`);
+  // }, []);
   return (
     <>
       <Header isShow history={history} />

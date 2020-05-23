@@ -26,11 +26,11 @@ import Faq from '../components/Faq';
 
 // admin imports
 import AdminLogin from '../components/Admin/AdminLogin';
-import AdminDashboard from '../components/Admin/AdminDashboard';
+import AdminDashboard from '../components/Admin/AdminDashBoard';
 import AdminSupport from '../components/Admin/AdminDashBoard/AdminSupport';
-import AdminUser from '../components/Admin/AdminDashboard/AdminUser';
-import AdminMeeting from '../components/Admin/AdminDashboard/AdminMeeting';
-import AdminMeetingStats from '../components/Admin/AdminDashboard/AdminMeetingStats';
+import AdminUser from '../components/Admin/AdminDashBoard/AdminUser';
+import AdminMeeting from '../components/Admin/AdminDashBoard/AdminMeeting';
+import AdminMeetingStats from '../components/Admin/AdminDashBoard/AdminMeetingStats';
 // Import Containers
 
 const Routes = () => (
