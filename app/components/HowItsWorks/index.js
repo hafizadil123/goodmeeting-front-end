@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import BusinessImage from '../../assets/images/business.png';
 import ClipBoardImage from '../../assets/images/clipboard.png';
 import workBannerImage from '../../assets/images/work-banner.png';
+import meeting1 from '../../assets/images/meeting1.jpg';
+import stated from '../../images/started.png';
+import Meeting from '../../images/meeting.png';
+import Feedback from '../../images/feedback.png';
+import Crunch from '../../images/crunch.png';
 import Header from '../Header';
 import Footer from '../Footer';
 const HowItsWorks = () => (
@@ -19,7 +24,7 @@ const HowItsWorks = () => (
                   How it works: <span className="blue">3 simple steps</span>
                 </h1>
                 <Link to="#" className="btn-link">
-                  lets-havea@goodmeeting.today
+                  havea@goodmeeting.today
                 </Link>
                 <p>
                   Create an account. Keep this in CC and Voila, we will do
@@ -28,11 +33,8 @@ const HowItsWorks = () => (
                   stats, all at one place.
                 </p>
               </div>
-              <img src={workBannerImage} className="img-fluid how-work-img" alt="banner" />
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore.
-              </p>
+              <img src={meeting1} className="img-fluid how-work-img" alt="banner" />
+
             </div>
           </div>
         </div>
@@ -42,44 +44,48 @@ const HowItsWorks = () => (
           <div className="row">
             <div className="col-md-12">
               <div className="left-div first-step">
-                <img src={BusinessImage} alt="started" />
-                <h2>
-                  Get started with
-                  <br /> a FREE* account
-                </h2>
-                <p>Sign up and choose a plan for yourself.</p>
+                <img src={stated} alt="started" />
+                <h2>Create an account</h2>
+                <p>
+									Sign up for free,<br /> it takes less than 2 minutes.
+								</p>
+								<Link to="/register" className="btn btn-outline btn-md btn-line">
+									Get Started Now
+								</Link>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-12">
               <div className="right-div">
-                <img src={BusinessImage} alt="business" />
-                <h2>
-                  We will take care of
-                  <br /> the feedback mails
-                </h2>
+                <img src={Meeting} alt="business" />
+                <h2>Start a new meeting</h2>
                 <p>
-                  Customised mails will be sent to the
-                  <br /> members of the meetings from the hosts
-                </p>
+									Keep <strong>“havea@goodmeeting.today”</strong>
+									<br /> in CC on meeting invites
+								</p>
+								<Link to="/register" className="btn btn-outline btn-md btn-line">
+									Get Started Now
+								</Link>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-12">
               <div className="left-div last-step">
-                <img src={ClipBoardImage} alt="clipboard" />
-                <h2>It’s crunching time!!</h2>
+                <img src={Feedback} alt="clipboard" />
+                <h2>Gathering feedback</h2>
                 <p>
-                  Data from the feedback collected are shown
-                  <br /> on your dashboard in form of graphs to make
-                  <br /> it easier to analyse for you… and guess what?
-                  <br /> You even get a meeting score.
+                  Customised emails will be sent to your<br /> meeting participants asking them to<br />{' '}
+                  fill out a brief survey
                 </p>
+                <Link to="/register" className="btn btn-outline btn-md btn-line">
+                  Start Trial
+                </Link>
               </div>
             </div>
           </div>
+
         </div>
       </section>
       <section className="section6">

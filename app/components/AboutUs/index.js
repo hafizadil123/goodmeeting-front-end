@@ -20,29 +20,9 @@ const AboutUs = ({ history }) => {
               <h1 className="heading1">About Us</h1>
               <div className="term-wrap">
                 <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur
+                  We can all agree that we have been in one too many meetings that could've been an email. This problem plagues the workplace; and it doesn't discriminate against corporate hierarchy, industry or location. Our founders are testament of this. What else would bring a developer in Pakistan, a UX/UI designer in India, a technology consultant and a finance expert in England? Saeed, Abhishek, Anthony and Paul have all teamed up to tackle this relentless obstacle of inefficient, unproductive and unnecessary meetings. Good Meeting defeats this through a two-step process that provides feedback on conferences you hold as well as allowing you to critically evaluate those you are a participant in. This ability to assess meeting productivity in turn ensures corporate productivity.
                 </p>
                 <img src={aboutImg} className="img-fluid" alt="aboutImg" />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="heading1">Who We Are</h1>
-              <div className="term-wrap">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur
-                </p>
               </div>
             </div>
           </div>
