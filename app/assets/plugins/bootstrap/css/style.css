@@ -1361,7 +1361,7 @@ h1.heading1 span{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    top: 5px;
+    top: 60px;
     left: 170px;
     background: #313640;
     color: #fff;
@@ -1401,7 +1401,7 @@ h1.heading1 span{
     content: '';
     position: absolute;
     border: 1px dashed #31364075;
-    height: 50%;
+    height: 190%;
     top: -75px;
     left: 182px;
 }
@@ -1457,6 +1457,40 @@ h1.heading1 span{
     z-index: 1;
     display: block !important;
 }
+.steps .right-div.work4:after {
+    content: '4';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 170px;
+    background: #313640;
+    color: #fff;
+    font-family: 'Proxima Nova';
+    text-align: center;
+    font-weight: 600;
+    padding-top: 0px;
+    top: 50%;
+}
+.right-div.work4 h2:before{
+  content: '';
+  position: absolute;
+  border: 1px dashed #31364075;
+  height: 35%;
+  right: 182px;
+  top: 83px;
+}
+.right-div.work4 p:before {
+    content: '';
+    position: absolute;
+    border: 1px dashed #31364075;
+    height: 1px;
+    width: 100%;
+    left: 182px;
+    top: 82px;
+    z-index: 0;
+}
+
 /******* how it work page *************/
 /******  more info page ********/
 .form-left-align {

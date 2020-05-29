@@ -5,6 +5,7 @@ import meeting1 from '../../images/meeting1.png';
 import stated from '../../images/started.png';
 import Meeting from '../../images/meeting.png';
 import Feedback from '../../images/feedback.png';
+import Crunch from '../../images/crunch.png';
 import Header from '../Header';
 import Footer from '../Footer';
 const HowItsWorks = () => (
@@ -17,7 +18,7 @@ const HowItsWorks = () => (
             <div className="col-md-12">
               <div style={{ textAlign: 'center' }}>
                 <h1 className="heading1">
-                  How it works: <span className="blue">3 simple steps</span>
+                  How it works: <span className="blue">4 simple steps</span>
                 </h1>
                 <Link to="#" className="btn-link">
                   havea@goodmeeting.today
@@ -92,6 +93,21 @@ const HowItsWorks = () => (
                 >
                   Start Trial
                 </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="right-div work4">
+              <img src={Crunch} />
+              <h2>It’s crunching time</h2>
+              <p>
+                We analyse the data from the feedback into<br /> graphs for you to view on your
+                dashboard.<br /> You will also receive a meeting score
+              </p>
+              <Link to="/register" className="btn btn-outline btn-md btn-line">
+                Get Started Now
+              </Link>
               </div>
             </div>
           </div>
