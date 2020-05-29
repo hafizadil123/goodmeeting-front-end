@@ -1,14 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BusinessImage from '../../assets/images/business.png';
-import ClipBoardImage from '../../assets/images/clipboard.png';
-import workBannerImage from '../../assets/images/work-banner.png';
-import meeting1 from '../../assets/images/meeting1.jpg';
+import meeting1 from '../../images/meeting1.png';
 import stated from '../../images/started.png';
 import Meeting from '../../images/meeting.png';
 import Feedback from '../../images/feedback.png';
-import Crunch from '../../images/crunch.png';
 import Header from '../Header';
 import Footer from '../Footer';
 const HowItsWorks = () => (
@@ -33,8 +29,11 @@ const HowItsWorks = () => (
                   stats, all at one place.
                 </p>
               </div>
-              <img src={meeting1} className="img-fluid how-work-img" alt="banner" />
-
+              <img
+                src={meeting1}
+                className="img-fluid how-work-img"
+                alt="banner"
+              />
             </div>
           </div>
         </div>
@@ -47,11 +46,15 @@ const HowItsWorks = () => (
                 <img src={stated} alt="started" />
                 <h2>Create an account</h2>
                 <p>
-									Sign up for free,<br /> it takes less than 2 minutes.
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Get Started Now
-								</Link>
+                  Sign up for free,
+                  <br /> it takes less than 2 minutes.
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
               </div>
             </div>
           </div>
@@ -61,12 +64,15 @@ const HowItsWorks = () => (
                 <img src={Meeting} alt="business" />
                 <h2>Start a new meeting</h2>
                 <p>
-									Keep <strong>“havea@goodmeeting.today”</strong>
-									<br /> in CC on meeting invites
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Get Started Now
-								</Link>
+                  Keep <strong>“havea@goodmeeting.today”</strong>
+                  <br /> in CC on meeting invites
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
               </div>
             </div>
           </div>
@@ -76,16 +82,19 @@ const HowItsWorks = () => (
                 <img src={Feedback} alt="clipboard" />
                 <h2>Gathering feedback</h2>
                 <p>
-                  Customised emails will be sent to your<br /> meeting participants asking them to<br />{' '}
-                  fill out a brief survey
+                  Customised emails will be sent to your
+                  <br /> meeting participants asking them to
+                  <br /> fill out a brief survey
                 </p>
-                <Link to="/register" className="btn btn-outline btn-md btn-line">
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
                   Start Trial
                 </Link>
               </div>
             </div>
           </div>
-
         </div>
       </section>
       <section className="section6">

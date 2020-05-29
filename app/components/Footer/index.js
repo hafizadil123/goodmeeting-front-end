@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 import React from 'react';

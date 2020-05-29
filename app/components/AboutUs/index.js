@@ -1,8 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect } from 'react';
-import team1 from '../../assets/images/team1.png';
-import team2 from '../../assets/images/team2.png';
-import team3 from '../../assets/images/team3.png';
-import team4 from '../../assets/images/team4.png';
 import aboutImg from '../../assets/images/aboutimg.svg';
 import RegisterHeader from '../Header';
 import Footer from '../Footer';
@@ -20,7 +19,20 @@ const AboutUs = ({ history }) => {
               <h1 className="heading1">About Us</h1>
               <div className="term-wrap">
                 <p>
-                  We can all agree that we have been in one too many meetings that could've been an email. This problem plagues the workplace; and it doesn't discriminate against corporate hierarchy, industry or location. Our founders are testament of this. What else would bring a developer in Pakistan, a UX/UI designer in India, a technology consultant and a finance expert in England? Saeed, Abhishek, Anthony and Paul have all teamed up to tackle this relentless obstacle of inefficient, unproductive and unnecessary meetings. Good Meeting defeats this through a two-step process that provides feedback on conferences you hold as well as allowing you to critically evaluate those you are a participant in. This ability to assess meeting productivity in turn ensures corporate productivity.
+                  We can all agree that we have been in one too many meetings
+                  that could've been an email. This problem plagues the
+                  workplace; and it doesn't discriminate against corporate
+                  hierarchy, industry or location. Our founders are testament of
+                  this. What else would bring a developer in Pakistan, a UX/UI
+                  designer in India, a technology consultant and a finance
+                  expert in England? Saeed, Abhishek, Anthony and Paul have all
+                  teamed up to tackle this relentless obstacle of inefficient,
+                  unproductive and unnecessary meetings. Good Meeting defeats
+                  this through a two-step process that provides feedback on
+                  conferences you hold as well as allowing you to critically
+                  evaluate those you are a participant in. This ability to
+                  assess meeting productivity in turn ensures corporate
+                  productivity.
                 </p>
                 <img src={aboutImg} className="img-fluid" alt="aboutImg" />
               </div>
