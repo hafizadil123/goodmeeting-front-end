@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -99,15 +100,19 @@ const HowItsWorks = () => (
           <div className="row">
             <div className="col-md-12">
               <div className="right-div work4">
-              <img src={Crunch} />
-              <h2>It’s crunching time</h2>
-              <p>
-                We analyse the data from the feedback into<br /> graphs for you to view on your
-                dashboard.<br /> You will also receive a meeting score
-              </p>
-              <Link to="/register" className="btn btn-outline btn-md btn-line">
-                Get Started Now
-              </Link>
+                <img src={Crunch} />
+                <h2>It’s crunching time</h2>
+                <p>
+                  We analyse the data from the feedback into
+                  <br /> graphs for you to view on your dashboard.
+                  <br /> You will also receive a meeting score
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
               </div>
             </div>
           </div>
