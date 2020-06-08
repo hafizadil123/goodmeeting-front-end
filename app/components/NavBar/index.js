@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -31,7 +35,6 @@ const NavBar = ({ isShow, history }) => {
       });
   }, []);
   return isShow ? (
-
     <div className="fix-header fix-sidebar card-no-border">
       {/* ============================================================== */}
       {/* Main wrapper - style you can find in pages.scss */}
@@ -70,7 +73,6 @@ const NavBar = ({ isShow, history }) => {
                   {' '}
                   <a
                     className="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                  
                     href="javascript:void(0)"
                   >
                     <i className="ti-menu" />

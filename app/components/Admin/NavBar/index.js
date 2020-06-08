@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */

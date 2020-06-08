@@ -125,13 +125,13 @@ const HowItsWorks = () => (
               <p className="blue">Let’s Get Started</p>
               <h2>Get A Personalised Experience With Us</h2>
               <Link
-                to="#"
+                to="/contact-us"
                 className="btn btn-md btn-primary font-weight-normal btn-blue"
               >
                 REQUEST A DEMO
               </Link>
               <Link
-                to="#"
+                to="/register"
                 className="btn btn-outline btn-md btn-line font-weight-normal"
               >
                 GET STARTED

@@ -10,6 +10,7 @@ import Slider from 'react-slick';
 import MainMeeting from '../../images/main-meeting.png';
 import outlook from '../../images/outlook.png';
 import stated from '../../images/started.png';
+import userIcon from '../../images/userIcon.png';
 import Meeting from '../../images/meeting.png';
 import Feedback from '../../images/feedback.png';
 import Crunch from '../../images/crunch.png';
@@ -18,9 +19,9 @@ import fig1 from '../../images/fig1.svg';
 import fig2 from '../../images/fig2.svg';
 import ands from '../../images/and.svg';
 import downarrow from '../../images/downarrow.svg';
-import slide1 from '../../images/slide1.png';
-import slide2 from '../../images/slide2.png';
-import slide3 from '../../images/slide3.png';
+import slide1 from '../../images/slider1.png';
+import slide2 from '../../images/slider2.png';
+import slide3 from '../../images/slider3.png';
 import testi1 from '../../images/testi1.png';
 import quote from '../../images/quote.png';
 
@@ -216,7 +217,7 @@ const HomePage = ({ history }) => {
 					<div className="row">
 						<div className="col-md-12">
 							<h2 className="text-capitalize" style={{ color: 'white' }}>
-								This is how it would look when you are all set for the meeting.
+							What your dashboard looks like
 							</h2>
 
 							<Slider {...mainslider}>
@@ -247,17 +248,14 @@ const HomePage = ({ history }) => {
 								<div>
 									<div className="testiwrap">
 										<div className="testiimg">
-											<img src={testi1} className="" />
-											<p className="testiname">MILAN BOTICA</p>
-											<p className="testidesg">Senior UX designer</p>
+											<img src={userIcon} className="" />
+											<p className="testiname">Mimi</p>
+											<p className="testidesg">Junior Project Manager, London</p>
 										</div>
 										<div className="testicontent">
 											<img src={quote} className="left-q" />
 											<p>
-												The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax
-												quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
-												vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab
-												quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens.
+											Good Meeting Today has improved my meeting planning, execution and preparation and in turn increased my meeting productivity notably. The platform is simple and easy to use and provides you with accountability for your meetings. I have gotten addicted to improving my meeting score!
 											</p>
 											<img src={quote} className="right-q" />
 										</div>
@@ -379,7 +377,7 @@ const HomePage = ({ history }) => {
 								Let’s Get Started
 							</p>
 							<h2 className="text-capitalize">
-								Sign up with us today and get all the answers you need!!
+							Sign Up With Us Today And Take The First Step In Increasing Meeting Productivity
 							</h2>
 							{/* <Link data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link> */}
 							<Link to="/contact-us" className="btn btn-md btn-primary font-weight-normal btn-blue">

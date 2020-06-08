@@ -18,7 +18,7 @@ function Footer() {
       <div className="col-md-4">
         <div className="widget2">
           <h3>Connect with us</h3>
-          <p>4397 Spruce Dr, Mayo,<br /> Maryland 21106</p><br />
+          {/* <p>4397 Spruce Dr, Mayo,<br /> Maryland 21106</p><br /> */}
           <p><a href>contact@goodmeeting.today</a></p>
         </div>
       </div>
