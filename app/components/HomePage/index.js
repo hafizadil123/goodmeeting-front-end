@@ -216,7 +216,7 @@ const HomePage = ({ history }) => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-12">
-							<h2 className="text-capitalize" style={{ color: 'white' }}>
+							<h2 className="" style={{ color: 'white' }}>
 							What your dashboard looks like
 							</h2>
 
@@ -376,8 +376,8 @@ const HomePage = ({ history }) => {
 							<p className="blue" href="javascript:void(0);">
 								Let’s Get Started
 							</p>
-							<h2 className="text-capitalize">
-							Sign Up With Us Today And Take The First Step In Increasing Meeting Productivity
+							<h2 className="">
+							Sign up with us today and take the first step in increasing meeting productivity
 							</h2>
 							{/* <Link data-toggle="modal" data-target="#request-demo" className="btn btn-md btn-primary font-weight-normal btn-blue">REQUEST A DEMO</Link> */}
 							<Link to="/contact-us" className="btn btn-md btn-primary font-weight-normal btn-blue">

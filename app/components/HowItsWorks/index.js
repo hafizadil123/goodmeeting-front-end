@@ -123,7 +123,10 @@ const HowItsWorks = () => (
           <div className="row">
             <div className="col-lg-12">
               <p className="blue">Let’s Get Started</p>
-              <h2>Get A Personalised Experience With Us</h2>
+              <h2>
+                Sign up with us today and take the first step in increasing
+                meeting productivity
+              </h2>
               <Link
                 to="/contact-us"
                 className="btn btn-md btn-primary font-weight-normal btn-blue"
