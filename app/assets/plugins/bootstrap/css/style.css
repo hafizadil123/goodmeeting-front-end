@@ -596,11 +596,9 @@ section.section2 {
   text-align: left;
 }
 .testiimg {
-    max-width: 170px;
     display: inline-block;
-    text-align: center;
-    float: left;
-    margin-right: 30px;
+    text-align: left;
+  
 }
 .testiimg img{
   max-width: 170px;

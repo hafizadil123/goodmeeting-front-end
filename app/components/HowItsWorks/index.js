@@ -99,7 +99,7 @@ const HowItsWorks = () => (
           </div>
           <div className="row">
             <div className="col-md-12">
-              <div className="right-div work4">
+              <div className="right-div work4 mb-3">
                 <img src={Crunch} />
                 <h2>It’s crunching time</h2>
                 <p>
