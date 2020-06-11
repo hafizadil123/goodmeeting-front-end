@@ -149,69 +149,84 @@ const HomePage = ({ history }) => {
 					</div>
 				</div>
 			</section>
-			<section className="section2">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12">
-							<div className="left-div">
-								<img src={stated} />
-								<h2>Create an account</h2>
-								<p>
-									Sign up for free,<br /> it takes less than 2 minutes.
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Get Started Now
-								</Link>
-							</div>
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-md-12">
-							<div className="right-div">
-								<img src={Meeting} />
-								<h2>Start a new meeting</h2>
-								<p>
-									Keep <strong>“havea@goodmeeting.today”</strong>
-									<br /> in CC on meeting invites
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Get Started Now
-								</Link>
-							</div>
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-md-12">
-							<div className="left-div">
-								<img src={Feedback} />
-								<h2>Gathering feedback</h2>
-								<p>
-									Customised emails will be sent to your<br /> meeting participants asking them to<br />{' '}
-									fill out a brief survey
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Start Trial
-								</Link>
-							</div>
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-md-12">
-							<div className="right-div">
-								<img src={Crunch} />
-								<h2>It’s crunching time</h2>
-								<p>
-									We analyse the data from the feedback into<br /> graphs for you to view on your
-									dashboard.<br /> You will also receive a meeting score
-								</p>
-								<Link to="/register" className="btn btn-outline btn-md btn-line">
-									Get Started Now
-								</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<section className="section2 steps">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="left-div first-step">
+                <img src={stated} alt="started" />
+                <h2>Create an account</h2>
+                <p>
+                  Sign up for free,
+                  <br /> it takes less than 2 minutes.
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="right-div">
+                <img src={Meeting} alt="business" />
+                <h2>Start a new meeting</h2>
+                <p>
+                  Keep <strong>“havea@goodmeeting.today”</strong>
+                  <br /> in CC on meeting invites
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="left-div last-step">
+                <img src={Feedback} alt="clipboard" />
+                <h2>Gathering feedback</h2>
+                <p>
+                  Customised emails will be sent to your
+                  <br /> meeting participants asking them to
+                  <br /> fill out a brief survey
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Start Trial
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="right-div work4 mb-3">
+                <img src={Crunch} />
+                <h2>It’s crunching time</h2>
+                <p>
+                  We analyse the data from the feedback into
+                  <br /> graphs for you to view on your dashboard.
+                  <br /> You will also receive a meeting score
+                </p>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-md btn-line"
+                >
+                  Get Started Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 			<section className="section3">
 				<div className="container">
 					<div className="row">
@@ -247,11 +262,7 @@ const HomePage = ({ history }) => {
 							<Slider {...testimonialslider}>
 								<div>
 									<div className="testiwrap">
-										<div className="testiimg">
-											<img src={userIcon} className="" />
-											<p className="testiname">Mimi</p>
-											<p className="testidesg">Junior Project Manager, London</p>
-										</div>
+
 										<div className="testicontent">
 											<img src={quote} className="left-q" />
 											<p>
@@ -259,16 +270,17 @@ const HomePage = ({ history }) => {
 											</p>
 											<img src={quote} className="right-q" />
 										</div>
+										<div className="testiimg">
+
+											<p className="testiname">Mimi</p>
+											<p className="testidesg">Junior Project Manager, London</p>
+										</div>
 									</div>
 								</div>
 
 								<div>
 									<div className="testiwrap">
-										<div className="testiimg">
-											<img src={testi1} className="" />
-											<p className="testiname">MILAN </p>
-											<p className="testidesg">Senior UX</p>
-										</div>
+
 										<div className="testicontent">
 											<img src={quote} className="left-q" />
 											<p>
@@ -276,6 +288,10 @@ const HomePage = ({ history }) => {
 												quiz prog. Junk MTV quiz graced by fox whelps.
 											</p>
 											<img src={quote} className="right-q" />
+										</div>
+										<div className="testiimg">
+											<p className="testiname">MILAN </p>
+											<p className="testidesg">Senior UX</p>
 										</div>
 									</div>
 								</div>
