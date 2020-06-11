@@ -16,8 +16,8 @@ import logoImage from '../../../assets/images/logo.png';
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
   const [isDisabled, setDisabled] = useState(true);
-  const [isSevenDaysFeedback, setSevenDaysFeedback] = useState(false);
-  const [sevenDaysFeedbackMessage, setSevenDaysFeedbackMessage] = useState('');
+  const [isFeedback, setFeedback] = useState(true);
+  const [feedbackMessage, setFeedbackMessage] = useState('');
   const [asnwerId, setAnswerId] = useState(0);
   const [answer, setAnswer] = useState([]);
   const [allQuestions, setQuestion] = useState([]);
@@ -26,6 +26,7 @@ const FeedbackForm = ({ history }) => {
     .replace('?isGood=', '');
   let organizer = history.location.search.split('&')[2].replace('name=', '');
   organizer = decodeURI(organizer);
+
   useEffect(() => {
     const {
       location: { search },
@@ -35,18 +36,19 @@ const FeedbackForm = ({ history }) => {
     // eslint-disable-next-line no-unused-vars
     const [isGood, meetingId, inviteName, inviteeId] = queryData;
     axios
-      .post(`${BASE_URL}create-feedback-in-seven-days`, {
+      .post(`${BASE_URL}create-feedback-checks`, {
         meetingId,
+        inviteeId,
       })
       .then(response => {
         if (response.status === 200) {
-          setSevenDaysFeedback(false);
+          setFeedback(false);
         }
       })
       .catch(error => {
         if (error.response.status === 400) {
-          setSevenDaysFeedback(true);
-          setSevenDaysFeedbackMessage(error.response.data.message);
+          setFeedback(true);
+          setFeedbackMessage(error.response.data.message);
           toast.error(error.response.data.message);
         }
       })
@@ -137,32 +139,33 @@ const FeedbackForm = ({ history }) => {
                 <div className="col-md-12">
                   {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
                   <h1 className="heading1">
-                    {isSevenDaysFeedback
-                      ? sevenDaysFeedbackMessage
+                    {isFeedback
+                      ? feedbackMessage
                       : isGoodMeeting == 1
                         ? 'Looks like you had a good meeting.'
                         : 'Looks like you did not have a good meeting.'}
                   </h1>
-                  <p>
-                    {isGoodMeeting == 1
-                      ? ` Fantastic, we love good meetings! But we don’t want to rest
+                  {isFeedback ? null : (
+                    <p>
+                      {isGoodMeeting == 1
+                        ? ` Fantastic, we love good meetings! But we don’t want to rest
                       on our laurels, tell us what was good and what was great so
                       we can carry on having good meetings. It won’t take long:`
-                      : `We're sorry to hear that, but please give us some feedback
+                        : `We're sorry to hear that, but please give us some feedback
                       so that ${organizer} can plan to have a Good Meeting in future.
                       It will only take a couple of minutes`}{' '}
-                  </p>
-                  <button
-                    type="button"
-                    className={`${
-                      isSevenDaysFeedback ? 'disableButton' : 'nextButton'
-                    }`}
-                    style={{ marginTop: '50px' }}
-                    onClick={onOpenFeedbacForm}
-                    disabled={isSevenDaysFeedback ? true : null}
-                  >
-                    Start
-                  </button>
+                    </p>
+                  )}
+                  {isFeedback ? null : (
+                    <button
+                      type="button"
+                      className="nextButton"
+                      style={{ marginTop: '50px' }}
+                      onClick={onOpenFeedbacForm}
+                    >
+                      Start
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
