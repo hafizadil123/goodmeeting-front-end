@@ -1,19 +1,23 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-nested-ternary */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import axios from 'axios';
 import { BASE_URL } from '../../../utils/constants';
 import { createFeedbacks } from '../../../utils/requests';
 import logoImage from '../../../assets/images/logo.png';
-import hsbcLogo from '../../../assets/images/hsbclogo.png';
 
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
   const [isDisabled, setDisabled] = useState(true);
+  const [isSevenDaysFeedback, setSevenDaysFeedback] = useState(false);
+  const [sevenDaysFeedbackMessage, setSevenDaysFeedbackMessage] = useState('');
   const [asnwerId, setAnswerId] = useState(0);
   const [answer, setAnswer] = useState([]);
   const [allQuestions, setQuestion] = useState([]);
@@ -22,6 +26,35 @@ const FeedbackForm = ({ history }) => {
     .replace('?isGood=', '');
   let organizer = history.location.search.split('&')[2].replace('name=', '');
   organizer = decodeURI(organizer);
+  useEffect(() => {
+    const {
+      location: { search },
+    } = history;
+    const queryParams = search.substring(1).split('&');
+    const queryData = queryParams.map(item => item.split('=')[1]);
+    // eslint-disable-next-line no-unused-vars
+    const [isGood, meetingId, inviteName, inviteeId] = queryData;
+    axios
+      .post(`${BASE_URL}create-feedback-in-seven-days`, {
+        meetingId,
+      })
+      .then(response => {
+        if (response.status === 200) {
+          setSevenDaysFeedback(false);
+        }
+      })
+      .catch(error => {
+        if (error.response.status === 400) {
+          setSevenDaysFeedback(true);
+          setSevenDaysFeedbackMessage(error.response.data.message);
+          toast.error(error.response.data.message);
+        }
+      })
+      .then(() => {
+        // always executed
+      });
+  }, []);
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-questions`)
@@ -104,10 +137,11 @@ const FeedbackForm = ({ history }) => {
                 <div className="col-md-12">
                   {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
                   <h1 className="heading1">
-                    {isGoodMeeting == 1
-                      ? 'Looks like you had a good meeting'
-                      : 'Looks like you did not have a good meeting'}{' '}
-                    .
+                    {isSevenDaysFeedback
+                      ? sevenDaysFeedbackMessage
+                      : isGoodMeeting == 1
+                        ? 'Looks like you had a good meeting.'
+                        : 'Looks like you did not have a good meeting.'}
                   </h1>
                   <p>
                     {isGoodMeeting == 1
@@ -120,9 +154,12 @@ const FeedbackForm = ({ history }) => {
                   </p>
                   <button
                     type="button"
-                    className="nextButton"
+                    className={`${
+                      isSevenDaysFeedback ? 'disableButton' : 'nextButton'
+                    }`}
                     style={{ marginTop: '50px' }}
                     onClick={onOpenFeedbacForm}
+                    disabled={isSevenDaysFeedback ? true : null}
                   >
                     Start
                   </button>
@@ -132,138 +169,71 @@ const FeedbackForm = ({ history }) => {
           </section>
         ) : null}
         {page != 0 ? (
-        <section className="feedback-first-page feedback-start">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-12">
-                <div className>
-                  <div className="wizard-content ">
-                    <form
-                      action="#"
-                      className="tab-wizard wizard-circle wizard"
-                    >
-                      {/* Step 1 */}
-                      <h6 />
-                      {page === 1 ? (
-                        <section>
-                          <h6 style={{ marginBottom: '4%' }}>
-                            Just a couple of questions which will help us to
-                            have a better meeting. Lets start here:
-                          </h6>
-
-                          <>
-                            <h1>{allQuestions && allQuestions[0].question}</h1>
-
-                            <ul className="radios">
-                              {allQuestions &&
-                                allQuestions[0].answers.map(el => (
-                                  <li>
-                                    <label>
-                                      <input
-                                        type="radio"
-                                        name="size"
-                                        onChange={() =>
-                                          handleButtonDisble(el.id)
-                                        }
-                                      />
-                                      <span>{el.answer}</span>
-                                    </label>
-                                  </li>
-                                ))}
-                            </ul>
-
-                            <button
-                              type="button"
-                              className={`${
-                                isDisabled ? 'disableButton' : 'nextButton'
-                              }`}
-                              disabled={isDisabled}
-                              onClick={e =>
-                                onUpdatePage(e, asnwerId, allQuestions[0]._id)
-                              }
-                            >
-                              {' '}
-                              Next
-                            </button>
-                          </>
-                        </section>
-                      ) : null}
-                      {/* Step 2 */}
-                      <h6 />
-                      {page === 2 ? (
-                        <section>
-                          <h1>{allQuestions && allQuestions[1].question}</h1>
-                          <ul className="radios">
-                            {allQuestions[1].answers.map(el => (
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => handleButtonDisble(el.id)}
-                                  />
-                                  <span>{el.answer}</span>
-                                </label>
-                              </li>
-                            ))}
-                          </ul>
-                          <button
-                            type="button"
-                            className={`${
-                              isDisabled ? 'disableButton' : 'nextButton'
-                            }`}
-                            disabled={isDisabled}
-                            onClick={e =>
-                              onUpdatePage(e, asnwerId, allQuestions[1]._id)
-                            }
-                          >
-                            {' '}
-                            Next
-                          </button>
-                        </section>
-                      ) : null}
-                      {/* Step 3 */}
-                      <h6 />
-                      {page === 3 ? (
-                        <section>
-                          <h1>{allQuestions && allQuestions[2].question}</h1>
-                          <ul className="radios">
-                            {allQuestions[2].answers.map(el => (
-                              <li>
-                                <label>
-                                  <input
-                                    type="radio"
-                                    name="size"
-                                    onChange={() => handleButtonDisble(el.id)}
-                                  />
-                                  <span>{el.answer}</span>
-                                </label>
-                              </li>
-                            ))}
-                          </ul>
-                          <button
-                            type="button"
-                            className={`${
-                              isDisabled ? 'disableButton' : 'nextButton'
-                            }`}
-                            disabled={isDisabled}
-                            onClick={e =>
-                              onUpdatePage(e, asnwerId, allQuestions[2]._id)
-                            }
-                          >
-                            {' '}
-                            Next
-                          </button>
-                        </section>
-                      ) : null}
-                      {/* Step 4 */}
-                      <h6 />
-                      {page === 4 ? (
-                        <section>
+          <section className="feedback-first-page feedback-start">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-12">
+                  <div className>
+                    <div className="wizard-content ">
+                      <form
+                        action="#"
+                        className="tab-wizard wizard-circle wizard"
+                      >
+                        {/* Step 1 */}
+                        <h6 />
+                        {page === 1 ? (
                           <section>
-                            <h1>{allQuestions && allQuestions[3].question}</h1>
+                            <h6 style={{ marginBottom: '4%' }}>
+                              Just a couple of questions which will help us to
+                              have a better meeting. Lets start here:
+                            </h6>
+
+                            <>
+                              <h1>
+                                {allQuestions && allQuestions[0].question}
+                              </h1>
+
+                              <ul className="radios">
+                                {allQuestions &&
+                                  allQuestions[0].answers.map(el => (
+                                    <li>
+                                      <label>
+                                        <input
+                                          type="radio"
+                                          name="size"
+                                          onChange={() =>
+                                            handleButtonDisble(el.id)
+                                          }
+                                        />
+                                        <span>{el.answer}</span>
+                                      </label>
+                                    </li>
+                                  ))}
+                              </ul>
+
+                              <button
+                                type="button"
+                                className={`${
+                                  isDisabled ? 'disableButton' : 'nextButton'
+                                }`}
+                                disabled={isDisabled}
+                                onClick={e =>
+                                  onUpdatePage(e, asnwerId, allQuestions[0]._id)
+                                }
+                              >
+                                {' '}
+                                Next
+                              </button>
+                            </>
+                          </section>
+                        ) : null}
+                        {/* Step 2 */}
+                        <h6 />
+                        {page === 2 ? (
+                          <section>
+                            <h1>{allQuestions && allQuestions[1].question}</h1>
                             <ul className="radios">
-                              {allQuestions[3].answers.map(el => (
+                              {allQuestions[1].answers.map(el => (
                                 <li>
                                   <label>
                                     <input
@@ -283,22 +253,95 @@ const FeedbackForm = ({ history }) => {
                               }`}
                               disabled={isDisabled}
                               onClick={e =>
-                                onUpdatePage(e, asnwerId, allQuestions[3]._id)
+                                onUpdatePage(e, asnwerId, allQuestions[1]._id)
                               }
                             >
                               {' '}
-                              Submit
+                              Next
                             </button>
                           </section>
-                        </section>
-                      ) : null}
-                    </form>
+                        ) : null}
+                        {/* Step 3 */}
+                        <h6 />
+                        {page === 3 ? (
+                          <section>
+                            <h1>{allQuestions && allQuestions[2].question}</h1>
+                            <ul className="radios">
+                              {allQuestions[2].answers.map(el => (
+                                <li>
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      name="size"
+                                      onChange={() => handleButtonDisble(el.id)}
+                                    />
+                                    <span>{el.answer}</span>
+                                  </label>
+                                </li>
+                              ))}
+                            </ul>
+                            <button
+                              type="button"
+                              className={`${
+                                isDisabled ? 'disableButton' : 'nextButton'
+                              }`}
+                              disabled={isDisabled}
+                              onClick={e =>
+                                onUpdatePage(e, asnwerId, allQuestions[2]._id)
+                              }
+                            >
+                              {' '}
+                              Next
+                            </button>
+                          </section>
+                        ) : null}
+                        {/* Step 4 */}
+                        <h6 />
+                        {page === 4 ? (
+                          <section>
+                            <section>
+                              <h1>
+                                {allQuestions && allQuestions[3].question}
+                              </h1>
+                              <ul className="radios">
+                                {allQuestions[3].answers.map(el => (
+                                  <li>
+                                    <label>
+                                      <input
+                                        type="radio"
+                                        name="size"
+                                        onChange={() =>
+                                          handleButtonDisble(el.id)
+                                        }
+                                      />
+                                      <span>{el.answer}</span>
+                                    </label>
+                                  </li>
+                                ))}
+                              </ul>
+                              <button
+                                type="button"
+                                className={`${
+                                  isDisabled ? 'disableButton' : 'nextButton'
+                                }`}
+                                disabled={isDisabled}
+                                onClick={e =>
+                                  onUpdatePage(e, asnwerId, allQuestions[3]._id)
+                                }
+                              >
+                                {' '}
+                                Submit
+                              </button>
+                            </section>
+                          </section>
+                        ) : null}
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         ) : null}
       </div>
     </div>
