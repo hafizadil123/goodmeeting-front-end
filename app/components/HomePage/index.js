@@ -10,7 +10,6 @@ import Slider from 'react-slick';
 import MainMeeting from '../../images/main-meeting.png';
 import outlook from '../../images/outlook.png';
 import stated from '../../images/started.png';
-import userIcon from '../../images/userIcon.png';
 import Meeting from '../../images/meeting.png';
 import Feedback from '../../images/feedback.png';
 import Crunch from '../../images/crunch.png';
@@ -22,7 +21,6 @@ import downarrow from '../../images/downarrow.svg';
 import slide1 from '../../images/slider1.png';
 import slide2 from '../../images/slider2.png';
 import slide3 from '../../images/slider3.png';
-import testi1 from '../../images/testi1.png';
 import quote from '../../images/quote.png';
 
 import RegisterHeader from '../Header';
