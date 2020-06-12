@@ -25,18 +25,19 @@ const Register = ({ history }) => {
     axios
       .post(`${BASE_URL}users`, { fullName, email, password })
       .then(response => {
-        const { message, token, userId, name, userEmail } =
+        const { message, token, userId, name, userEmail, role } =
           response && response.data;
         toast.success(message);
         localStorage.setItem('accessToken', token);
         localStorage.setItem('userId', userId);
         localStorage.setItem('name', name);
         localStorage.setItem('email', userEmail);
+        localStorage.setItem('role', role);
         history.push('/dashboard');
         setLoading(false);
       })
-      .catch(() => {
-        toast.error('something wents wrong!');
+      .catch(error => {
+        toast.error(`${error.response.data.message}`);
         setLoading(false);
         history.push('/register');
       })
@@ -158,9 +159,12 @@ const Register = ({ history }) => {
                     <div style={{ textAlign: 'center' }} className="form-group">
                       <Field type="checkbox" name="termsCondition" />
                       {errors.termsCondition && touched.termsCondition ? (
-                        <p className="validationErrorMessage">
+                        <span
+                          style={{ color: 'red', marginLeft: '10px' }}
+                          className="remember"
+                        >
                           {errors.termsCondition}
-                        </p>
+                        </span>
                       ) : (
                         <span
                           style={{ marginLeft: '10px' }}
