@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -228,7 +230,7 @@ const Dashboard = ({ history }) => {
                           </div>
                         )}
                       </tbody>
-                      <tfoot>
+                      {/* <tfoot>
                         <tr>
                           <td colSpan={5}>
                             <div className="text-right">
@@ -238,7 +240,7 @@ const Dashboard = ({ history }) => {
                             </div>
                           </td>
                         </tr>
-                      </tfoot>
+                      </tfoot> */}
                     </table>
                   </div>
                 </div>

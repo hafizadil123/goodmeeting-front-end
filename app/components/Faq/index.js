@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RegisterHeader from '../Header';
 import RegisterFooter from '../Footer';
 import downangle from '../../images/downangle.png';
@@ -42,7 +43,7 @@ const Faq = () =>
 
             <div id="faq2" className="collapse"  data-parent="#faqs">
               <div className="card-body">
-                Working on it currently, subscribe to be the first to know once it is live.
+                Working on it currently, <Link to='/register'>register</Link> to be the first to know once it is live.
               </div>
             </div>
           </div>

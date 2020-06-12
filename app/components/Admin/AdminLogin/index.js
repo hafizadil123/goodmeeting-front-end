@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import formImage from '../../../assets/images/form-image1.png';
+// import formImage from '../../../assets/images/form-image1.png';
 import logoImage from '../../../assets/images/logo-white.png';
 import { BASE_URL } from '../../../utils/constants';
 import { LoginShema } from '../../Register/schema';
@@ -60,16 +60,19 @@ const AdminLogin = ({ history }) => {
               <Link to="/">
                 <img src={logoImage} className="logo-white" alt="logo-img" />
               </Link>
-              <img
+              <h1 style={{ color: '#fff' }} className="main-title pb-f ">
+                Admin Panel
+              </h1>
+              {/* <img
                 src={formImage}
                 className="img-form mx-auto d-block"
                 alt="form-img"
-              />
+              /> */}
             </div>
           </div>
           <div className="col-md-5">
             <div className="form-main form-demo">
-              <h1 className="main-title pb-f ">Login to Dashboard</h1>
+              <h1 className="main-title pb-f ">Login to Admin Panel</h1>
               <Formik
                 initialValues={{
                   email: '',

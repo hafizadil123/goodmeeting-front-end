@@ -1,6 +1,10 @@
 import * as Yup from 'yup';
 export const SignupSchema = Yup.object().shape({
   fullName: Yup.string().required('Required'),
+  termsCondition: Yup.boolean().oneOf(
+    [true],
+    'You must accept the terms and conditions',
+  ),
   password: Yup.string()
     .min(6, 'Password too short!')
     .max(32, 'Password should less than 32 digits')

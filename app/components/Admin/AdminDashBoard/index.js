@@ -235,7 +235,7 @@ const AdminDashboard = ({ history }) => {
                         </div>
                       )}
                     </tbody>
-                    <tfoot>
+                    {/* <tfoot>
                       <tr>
                         <td colSpan={5}>
                           <div className="text-right">
@@ -245,7 +245,7 @@ const AdminDashboard = ({ history }) => {
                           </div>
                         </td>
                       </tr>
-                    </tfoot>
+                    </tfoot> */}
                   </table>
                 </div>
               </div>

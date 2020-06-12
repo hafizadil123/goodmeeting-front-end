@@ -75,6 +75,7 @@ const Register = ({ history }) => {
                   email: '',
                   password: '',
                   confirmPassword: '',
+                  termsCondition: false,
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={values => {
@@ -154,6 +155,22 @@ const Register = ({ history }) => {
                         </p>
                       ) : null}
                     </div>
+                    <div style={{ textAlign: 'center' }} className="form-group">
+                      <Field type="checkbox" name="termsCondition" />
+                      {errors.termsCondition && touched.termsCondition ? (
+                        <p className="validationErrorMessage">
+                          {errors.termsCondition}
+                        </p>
+                      ) : (
+                        <span
+                          style={{ marginLeft: '10px' }}
+                          className="remember"
+                        >
+                          I agree and accept{' '}
+                          <Link to="/terms-condition">Terms and Condition</Link>
+                        </span>
+                      )}
+                    </div>
                     {!loading ? (
                       <button
                         id="btn-search"
@@ -168,6 +185,7 @@ const Register = ({ history }) => {
                         Loading
                       </button>
                     )}
+
                     <Link to="/" className="accont">
                       Already have an account?{' '}
                     </Link>

@@ -55,8 +55,6 @@ const HomePage = ({ history }) => {
 	useEffect(() => {
 		if (localStorage.getItem('accessToken') && localStorage.getItem('role') === 'admin') {
 			history.push('/admin/dashboard');
-		} else if (localStorage.getItem('accessToken') && localStorage.getItem('role') === 'user') {
-			history.push('/dashboard');
 		}
 	}, []);
 	useEffect(() => {

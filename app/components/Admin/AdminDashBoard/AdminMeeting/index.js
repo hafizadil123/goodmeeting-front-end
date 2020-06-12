@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable indent */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
@@ -6,7 +7,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../../../../utils/constants';
 import LeftSide from '../LeftBar';
-import controlImage from '../../../../assets/images/controls.png';
 import Header from '../../NavBar';
 const AdminMeeting = () => {
   const [meetingStats, setMeetingStats] = useState({});
@@ -237,7 +237,7 @@ const AdminMeeting = () => {
                           </div>
                         )}
                       </tbody>
-                      <tfoot>
+                      {/* <tfoot>
                         <tr>
                           <td colSpan={5}>
                             <div className="text-right">
@@ -247,7 +247,7 @@ const AdminMeeting = () => {
                             </div>
                           </td>
                         </tr>
-                      </tfoot>
+                      </tfoot> */}
                     </table>
                   </div>
                 </div>

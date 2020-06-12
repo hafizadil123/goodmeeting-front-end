@@ -57,12 +57,17 @@ const Header = () => (
             </li> */}
           </ul>
           <ul className="navbar-nav ml-auto right-btn">
-            <Link to="/register" className="btn btn-danger btn-md btn-red">
+            {localStorage.getItem('accessToken') && localStorage.getItem('role') === 'user' ?  <Link to="/dashboard" className="btn btn-danger btn-md btn-red">
+              Go To Dashboard
+            </Link> :  <Link to="/register" className="btn btn-danger btn-md btn-red">
               Register Now
-            </Link>
-            <Link className="login-link" to="/login">
+            </Link> }
+           
+           {localStorage.getItem('accessToken') && localStorage.getItem('role') === 'user' ? null : <Link className="login-link" to="/login">
               Login
             </Link>
+            }
+            
           </ul>
         </div>
       </nav>

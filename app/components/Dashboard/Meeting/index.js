@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable indent */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
@@ -162,7 +164,7 @@ const Meeting = () => {
                           </div>
                         )}
                       </tbody>
-                      <tfoot>
+                      {/* <tfoot>
                         <tr>
                           <td colSpan={5}>
                             <div className="text-right">
@@ -172,7 +174,7 @@ const Meeting = () => {
                             </div>
                           </td>
                         </tr>
-                      </tfoot>
+                      </tfoot> */}
                     </table>
                   </div>
                 </div>
