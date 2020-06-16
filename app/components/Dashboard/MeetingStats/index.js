@@ -61,13 +61,16 @@ const MeetingStats = ({ history }) => {
   // test();
   const getMeetingStatus = avg => {
     if(avg === 0) return "Waiting Feedback Meeting"
-    if (avg > 0 && avg <= 50) {
-      return 'This is a BAD Meeting';
+    if (avg > 0 && avg <= 25) {
+      return 'This is a poor meeting';
     }
-    if (avg >= 50 && avg <= 75) {
-      return 'This is aOkay Meeting';
+    if (avg > 25 && avg <= 50) {
+      return 'This is an average meeting';
     }
-    return 'This is a Good Meeting';
+    if (avg > 50 && avg <= 75) {
+      return 'This is good meeting';
+    }
+    return 'This is an excellent meeting';
   };
   return (
     <>
@@ -179,7 +182,7 @@ const MeetingStats = ({ history }) => {
                     <div className="home-wrap2 pb-5">
                       <div className="row">
                         <div className="col-md-6 left-line">
-                          <p className="text-uppercase" data-for='score' data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry.">Meeting score</p>
+                          <p className="text-uppercase" data-for='score' data-tip="calculated out of 100 to give quantifiable insights into your specific <br /> meeting performance. Check out the breakdown below.">Meeting score</p>
                           <ReactTooltip id='score'  effect='solid' border={true} multiline={true} />
                           <div className="row">
                             <div className="col-lg-4 col-12">
@@ -202,7 +205,7 @@ const MeetingStats = ({ history }) => {
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <p className="text-uppercase" data-for='round' data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry.">Round up</p>
+                          <p className="text-uppercase" data-for='round' data-tip="your meeting participants responses <br /> to “overall was this a good meeting?”">Round up</p>
                           <ReactTooltip id='round'  effect='solid' border={true} multiline={true} />
                           <div className="row1">
                             <div className="chart">

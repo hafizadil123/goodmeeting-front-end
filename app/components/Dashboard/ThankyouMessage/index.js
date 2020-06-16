@@ -28,7 +28,10 @@ const ThankYouMessage = () => (
           <div className="row">
             <div className="col-md-12">
               {/* <img src={hsbclogo} className="hsbclogo" /> */}
-              <h1 className="heading1">Thank You for your feedback</h1>
+              <h1 className="heading1">
+                Thank you for your feedback and for helping us have better
+                meetings everyday.
+              </h1>
               <p>We will improve and hope to have GoodMeetings Everyday.</p>
               <Link to="/" className="btn btn-dark btn-md btn-black">
                 Close

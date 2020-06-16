@@ -119,7 +119,7 @@ const Dashboard = ({ history }) => {
                   </h1>
                 </div>
                 <ReactTooltip
-                  id="meetingThisWeek"
+                  // id="meetingThisWeek"
                   effect="solid"
                   border={true}
                   multiline={true}
@@ -131,7 +131,7 @@ const Dashboard = ({ history }) => {
               <div
                 className="card card-primary card-inverse"
                 data-for="positiveReview"
-                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+                data-tip="the amount of people who selected <br /> you hosted a good meeting."
               >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
@@ -156,7 +156,7 @@ const Dashboard = ({ history }) => {
               <div
                 className="card card-inverse card-success"
                 data-for="negativeReview"
-                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+                data-tip="amount of people that stated there was <br /> room for improvement on your meeting."
               >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
@@ -181,7 +181,7 @@ const Dashboard = ({ history }) => {
               <div
                 className="card card-inverse card-warning"
                 data-for="avgMeetingScore"
-                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+                data-tip="calculated out of 100 to give quantifiable <br /> insights into your overall meeting performance"
               >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">

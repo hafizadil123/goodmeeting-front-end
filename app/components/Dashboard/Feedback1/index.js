@@ -150,9 +150,7 @@ const FeedbackForm = ({ history }) => {
                   {isFeedback ? null : (
                     <p>
                       {isGoodMeeting == 1
-                        ? ` Fantastic, we love good meetings! But we don’t want to rest
-                      on our laurels, tell us what was good and what was great so
-                      we can carry on having good meetings. It won’t take long:`
+                        ? `Great, looks like you had a good meeting! Please answer the next four questions to give us a deeper insight on your meeting.`
                         : `We're sorry to hear that, but please give us some feedback
                       so that ${organizer} can plan to have a Good Meeting in future.
                       It will only take a couple of minutes`}{' '}
