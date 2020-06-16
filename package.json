@@ -103,6 +103,7 @@
     "react-switch": "^5.0.1",
     "react-text-mask": "^5.4.3",
     "react-toastify": "^5.4.1",
+    "react-tooltip": "^4.2.7",
     "rebuild": "^0.1.2",
     "redux": "4.0.1",
     "redux-form": "^8.2.6",

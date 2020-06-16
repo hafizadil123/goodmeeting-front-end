@@ -1,10 +1,24 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/footerlogo.png';
 function Footer() {
+
+  useEffect(() => {
+    const Tawk_API = Tawk_API||{};
+    // eslint-disable-next-line no-unused-vars
+    const Tawk_LoadStart = new Date();
+const s1=document.createElement("script");
+ const s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5ee7d1674a7c6258179aa762/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+  },[]);
   return (
   <footer>
   <div className="container">

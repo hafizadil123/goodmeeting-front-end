@@ -1,15 +1,17 @@
+/* eslint-disable jsx-a11y/aria-role */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import _ from 'lodash';
 import Loader from 'react-loader-spinner';
+import ReactTooltip from "react-tooltip";
 import { Doughnut } from '../../UI/charts';
 import { BASE_URL } from '../../../utils/constants';
-import shareImage from '../../../assets/images/share-symbol.png';
 import LeftSide from '../LeftBar';
 import Header from '../../NavBar';
 import {data, doughnutOptions, doughnutOptions1, data1} from './constants'
 
+// eslint-disable-next-line react/prop-types
 const MeetingStats = ({ history }) => {
   const [meetingDetail, setMeetingDetail] = useState({});
   const [allQuestions, setQuestion] = useState([]);
@@ -177,7 +179,8 @@ const MeetingStats = ({ history }) => {
                     <div className="home-wrap2 p-20">
                       <div className="row">
                         <div className="col-md-6 left-line">
-                          <p className="text-uppercase">Meeting score</p>
+                          <p className="text-uppercase" data-for='score' data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry.">Meeting score</p>
+                          <ReactTooltip id='score'  effect='solid' border={true} multiline={true} />
                           <div className="row">
                             <div className="col-lg-6 col-12">
                               <div className="fz-mscore">
@@ -198,7 +201,8 @@ const MeetingStats = ({ history }) => {
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <p className="text-uppercase">Round up</p>
+                          <p className="text-uppercase" data-for='round' data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry.">Round up</p>
+                          <ReactTooltip id='round'  effect='solid' border={true} multiline={true} />
                           <div className="row1">
                             <div className="chart">
                               <Doughnut
@@ -237,23 +241,23 @@ const MeetingStats = ({ history }) => {
                               </div>
 
                                     <div className="">
-                                    <div className="doughnut3 a">
-                                      <Doughnut
-                                        data={data1(item.answers)} options={doughnutOptions1}  width={400}
+                                      <div className="doughnut3 a">
+                                        <Doughnut
+                                          data={data1(item.answers)} options={doughnutOptions1}  width={400}
 
-                                      />
-                                    </div>
+                                        />
+                                      </div>
 
-                                    <div className="myreviews">
-                                      {item.answers && item.answers.length > 0
-                                        ? item.answers.map(answerItem => (
-                                          <p className="m-review option">
-                                            {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ totalFeedback).toFixed(2)*100})%` : '(0%)'}
-                                          </p>
-                                        ))
-                                        : null}
+                                      <div className="myreviews">
+                                        {item.answers && item.answers.length > 0
+                                          ? item.answers.map(answerItem => (
+                                            <p className="m-review option">
+                                              {answerItem.answer}: {answerItem.count ? answerItem.count : 0}-{answerItem.count ? `(${(answerItem.count/ totalFeedback).toFixed(2)*100})%` : '(0%)'}
+                                            </p>
+                                          ))
+                                          : null}
+                                      </div>
                                     </div>
-                                  </div>
 
 
                             </>

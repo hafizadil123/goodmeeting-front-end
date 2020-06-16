@@ -121,7 +121,9 @@ const FeedbackForm = ({ history }) => {
             <div className="row">
               <div className="col">
                 <div className="logo">
-                  <img src={logoImage} alt="logo-img" />
+                  <Link to='/'>
+                    <img src={logoImage} alt="logo-img" />
+                  </Link>
                 </div>
               </div>
               <div className="col">

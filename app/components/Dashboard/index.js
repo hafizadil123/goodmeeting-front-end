@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
+import ReactTooltip from 'react-tooltip';
 import { Link } from 'react-router-dom';
 import LeftSide from './LeftBar';
 import { BASE_URL } from '../../utils/constants';
@@ -101,7 +103,11 @@ const Dashboard = ({ history }) => {
           {/* ============================================================== */}
           <div className="row">
             <div className="col-md-6 col-lg-3 col-xlg-3">
-              <div className="card card-inverse card-info">
+              <div
+                className="card card-inverse card-info"
+                data-for="meetingThisWeek"
+                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+              >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
                     Meetings this Week
@@ -112,11 +118,21 @@ const Dashboard = ({ history }) => {
                     {userStats.totalMeeting || 0}
                   </h1>
                 </div>
+                <ReactTooltip
+                  id="meetingThisWeek"
+                  effect="solid"
+                  border={true}
+                  multiline={true}
+                />
               </div>
             </div>
 
             <div className="col-md-6 col-lg-3 col-xlg-3">
-              <div className="card card-primary card-inverse">
+              <div
+                className="card card-primary card-inverse"
+                data-for="positiveReview"
+                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+              >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
                     Positive
@@ -127,11 +143,21 @@ const Dashboard = ({ history }) => {
                     {userStats.positiveReviews || 0}
                   </h1>
                 </div>
+                <ReactTooltip
+                  id="positiveReview"
+                  effect="solid"
+                  border={true}
+                  multiline={true}
+                />
               </div>
             </div>
 
             <div className="col-md-6 col-lg-3 col-xlg-3">
-              <div className="card card-inverse card-success">
+              <div
+                className="card card-inverse card-success"
+                data-for="negativeReview"
+                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+              >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
                     Negative
@@ -142,11 +168,21 @@ const Dashboard = ({ history }) => {
                     {userStats.negativeReviews || 0}
                   </h1>
                 </div>
+                <ReactTooltip
+                  id="negativeReview"
+                  effect="solid"
+                  border={true}
+                  multiline={true}
+                />
               </div>
             </div>
 
             <div className="col-md-6 col-lg-3 col-xlg-3">
-              <div className="card card-inverse card-warning">
+              <div
+                className="card card-inverse card-warning"
+                data-for="avgMeetingScore"
+                data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry."
+              >
                 <div className="box bg-info text-center">
                   <h6 className="text-white">
                     Avg Meeting
@@ -157,6 +193,12 @@ const Dashboard = ({ history }) => {
                     {userStats.avgScore || 0}
                   </h1>
                 </div>
+                <ReactTooltip
+                  id="avgMeetingScore"
+                  effect="solid"
+                  border={true}
+                  multiline={true}
+                />
               </div>
             </div>
           </div>
