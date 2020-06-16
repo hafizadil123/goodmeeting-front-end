@@ -176,13 +176,13 @@ const MeetingStats = ({ history }) => {
                       </div>
                       <hr />
                     </div>
-                    <div className="home-wrap2 p-20">
+                    <div className="home-wrap2 pb-5">
                       <div className="row">
                         <div className="col-md-6 left-line">
                           <p className="text-uppercase" data-for='score' data-tip="Lorem Ipsum is simply dummy text <br /> of the printing and typesetting industry.">Meeting score</p>
                           <ReactTooltip id='score'  effect='solid' border={true} multiline={true} />
                           <div className="row">
-                            <div className="col-lg-6 col-12">
+                            <div className="col-lg-4 col-12">
                               <div className="fz-mscore">
                                 <div className="m-score">
                                   <h3>{avgMeetingScore}</h3>
@@ -193,10 +193,11 @@ const MeetingStats = ({ history }) => {
                                 </small>
                               </div>
                             </div>
-                            <div className="col-lg-6 col-12">
-                              <p className="m-review">0 - 50 = Bad Meeting</p>
-                              <p className="m-review">50 - 75 = Okay Meeting</p>
-                              <p className="m-review">75 - 100 = Good Meeting</p>
+                            <div className="col-lg-8 col-12 mt-3">
+                              <p className="m-review">0-25: poor meeting, significant room for improvement  </p>
+                              <p className="m-review">25-50: average meeting, room for improvement  </p>
+                              <p className="m-review">50-75: good meeting, keep going </p>
+                              <p className="m-review">75-100: excellent meeting - efficiency guru!</p>
                             </div>
                           </div>
                         </div>
