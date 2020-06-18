@@ -34,7 +34,7 @@ const ThankYouMessage = () => (
                 Thank you for your feedback and for helping us have better
                 meetings everyday.
               </h1>
-              <p>We will improve and hope to have goodmeetings Everyday.</p>
+              <p>We will improve and hope to have goodmeetings everyday.</p>
               <Link to="/" className="btn btn-dark btn-md btn-black">
                 Close
               </Link>
