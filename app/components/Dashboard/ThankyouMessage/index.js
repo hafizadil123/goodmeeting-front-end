@@ -12,7 +12,9 @@ const ThankYouMessage = () => (
           <div className="row">
             <div className="col">
               <div className="logo">
-                <img src={logo} className />
+                <Link to="/">
+                  <img src={logo} className />
+                </Link>
               </div>
             </div>
             <div className="col">

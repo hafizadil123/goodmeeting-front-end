@@ -280,14 +280,13 @@ const HomePage = ({ history }) => {
 										<div className="testicontent">
 											<img src={quote} className="left-q" />
 											<p>
-												The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax
-												quiz prog. Junk MTV quiz graced by fox whelps.
+											I have found online meetings to be much more disorganised and run over a lot longer.  Using this platform has enabled me to be extra aware and to ensure my meetings are as efficient as they can be.  It also holds me accountable for all the meetings that I host, I have found a great improvement since using this platform.
 											</p>
 											<img src={quote} className="right-q" />
 										</div>
 										<div className="testiimg">
-											<p className="testiname">MILAN </p>
-											<p className="testidesg">Senior UX</p>
+											<p className="testiname">Essam, London</p>
+											<p className="testidesg">Assistant project manager</p>
 										</div>
 									</div>
 								</div>
