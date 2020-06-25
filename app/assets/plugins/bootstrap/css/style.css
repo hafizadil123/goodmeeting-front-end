@@ -598,7 +598,7 @@ section.section2 {
 .testiimg {
     display: inline-block;
     text-align: left;
-  
+
 }
 .testiimg img{
   max-width: 170px;
@@ -2199,6 +2199,16 @@ width: max-content;
     position: relative;
     z-index: 99;
 }
+/* IE Browsers */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .feedback-first-page{
+    display: block;
+    height: 500px;
+    margin-top: 10%;
+  }
+
+}
+
 @media (min-width: 1200px){
     .request-demo .modal-xl {
         max-width: 840px;
