@@ -5,7 +5,7 @@ import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import LeftSide from '../LeftBar';
 import BarChart from './BarChart';
-// import LineChart from './LineChart';
+import LineChart from './LineChart';
 // import shareSymbolImage from '../../../assets/images/share-symbol.png';
 // import controlImage from '../../../assets/images/controls.png';
 import { BASE_URL } from '../../../utils/constants';
@@ -183,7 +183,8 @@ const Stats = () => {
                         </div>
                         <div className="row response">
                           <div className="col-md-12">
-                            {item.answers && item.answers.length > 0
+                            <LineChart answers={item.answers} />
+                            {/* {item.answers && item.answers.length > 0
                               ? item.answers.map(answerItem => (
                                   <ul className="fz-response">
                                     <li>
@@ -202,7 +203,7 @@ const Stats = () => {
                                     </li>
                                   </ul>
                                 ))
-                              : null}
+                              : null} */}
                           </div>
                         </div>
                       </>

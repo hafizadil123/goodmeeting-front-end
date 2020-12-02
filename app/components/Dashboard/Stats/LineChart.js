@@ -4,13 +4,13 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = () => {
+const LineChart = ({ answers }) => {
   const data = {
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     datasets: [
       {
-        label: 'Actual Hours',
-        fill: false,
+        label: 'Score',
+        fill: true,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
@@ -27,7 +27,7 @@ const LineChart = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [3, 4, 5, 7, 3, 5, 7, 8, 9, 10]
+        data: answers
       }
     ]
   };
