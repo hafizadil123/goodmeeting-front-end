@@ -1,15 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import LeftSide from '../LeftBar';
-import shareSymbolImage from '../../../assets/images/share-symbol.png';
-import controlImage from '../../../assets/images/controls.png';
+import BarChart from './BarChart';
+// import LineChart from './LineChart';
+// import shareSymbolImage from '../../../assets/images/share-symbol.png';
+// import controlImage from '../../../assets/images/controls.png';
 import { BASE_URL } from '../../../utils/constants';
 import Header from '../../NavBar';
 const Stats = () => {
   const [userStats, setUserStats] = useState({});
   const [allQuestions, setQuestion] = useState([]);
+  const [scores, setScores] = useState([]);
+  const [eachMeetings, setEachMeetings] = useState([]);
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
@@ -39,6 +46,24 @@ const Stats = () => {
         setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    axios
+      .post(`${BASE_URL}get-user-bar-stats/${localStorage.getItem('userId')}`, {
+        from,
+        to,
+      })
+      .then(response => {
+        // eslint-disable-next-line no-shadow
+        const { scores } = response && response.data;
+        setScores(scores);
+        const xaxis = scores.map((score, index) => index + 1);
+        setEachMeetings(xaxis);
+      })
+      .catch(() => {})
+      .then(() => {
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
       <Header isShow />
@@ -55,26 +80,6 @@ const Stats = () => {
             <div className="col-lg-5 col-md-2 col-6 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Stats</h3>
             </div>
-            {/* <div className="col-lg-3 col-md-6 offset-md-1 col-6">
-              <select
-                id="sortingField"
-                className="custom-select form-control input-sm col-md-6 pull-right "
-              >
-                <option>Last Year</option>
-                <option>Age</option>
-                <option>Address</option>
-                <option>Country</option>
-                <option>Married</option>
-              </select>
-            </div> */}
-            {/* <div className="col-lg-1 offset-lg-1 col-md-1 col-6 align-self-center">
-              <img className src={shareSymbolImage} alt="share-img" />
-            </div> */}
-            {/* <div className="col-lg-1 col-md-2 col-sm-6 col-6">
-              <button type="button" className="btn pull-right btn-danger ">
-                Export
-              </button>
-            </div> */}
           </div>
           <div className="row">
             {/* Column */}
@@ -142,47 +147,26 @@ const Stats = () => {
               </div>
             </div>
           </div>
-          {/* ============================================================== */}
-          {/* End Bread crumb and right sidebar toggle */}
-          {/* ============================================================== */}
-          {/* ============================================================== */}
-          {/* Start Page Content */}
-          {/* ============================================================== */}
           <div className="row page-titles filters">
             <div className="col-lg-4 col-md-6 col-8 align-self-center">
-              <h3 className="text-themecolor m-b-0 m-t-0">Feedback Summary</h3>
+              <h3 className="text-themecolor m-b-0 m-t-0">
+                Overall Statistics
+              </h3>
             </div>
-            {/* <div className="col-lg-2 offset-lg-4 col-md-3 col-6">
-              <div className="input-group mb-2">
-                <div className="input-group-prepend">
-                  <div className="input-group-text">
-                    <img src={controlImage} alt="share-img" />
-                  </div>
+          </div>
+          <div className="row feedback-summary">
+            <div className="col-lg-12">
+              <div className="card">
+                <div className="card-body">
+                  <BarChart scores={scores} eachMeetings={eachMeetings} />
                 </div>
-                <select
-                  id="sortingField"
-                  className="custom-select form-control input-sm"
-                >
-                  <option>Filter</option>
-                  <option>Age</option>
-                  <option>Address</option>
-                  <option>Country</option>
-                  <option>Married</option>
-                </select>
               </div>
-            </div> */}
-            {/* <div className="col-lg-2 col-md-3 col-6">
-              <select
-                id="sortingField"
-                className="custom-select form-control input-sm"
-              >
-                <option>Sort By</option>
-                <option>Age</option>
-                <option>Address</option>
-                <option>Country</option>
-                <option>Married</option>
-              </select>
-            </div> */}
+            </div>
+          </div>
+          <div className="row page-titles filters">
+            <div className="col-lg-4 col-md-6 col-8 align-self-center">
+              <h3 className="text-themecolor m-b-0 m-t-0">Details</h3>
+            </div>
           </div>
           <div className="row feedback-summary">
             {/* column */}
