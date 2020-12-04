@@ -2,6 +2,7 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import { Formik, Form, Field } from 'formik';
 import Loader from 'react-loader-spinner';
 import LeftSide from '../LeftBar';
 import BarChart from './BarChart';
@@ -9,6 +10,7 @@ import LineChart from './LineChart';
 // import shareSymbolImage from '../../../assets/images/share-symbol.png';
 // import controlImage from '../../../assets/images/controls.png';
 import { BASE_URL } from '../../../utils/constants';
+// import { filterSchema } from './schema';
 import Header from '../../NavBar';
 const Stats = () => {
   const [userStats, setUserStats] = useState({});
@@ -23,6 +25,8 @@ const Stats = () => {
       .get(`${BASE_URL}get-summary/`, {
         params: {
           userId: localStorage.getItem('userId'),
+          from,
+          to,
         },
         crossdomain: true,
       })
@@ -31,12 +35,14 @@ const Stats = () => {
       .then(() => {
         setLoading(false);
       });
-  }, []);
+  }, [from, to]);
   useEffect(() => {
     axios
       .get(`${BASE_URL}get-stats-by-user-id`, {
         params: {
           userId: localStorage.getItem('userId'),
+          from,
+          to,
         },
         crossdomain: true,
       })
@@ -45,7 +51,7 @@ const Stats = () => {
       .then(() => {
         setLoading(false);
       });
-  }, []);
+  }, [from, to]);
   useEffect(() => {
     axios
       .post(`${BASE_URL}get-user-bar-stats/${localStorage.getItem('userId')}`, {
@@ -63,12 +69,44 @@ const Stats = () => {
       .then(() => {
         setLoading(false);
       });
-  }, []);
+  }, [from, to]);
+
+  const applyFilter = e => {
+    e.preventDefault();
+  };
   return (
     <>
       <Header isShow />
       <LeftSide />
       <div className="page-wrapper">
+        <from onSubmit={applyFilter}>
+          <div className="form-group">
+            <input
+              onChange={e => setFrom(e.target.value)}
+              type="date"
+              name="from"
+              placeholder="mm/dd/yyyy"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              onChange={e => setTo(e.target.value)}
+              type="date"
+              name="to"
+              placeholder="mm/dd/yyyy"
+            />
+          </div>
+
+          <button
+            id="btn-search"
+            type="submit"
+            className="btn btn-outline btn-md btn-demo mb-20"
+          >
+            Apply
+          </button>
+        </from>
+        {/* )}
+        </Formik> */}
         {/* ============================================================== */}
         {/* Container fluid  */}
         {/* ============================================================== */}

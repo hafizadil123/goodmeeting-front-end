@@ -9,9 +9,13 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import axios from 'axios';
+import Slider from 'react-rangeslider';
 import { BASE_URL } from '../../../utils/constants';
 import { createFeedbacks } from '../../../utils/requests';
 import logoImage from '../../../assets/images/logo.png';
+
+// To include the default styles
+import 'react-rangeslider/lib/index.css';
 
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
