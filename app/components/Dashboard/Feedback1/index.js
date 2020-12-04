@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable eqeqeq */
@@ -19,6 +20,10 @@ import 'react-rangeslider/lib/index.css';
 
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
+  const [v0, setV0] = useState(1);
+  const [v1, setV1] = useState(1);
+  const [v2, setV2] = useState(1);
+  const [v3, setV3] = useState(1);
   const [isDisabled, setDisabled] = useState(true);
   const [isFeedback, setFeedback] = useState(true);
   const [feedbackMessage, setFeedbackMessage] = useState('');
@@ -117,6 +122,7 @@ const FeedbackForm = ({ history }) => {
     };
     createFeedbacks('create-feedback', feedbackRequest, history);
   };
+
   return (
     <div>
       <div>
@@ -200,7 +206,7 @@ const FeedbackForm = ({ history }) => {
                                 {allQuestions && allQuestions[0].question}
                               </h1>
 
-                              <ul className="radios">
+                              {/* <ul className="radios">
                                 {allQuestions &&
                                   allQuestions[0].answers.map(el => (
                                     <li>
@@ -216,7 +222,17 @@ const FeedbackForm = ({ history }) => {
                                       </label>
                                     </li>
                                   ))}
-                              </ul>
+                              </ul> */}
+                              <Slider
+                                value={v0}
+                                min={1}
+                                max={10}
+                                step={1}
+                                onChange={(v0)=> {
+                                  setV0(v0);
+                                  handleButtonDisble(allQuestions[0].answers[v0 - 1].id);
+                                }}
+                              />
 
                               <button
                                 type="button"
@@ -239,7 +255,7 @@ const FeedbackForm = ({ history }) => {
                         {page === 2 ? (
                           <section>
                             <h1>{allQuestions && allQuestions[1].question}</h1>
-                            <ul className="radios">
+                            {/* <ul className="radios">
                               {allQuestions[1].answers.map(el => (
                                 <li>
                                   <label>
@@ -252,7 +268,18 @@ const FeedbackForm = ({ history }) => {
                                   </label>
                                 </li>
                               ))}
-                            </ul>
+                            </ul> */}
+                            <Slider
+                              value={v1}
+                              min={1}
+                              max={10}
+                              step={1}
+                              onChange={(v1)=> {
+                                setV1(v1);
+                                handleButtonDisble(allQuestions[1].answers[v1 - 1].id);
+                              }}
+                            />
+
                             <button
                               type="button"
                               className={`${
@@ -273,7 +300,7 @@ const FeedbackForm = ({ history }) => {
                         {page === 3 ? (
                           <section>
                             <h1>{allQuestions && allQuestions[2].question}</h1>
-                            <ul className="radios">
+                            {/* <ul className="radios">
                               {allQuestions[2].answers.map(el => (
                                 <li>
                                   <label>
@@ -286,7 +313,18 @@ const FeedbackForm = ({ history }) => {
                                   </label>
                                 </li>
                               ))}
-                            </ul>
+                            </ul> */}
+                            <Slider
+                              value={v2}
+                              min={1}
+                              max={10}
+                              step={1}
+                              onChange={(v2)=> {
+                                setV2(v2);
+                                handleButtonDisble(allQuestions[2].answers[v2 - 1].id);
+                              }}
+                            />
+
                             <button
                               type="button"
                               className={`${
@@ -310,7 +348,7 @@ const FeedbackForm = ({ history }) => {
                               <h1>
                                 {allQuestions && allQuestions[3].question}
                               </h1>
-                              <ul className="radios">
+                              {/* <ul className="radios">
                                 {allQuestions[3].answers.map(el => (
                                   <li>
                                     <label>
@@ -325,7 +363,18 @@ const FeedbackForm = ({ history }) => {
                                     </label>
                                   </li>
                                 ))}
-                              </ul>
+                              </ul> */}
+                              <Slider
+                                value={v3}
+                                min={1}
+                                max={10}
+                                step={1}
+                                onChange={(v3)=> {
+                                  setV3(v3);
+                                  handleButtonDisble(allQuestions[3].answers[v3 - 1].id);
+                                }}
+                              />
+
                               <button
                                 type="button"
                                 className={`${
