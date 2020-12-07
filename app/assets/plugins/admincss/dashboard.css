@@ -418,6 +418,7 @@ th.b1{
     letter-spacing: 0;
     color: #0D4EE0;
     opacity: 1;
+    margin: 20px 0 10px 0;
 }
 .feedback-summary .response p{
     font: Regular 14px/21px Biryani;
@@ -1351,7 +1352,33 @@ ul.fz-response li {
     color: #313640;
     opacity: 1;
 }
-
+.datetime input{
+    width: 200px;
+}
+.datetime .form-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.datetime{
+    display: flex;
+    align-items: center;
+}
+.datetime label{
+    white-space: nowrap;
+    margin: 0 5px;
+}
+.datetime #btn-search{
+    width: 100px;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+}
+.feedback-summary .card{
+    border: 0;
+    border-radius: 25px;
+    box-shadow: 0px 0px 32px -15px rgba(0, 0, 0, 22%);
+}
 @media(max-width: 1169px){
     .dark-logo{
         display: none;
@@ -1637,7 +1664,15 @@ ul.fz-response li {
         margin: 0;
         font-size: 14px;
     }
-
+    .datetime input{
+        width: 98px;
+    }
+    .datetime .form-group{
+        display: block;
+    }
+    .datetime {
+        align-items: flex-end;
+    }
 }
 @media(max-width: 320px){
     .switches1{

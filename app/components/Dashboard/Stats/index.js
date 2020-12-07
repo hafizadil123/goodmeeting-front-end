@@ -79,34 +79,7 @@ const Stats = () => {
       <Header isShow />
       <LeftSide />
       <div className="page-wrapper">
-        <from onSubmit={applyFilter}>
-          <div className="form-group">
-            <input
-              onChange={e => setFrom(e.target.value)}
-              type="date"
-              name="from"
-              placeholder="mm/dd/yyyy"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              onChange={e => setTo(e.target.value)}
-              type="date"
-              name="to"
-              placeholder="mm/dd/yyyy"
-            />
-          </div>
-
-          <button
-            id="btn-search"
-            type="submit"
-            className="btn btn-outline btn-md btn-demo mb-20"
-          >
-            Apply
-          </button>
-        </from>
-        {/* )}
-        </Formik> */}
+        
         {/* ============================================================== */}
         {/* Container fluid  */}
         {/* ============================================================== */}
@@ -115,8 +88,42 @@ const Stats = () => {
           {/* Bread crumb and right sidebar toggle */}
           {/* ============================================================== */}
           <div className="row page-titles filters">
-            <div className="col-lg-5 col-md-2 col-6 align-self-center">
+            <div className="col-lg-5 col-md-2 col-12 align-self-center">
               <h3 className="text-themecolor m-b-0 m-t-0">Stats</h3>
+            </div>
+            <div className="col-lg-7 col-md-10 col-12 align-self-center ">
+            <from onSubmit={applyFilter} className="datetime">
+              <div className="form-group">
+                <label className="mb-0">From</label>
+                <input
+                  class="form-control"
+                  onChange={e => setFrom(e.target.value)}
+                  type="date"
+                  name="from"
+                  placeholder="mm/dd/yyyy"
+                />
+              </div>
+              <div className="form-group">
+                <label  className="mb-0">To</label>
+                <input
+                class="form-control"
+                  onChange={e => setTo(e.target.value)}
+                  type="date"
+                  name="to"
+                  placeholder="mm/dd/yyyy"
+                />
+              </div>
+
+              <button
+                id="btn-search"
+                type="submit"
+                className="btn btn-outline btn-md btn-demo m-0 ml-3"
+              >
+                Apply
+              </button>
+            </from>
+            {/* )}
+            </Formik> */}
             </div>
           </div>
           <div className="row">
@@ -196,7 +203,11 @@ const Stats = () => {
             <div className="col-lg-12">
               <div className="card">
                 <div className="card-body">
-                  <BarChart scores={scores} eachMeetings={eachMeetings} />
+                  <div className="row justify-content-center">
+                    <div className="col-md-11">
+                      <BarChart scores={scores} eachMeetings={eachMeetings} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -219,8 +230,8 @@ const Stats = () => {
                             <p className="quest">{item.question}</p>
                           </div>
                         </div>
-                        <div className="row response">
-                          <div className="col-md-12">
+                        <div className="row response justify-content-center">
+                          <div className="col-md-11">
                             <LineChart answers={item.answers} />
                             {/* {item.answers && item.answers.length > 0
                               ? item.answers.map(answerItem => (

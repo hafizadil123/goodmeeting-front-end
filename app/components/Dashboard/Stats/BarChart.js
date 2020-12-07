@@ -12,7 +12,7 @@ const BarChart = ({ scores, eachMeetings}) => {
         label: 'Meeting Score',
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
+        backgroundColor: '#1A34CF',
         borderColor: 'rgba(75,192,192,1)',
         borderCapStyle: 'butt',
         borderDash: [],
