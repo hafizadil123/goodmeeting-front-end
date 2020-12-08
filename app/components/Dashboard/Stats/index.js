@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
@@ -61,8 +62,9 @@ const Stats = () => {
       .then(response => {
         // eslint-disable-next-line no-shadow
         const { scores } = response && response.data;
-        setScores(scores);
-        const xaxis = scores.map((score, index) => index + 1);
+        const data = scores.filter(d => d > 0);
+        setScores(data);
+        const xaxis = data.map((score, index) => index + 1);
         setEachMeetings(xaxis);
       })
       .catch(() => {})
@@ -79,7 +81,6 @@ const Stats = () => {
       <Header isShow />
       <LeftSide />
       <div className="page-wrapper">
-        
         {/* ============================================================== */}
         {/* Container fluid  */}
         {/* ============================================================== */}
@@ -92,37 +93,37 @@ const Stats = () => {
               <h3 className="text-themecolor m-b-0 m-t-0">Stats</h3>
             </div>
             <div className="col-lg-7 col-md-10 col-12 align-self-center ">
-            <from onSubmit={applyFilter} className="datetime">
-              <div className="form-group">
-                <label className="mb-0">From</label>
-                <input
-                  class="form-control"
-                  onChange={e => setFrom(e.target.value)}
-                  type="date"
-                  name="from"
-                  placeholder="mm/dd/yyyy"
-                />
-              </div>
-              <div className="form-group">
-                <label  className="mb-0">To</label>
-                <input
-                class="form-control"
-                  onChange={e => setTo(e.target.value)}
-                  type="date"
-                  name="to"
-                  placeholder="mm/dd/yyyy"
-                />
-              </div>
+              <from onSubmit={applyFilter} className="datetime">
+                <div className="form-group">
+                  <label className="mb-0">From</label>
+                  <input
+                    className="form-control"
+                    onChange={e => setFrom(e.target.value)}
+                    type="date"
+                    name="from"
+                    placeholder="mm/dd/yyyy"
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="mb-0">To</label>
+                  <input
+                    className="form-control"
+                    onChange={e => setTo(e.target.value)}
+                    type="date"
+                    name="to"
+                    placeholder="mm/dd/yyyy"
+                  />
+                </div>
 
-              <button
-                id="btn-search"
-                type="submit"
-                className="btn btn-outline btn-md btn-demo m-0 ml-3"
-              >
-                Apply
-              </button>
-            </from>
-            {/* )}
+                <button
+                  id="btn-search"
+                  type="submit"
+                  className="btn btn-outline btn-md btn-demo m-0 ml-3"
+                >
+                  Apply
+                </button>
+              </from>
+              {/* )}
             </Formik> */}
             </div>
           </div>
