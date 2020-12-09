@@ -18,6 +18,8 @@ import logoImage from '../../../assets/images/logo.png';
 // To include the default styles
 import 'react-rangeslider/lib/index.css';
 
+
+
 const FeedbackForm = ({ history }) => {
   const [page, setPage] = useState(0);
   const [v0, setV0] = useState(1);
@@ -35,7 +37,7 @@ const FeedbackForm = ({ history }) => {
     .replace('?isGood=', '');
   let organizer = history.location.search.split('&')[2].replace('name=', '');
   organizer = decodeURI(organizer);
-
+ 
   useEffect(() => {
     const {
       location: { search },
@@ -64,6 +66,24 @@ const FeedbackForm = ({ history }) => {
       .then(() => {
         // always executed
       });
+      $("#myprogress").on({
+        mousemove: function(e) {
+          var offset = $("#myprogress").offset();
+          var width = $(this).width();
+          var parentWidth = $('progress').offsetParent().width();
+          var percent = Math.round(100 * event.pageX / parentWidth);
+          console.log(percent);
+          $(this).attr("value" ,percent);
+        },
+        click: function(e) {
+          $(this).attr("value" ,percent);
+        }
+    });
+   
+        // $("#myprogress").mouseout(function(event){ 
+        //   $(this).attr("value" ,0);
+        // });
+         
   }, []);
 
   useEffect(() => {
@@ -150,6 +170,22 @@ const FeedbackForm = ({ history }) => {
               <div className="row">
                 <div className="col-md-12">
                   {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
+                  <div className="progressor">
+                    <progress id="myprogress" color="#8ccc62" max="100" value="0" aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" tabindex="-1"></progress>
+                    <div class="pvalues">
+                      <span>0</span>
+                      <span>10</span>
+                      <span>20</span>
+                      <span>30</span>
+                      <span>40</span>
+                      <span>50</span>
+                      <span>60</span>
+                      <span>70</span>
+                      <span>80</span>
+                      <span>90</span>
+                      <span>100</span>
+                    </div>
+                  </div>
                   <h1 className="heading1">
                     {isFeedback
                       ? feedbackMessage
