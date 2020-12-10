@@ -1379,42 +1379,35 @@ ul.fz-response li {
     border-radius: 25px;
     box-shadow: 0px 0px 32px -15px rgba(0, 0, 0, 22%);
 }
-progress {
-    border: 0;
-    background: #eee;
-    border-radius: 100px;
-  }
-progress
-  progress::-moz-progress-bar {
-    border-radius: 100px;
-    background: rgb(239,95,78);
-    background: linear-gradient(90deg, rgba(239,95,78,1) 0%, rgba(248,121,114,1) 35%, rgba(79,113,217,1) 100%);
-  }
+
   .pvalues{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 80%;
+    max-width: 100%;
     margin: auto;
+    margin-top: 15px;
+    margin-bottom: 25px;
   }
   .pvalues span{
       color:grey;
   }
-  progress::-webkit-progress-bar {
-    background: #eee;
-    border-radius: 100px;
+  
+  .rangeslider{
+    margin: 40px 0 0 0 !important;
   }
- 
-  progress::-webkit-progress-value {
+  .rangeslider-horizontal .rangeslider__fill{
     border-radius: 100px;
     background: rgb(239,95,78);
     background: linear-gradient(90deg, rgba(239,95,78,1) 0%, rgba(248,121,114,1) 35%, rgba(79,113,217,1) 100%);
   }
-  .progressor progress{
-      width: 80%;
-      margin: auto;
-  }
- 
+  .rangeslider-horizontal {
+    height: 15px;
+    border-radius: 10px;
+    }
+    .rangeslider, .rangeslider .rangeslider__fill{
+        box-shadow: none !important;
+    }
 @media(max-width: 1169px){
     .dark-logo{
         display: none;

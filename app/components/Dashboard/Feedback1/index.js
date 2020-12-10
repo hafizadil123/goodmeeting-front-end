@@ -219,7 +219,7 @@ const FeedbackForm = ({ history }) => {
         ) : null}
         {page != 0 ? (
           <section className="feedback-first-page feedback-start">
-            <div className="container-fluid">
+            <div className="container">
               <div className="row">
                 <div className="col-12">
                   <div className>
@@ -231,7 +231,7 @@ const FeedbackForm = ({ history }) => {
                         {/* Step 1 */}
                         <h6 />
                         {page === 1 ? (
-                          <section>
+                          <section >
                             <h6 style={{ marginBottom: '4%' }}>
                               Just a couple of questions which will help us to
                               have a better meeting. Lets start here:
@@ -260,6 +260,7 @@ const FeedbackForm = ({ history }) => {
                                   ))}
                               </ul> */}
                               <input 
+                                class="progress-range"
                                 id="typeinp" 
                                 type="range" 
                                 min="1" max="10" 
@@ -316,6 +317,7 @@ const FeedbackForm = ({ history }) => {
                               ))}
                             </ul> */}
                             <Slider
+                              class="progress-slider"
                               value={v1}
                               min={1}
                               max={10}
@@ -325,7 +327,19 @@ const FeedbackForm = ({ history }) => {
                                 handleButtonDisble(allQuestions[1].answers[v1 - 1].id);
                               }}
                             />
-
+                            <div class="pvalues">
+                              <span>0</span>
+                              <span>10</span>
+                              <span>20</span>
+                              <span>30</span>
+                              <span>40</span>
+                              <span>50</span>
+                              <span>60</span>
+                              <span>70</span>
+                              <span>80</span>
+                              <span>90</span>
+                              <span>100</span>
+                            </div>
                             <button
                               type="button"
                               className={`${
