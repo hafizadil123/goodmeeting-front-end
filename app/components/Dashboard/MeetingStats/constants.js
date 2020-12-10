@@ -44,6 +44,12 @@ export const data1 = answer => {
   return doughnutData;
 };
 
+export const sliderValue = answer => {
+  const values = answer.map(item => (item.count ? item.count : 0));
+  const reduceValue = values.reduce((s, n) => s + n);
+  return reduceValue;
+};
+
 export const doughnutOptions = {
   responsive: true,
   legend: {

@@ -66,24 +66,6 @@ const FeedbackForm = ({ history }) => {
       .then(() => {
         // always executed
       });
-    $("#myprogress").on({
-      mousemove: function(e) {
-        var offset = $("#myprogress").offset();
-        var width = $(this).width();
-        var parentWidth = $('progress').offsetParent().width();
-        var percent = Math.round(100 * event.pageX / parentWidth);
-        console.log(percent);
-        $(this).attr("value" ,percent);
-      },
-      click: function(e) {
-        $(this).attr("value" ,percent);
-      }
-    });
-   
-    // $("#myprogress").mouseout(function(event){ 
-    //   $(this).attr("value" ,0);
-    // });
-         
   }, []);
 
   useEffect(() => {
@@ -170,22 +152,6 @@ const FeedbackForm = ({ history }) => {
               <div className="row">
                 <div className="col-md-12">
                   {/* <img src={hsbcLogo} className="hsbclogo" alt="hsbclogo-img" /> */}
-                  <div className="progressor">
-                    <progress id="myprogress" color="#8ccc62" max="100" value="1" aria-valuemax="100" aria-valuemin="1" aria-valuenow="75" tabindex="-1"></progress>
-                    <div className="pvalues">
-                      <span>0</span>
-                      <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span>6</span>
-                      <span>7</span>
-                      <span>8</span>
-                      <span>9</span>
-                      <span>10</span>
-                    </div>
-                  </div>
                   <h1 className="heading1">
                     {isFeedback
                       ? feedbackMessage
@@ -259,8 +225,8 @@ const FeedbackForm = ({ history }) => {
                                     </li>
                                   ))}
                               </ul> */}
-                              <input 
-                                class="progress-range"
+                              {/* <input 
+                                className="progress-range"
                                 id="typeinp" 
                                 type="range" 
                                 min="1" max="10" 
@@ -269,8 +235,9 @@ const FeedbackForm = ({ history }) => {
                                   setV0(e.target.value);
                                   handleButtonDisble(allQuestions[0].answers[v0 - 1].id);
                                 }}
-                                step="1"/>
-                              {/* <Slider
+                                step="1"/> */}
+                              <Slider
+                                className="progress-slider"
                                 value={v0}
                                 min={1}
                                 max={10}
@@ -279,8 +246,19 @@ const FeedbackForm = ({ history }) => {
                                   setV0(v0);
                                   handleButtonDisble(allQuestions[0].answers[v0 - 1].id);
                                 }}
-                              /> */}
-
+                              />
+                                <div className="pvalues">
+                                  <span>1</span>
+                                  <span>2</span>
+                                  <span>3</span>
+                                  <span>4</span>
+                                  <span>5</span>
+                                  <span>6</span>
+                                  <span>7</span>
+                                  <span>8</span>
+                                  <span>9</span>
+                                  <span>10</span>
+                                </div>
                               <button
                                 type="button"
                                 className={`${
@@ -317,7 +295,7 @@ const FeedbackForm = ({ history }) => {
                               ))}
                             </ul> */}
                             <Slider
-                              class="progress-slider"
+                              className="progress-slider"
                               value={v1}
                               min={1}
                               max={10}
@@ -327,18 +305,17 @@ const FeedbackForm = ({ history }) => {
                                 handleButtonDisble(allQuestions[1].answers[v1 - 1].id);
                               }}
                             />
-                            <div class="pvalues">
-                              <span>0</span>
+                            <div className="pvalues">
+                              <span>1</span>
+                              <span>2</span>
+                              <span>3</span>
+                              <span>4</span>
+                              <span>5</span>
+                              <span>6</span>
+                              <span>7</span>
+                              <span>8</span>
+                              <span>9</span>
                               <span>10</span>
-                              <span>20</span>
-                              <span>30</span>
-                              <span>40</span>
-                              <span>50</span>
-                              <span>60</span>
-                              <span>70</span>
-                              <span>80</span>
-                              <span>90</span>
-                              <span>100</span>
                             </div>
                             <button
                               type="button"
@@ -375,6 +352,7 @@ const FeedbackForm = ({ history }) => {
                               ))}
                             </ul> */}
                             <Slider
+                              className="progress-slider"
                               value={v2}
                               min={1}
                               max={10}
@@ -384,7 +362,18 @@ const FeedbackForm = ({ history }) => {
                                 handleButtonDisble(allQuestions[2].answers[v2 - 1].id);
                               }}
                             />
-
+                            <div className="pvalues">
+                              <span>1</span>
+                              <span>2</span>
+                              <span>3</span>
+                              <span>4</span>
+                              <span>5</span>
+                              <span>6</span>
+                              <span>7</span>
+                              <span>8</span>
+                              <span>9</span>
+                              <span>10</span>
+                            </div>
                             <button
                               type="button"
                               className={`${
@@ -425,6 +414,7 @@ const FeedbackForm = ({ history }) => {
                                 ))}
                               </ul> */}
                               <Slider
+                                className="progress-slider"
                                 value={v3}
                                 min={1}
                                 max={10}
@@ -434,7 +424,18 @@ const FeedbackForm = ({ history }) => {
                                   handleButtonDisble(allQuestions[3].answers[v3 - 1].id);
                                 }}
                               />
-
+                              <div className="pvalues">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                              </div>
                               <button
                                 type="button"
                                 className={`${

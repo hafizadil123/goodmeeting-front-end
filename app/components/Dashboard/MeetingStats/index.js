@@ -5,11 +5,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import ReactTooltip from "react-tooltip";
+import Slider from 'react-rangeslider';
 import { Doughnut } from '../../UI/charts';
 import { BASE_URL } from '../../../utils/constants';
 import LeftSide from '../LeftBar';
 import Header from '../../NavBar';
-import {data, doughnutOptions, doughnutOptions1, data1} from './constants'
+import {data, doughnutOptions, doughnutOptions1, data1, sliderValue} from './constants'
+
+// To include the default styles
+import 'react-rangeslider/lib/index.css';
 
 // eslint-disable-next-line react/prop-types
 const MeetingStats = ({ history }) => {
@@ -246,13 +250,33 @@ const MeetingStats = ({ history }) => {
 
                                     <div className="">
                                       <div className="doughnut3 a">
-                                        <Doughnut
+                                        {/* <Doughnut
                                           data={data1(item.answers)} options={doughnutOptions1}  width={400}
 
+                                        /> */}
+                                        <Slider
+                                          className="progress-slider"
+                                          value={sliderValue(item.answers)}
+                                          min={0}
+                                          max={10}
+                                          step={1}
                                         />
+                                        <div className="pvalues">
+                                          <span>0</span>
+                                          <span>1</span>
+                                          <span>2</span>
+                                          <span>3</span>
+                                          <span>4</span>
+                                          <span>5</span>
+                                          <span>6</span>
+                                          <span>7</span>
+                                          <span>8</span>
+                                          <span>9</span>
+                                          <span>10</span>
+                                        </div>
                                       </div>
 
-                                      <div className="myreviews">
+                                      {/* <div className="myreviews">
                                         {item.answers && item.answers.length > 0
                                           ? item.answers.map(answerItem => (
                                             <p className="m-review option">
@@ -260,7 +284,7 @@ const MeetingStats = ({ history }) => {
                                             </p>
                                           ))
                                           : null}
-                                      </div>
+                                      </div> */}
                                     </div>
 
 
