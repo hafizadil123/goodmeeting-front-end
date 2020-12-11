@@ -1035,7 +1035,8 @@ img.red-c {
     color: #313640!important;
 }
 .a{
-    width: 545px;
+    width: 80%;
+    margin: auto;
 }
 .container-fluid {
     padding: 0 15px;
@@ -1363,6 +1364,7 @@ ul.fz-response li {
 .datetime{
     display: flex;
     align-items: center;
+    justify-content:flex-end;
 }
 .datetime label{
     white-space: nowrap;
@@ -1402,7 +1404,7 @@ ul.fz-response li {
     background: linear-gradient(90deg, rgba(239,95,78,1) 0%, rgba(248,121,114,1) 35%, rgba(79,113,217,1) 100%);
   }
   .rangeslider-horizontal {
-    height: 15px;
+    height: 18px !important;
     border-radius: 10px;
     }
     .rangeslider, .rangeslider .rangeslider__fill{
