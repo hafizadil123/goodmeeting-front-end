@@ -50,7 +50,7 @@ const ForgotPassword = ({ history }) => {
           </div>
           <div className="col-md-5">
             <div className="form-main form-demo">
-              <h1 className="main-title pb-f ">Reset Password</h1>
+              <h1 className="main-title pb-f ">Forgot Password?</h1>
               <Formik
                 initialValues={{
                   email: '',

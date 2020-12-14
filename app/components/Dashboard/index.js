@@ -55,20 +55,19 @@ const Dashboard = ({ history }) => {
         setLoading(false);
       });
   }, []);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}get-meetings/`, {
-        params: {
-          userId: localStorage.getItem('userId'),
-        },
-      })
-      .then(response => setMeetings(response && response.data))
-      .catch(() => {})
-      .then(() => {
-        // always executed
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${BASE_URL}get-meetings/`, {
+  //       params: {
+  //         userId: localStorage.getItem('userId'),
+  //       },
+  //     })
+  //     .then(response => setMeetings(response && response.data))
+  //     .catch(() => {})
+  //     .then(() => {
+  //       // always executed
+  //     });
+  // }, []);
   return (
     <>
       <Header isShow history={history} />
